@@ -1,0 +1,285 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<!DOCTYPE html>
+
+<html lang="ar">
+    <!-- Hotjar Tracking Code for avoconsulte.com -->
+
+
+<body dir="rtl">
+	<div class="layer"></div>
+      <header class="header_sticky">
+		<div class="container" >
+			<div class="row">
+				<div class="col-lg-2 col-6">
+
+					<div id="logo_home">
+						<a href="/" title="AvoConsulte"></a>
+					</div>
+
+				</div>
+
+				<nav class="col-lg-10 col-6">
+					<a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="#0"><span>Menu mobile</span></a>
+
+					<div class="main-menu">
+						<ul>
+							<li class="submenu"  class="icon-down-open-mini">
+								<a href="/" >الصفحة الرئيسية</a>
+							</li>
+                            <li class="submenu"  class="icon-down-open-mini">
+								<a href="/استشارات-قانونية/" >استشارات قانونية</a>
+							</li>
+							<li class="submenu"  class="icon-down-open-mini">
+									<a href="/المجلة-القانونية/">المجلة القانونية</a>
+							</li>
+							<li class="submenu"  class="icon-down-open-mini">
+								<a href="/من-نحن/" >من نحن ؟</a>
+							</li>
+							<li class="submenu"  class="icon-down-open-mini">
+								<a href="/اتصل-بنا/" >اتصل بنا</a>
+							</li>
+							<li class="thin"  class="icon-down-open-mini">
+							   <a href="#"  class="thin"  >  اللغة ▼</a>
+  							<ul>
+							 <li><a href="/fr/" >Français</a></li>
+						     <li><a href="/" >العربية</a></li>
+							</ul>
+							</li>
+							
+						</ul>
+
+					</div>
+                 	<!-- /main-menu -->
+				</nav>
+						
+			</div>
+			<div class="Menu_compte">
+            <a href="/حسابي/">حسابي</a>
+            </div>
+		</div>
+		<!-- /container -->
+	</header>
+	<!-- /header -->
+	
+	<main>
+		<div class="hero_home version_3">
+
+			<div class="content">
+					<h1>ابحث عن محام بالقرب منك</h1>
+            <p class="fadeInUp animated">ابحث واعثر على محام في تونس واحجز موعدك عبر الإنترنت</p>
+				<form method="POST" action="/محامون/">
+					<div id="custom-search-input">
+						<div class="input-group">
+							<select name="Gouvernorat" class="search-drop" required>
+							 <option value="" >الولاية </option>
+                             <option value="تونس" >تونس</option>
+                             <option value="أريانة" >أريانة</option>
+                             <option value="بن عروس">بن عروس</option>
+                             <option value="منوبة" >منوبة</option>
+                             <option value="سوسة" >سوسة</option>
+                             <option value="صفاقس" >صفاقس</option>
+                             <option value="قابس" >قابس</option>
+                             <option value="مدنين" >مدنين</option>
+                             <option value="المهدية" >المهدية</option>
+                             <option value="باجة" >باجة</option>
+                             <option value="بنزرت" >بنزرت</option>
+                             <option value="قفصة" >قفصة</option>
+                             <option value="جندوبة" >جندوبة</option>
+                             <option value="القيروان" >القيروان</option>
+                             <option value="القصرين" >القصرين</option>
+                             <option value="الكاف" >الكاف</option>
+                             <option value="منستير" >منستير</option>
+                             <option value="نابل" >نابل </option>
+                             <option value="يدي بوزيد" >سيدي بوزيد</option>
+                             <option value="سليانة" >سليانة</option>
+                             <option value="تطاوين" >تطاوين</option>
+                             <option value="توزر" >توزر </option>
+                             <option value="زغوان" >زغوان</option>
+                             <option value="قبلي" >قبلي</option>
+                             </select>
+                           <input name="key"  type="text" class=" search-bar input-group" placeholder=" إسم المحامي ...">
+							<input type="submit" class="btn_search" value="بحث">
+						</div>
+						<!--	<ul >
+							<li>
+								<input type="radio" id="all" name="radio_search" value="all" checked>
+								<label for="all">محامون</label>
+							</li>
+							<li>
+								<input type="radio" id="doctor" name="radio_search" value="Notaire">
+								<label for="doctor">كتاب العدل</label>
+							</li>
+							<li>
+								<input type="radio" id="clinic" name="radio_search" value="Huissier">
+								<label for="clinic">عدول منفذين </label>
+							</li> 
+						</ul> -->
+					</div>
+				</form>
+				</div>
+		</div>
+		<!-- /Hero -->
+		<div class="bg_color">
+		    <div class="container margin_120_95">
+			<div class="row add_bottom_30">
+                <div class="col-lg-8">
+					<div class="box_feat2" >
+						<h3>إستشر محامٍ الأن </h3>
+				<p>استشارة قانونية من عند أفضل المحامين في تونس مع خصوصية تامة وإجابة موثوقة     </p><br>
+					<p class="text-center"><a href="/استشارة-قانونية/" class="btn_1 medium">إطرح سؤالا الأن</a></p>
+
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="box_feat2">
+                    <h3> أخر السؤالات  </h3>
+<?php 
+include "services/crud.php";
+
+$crud = new crud() ; 
+
+$conn = $crud->cnx ; 
+
+$ListQR = $crud->afficherqrar($conn) ; 
+
+foreach ($ListQR as $key) {
+?>
+<div class="mySlides"><a href="/استشارات-قانونية/<?php echo $key['url_slug'] ?>/<?php echo $key['id'] ?>/"><?php echo $crud-> short_name($key['question'] ,150) ?></a></div> 
+				<?php }	?>
+					</div>
+				</div>
+			</div>
+			<!-- /row -->
+			
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 10000); 
+}
+</script>
+		</div>
+
+		<div class="container margin_120_95">
+			<div class="main_title">
+				<h2>كيف تجد<strong> محام</strong></h2>
+  <p>أفوكنسلت هي عبارة عن منصة سريعة وسهلة لأخذ موعد مع  محام متاح بالقرب منك  من دليل المحامين لتلبية احتياجاتك</p>		
+</div>
+			<div class="row add_bottom_30">
+				<div class="col-lg-4">
+					<div class="box_feat" id="icon_1">
+						
+						<h3>ابحث عن محامي</h3>
+						<p>أدخل تخصص المحامي الذي تبحث عنه ومدينتك: تعرض لك هذه المنصة قائمة المحامين المتوفرين من حولك</p>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="box_feat" id="icon_2">
+						
+						<h3>انظر الملف الشخصي</h3>
+						<p>أنت تختار المحامي وتؤكد عبر الهاتف أو الرسالة على منصتنا.اختر إجراء استشارة حول ساعات الاستشارة المجانية للمحامين القريبين منك.</p>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="box_feat" id="icon_3">
+						<h3>خذ معلومات الاتصال الخاصة به </h3>
+						<p>إذا قمت بتحديد موعد ، فستتلقى على الفور بريدًا إلكترونيًا على العنوان الذي قدمته ، يؤكد أيضًا أن المحامي قد استلم موعدك.</p>
+					</div>
+				</div>
+			</div>
+			<!-- /row -->
+			<p class="text-center"><a href="/محامون/" class="btn_1 medium">رؤية جميع المحامين</a></p>
+
+		</div>
+	</div>
+		<!-- /container -->
+
+		<div class="bg_color">
+			<div class="container margin_120_95">
+				<div class="main_title">
+					<h2>المجلة <strong> قانونية </ strong></h2>
+					<p>المجلة القانونية لمنصتنا تحتوي على معلومات مفيدة وجميع الأخبار</p>
+				</div>
+				<div class="row">
+<?php 
+
+
+
+
+$Listblog = $crud->afficherblogaccueilar($conn) ; 
+
+foreach ($Listblog as $key) {
+?>
+                		<div  class="col-lg-4 col-md-6" onclick="location.href='/المجلة-القانونية/<?php echo $key['url_slug'] ?>/<?php echo $key['id'] ?>/';" style="cursor: pointer;">
+						<div class="box_list home">
+							<figure>
+                                <img src="https://avoconsulte.com/img/<?php echo $key['image'] ?>" class="img-fluid" alt="<?php echo  $key['titre'] ?>">
+								<div class="preview"><span>اقرأ المزيد</span></div>
+							</figure>
+							<div class="wrapper">
+							<small><?php echo $key['categorie'] ?></small>
+                                <h3><?php echo $crud-> short_name($key['titre'] , 60)  ?></h3>
+								<p><?php echo $crud-> short_name($key['body'] , 200)  ?></p>
+							</div>
+						</div>
+					</div>
+                  <?php  }?>
+				</div>
+				<!-- /row -->
+				<p class="text-center add_top_30"><a href="/المجلة-القانونية/" class="btn_1 medium">عرض كل المقالات</a></p>
+			</div>
+			<!-- /container -->
+		</div>
+		
+		
+		
+		
+		
+		
+		<div class="bg_color">
+			<div class="container margin_120_95">
+				<div class="main_title">
+                            <h2>استشارات قانونية</h2>
+                    <p>اطرح سؤالك على المحام و راجع قائمة الأسئلة وإجاباتها.</p>
+                    </div>
+				<div class="row">
+                   <?php 
+                   $ListQR = $crud->afficherqraccueilar($conn) ; 
+                   foreach ($ListQR as $key) {
+                   ?>
+
+ 					<div class="col-md-4" onclick="location.href='/استشارات-قانونية/<?php echo $key['url_slug'] ?>/<?php echo $key['id'] ?>/';" style="cursor: pointer;">
+			        <div class="about-review">
+                   <div class="rating"></h4><?php echo $crud-> short_name($key['titre'] ,80) ?><h4></div>
+
+                    <p><?php echo $crud-> short_name($key['question'] ,100)  ?></p>
+			        </div>
+			    </div>
+			<?php }?>
+				</div>
+				<!-- /row -->
+				<p class="text-center add_top_30"><a href="/استشارات-قانونية/" class="btn_1 medium">مشاهدة جميع الأسئلة والأجوبة</a></p>
+			</div>
+			<!-- /container -->
+		</div>
+		
+		</div>
+			<!-- /container -->
+		</div>
+		<!-- /app_section -->
+	</main>
+	<!-- /main content -->
+
+</body>
+</html>
+{% endblock %}
