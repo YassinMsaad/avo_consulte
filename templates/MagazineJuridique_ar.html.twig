@@ -129,7 +129,7 @@ onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع ا
 							<li class="thin"  class="icon-down-open-mini">
 							   <a   class="thin"  >  اللغة ▼</a>
   							<ul>
-							 <li><a href="/fr/" >Français</a></li>
+							 <li><a href="/Magazine-Juridique/" >Français</a></li>
 						     <li><a href="{{ app.request.uri}}" >العربية</a></li>
 							</ul>
 							</li>
@@ -173,46 +173,41 @@ onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع ا
 
 
 <div id="renderBlog"  >
-    <?php 
 
-include "services/crud.php";
-
-$crud = new crud() ; 
-
-$conn = $crud->cnx ; 
+<input type="hidden" name="" value="{{Listblog|length}}" id="id"> 
 
 
-$Listblog = $crud->ShowMoreBlogs($conn,3) ; ?>
-<input type="hidden" name="" value="<?php echo count($Listblog) ?>" id="id"> 
+{% for key in Listblog %}
 
-<?php
-
-foreach ($Listblog as $key) {
-?>
 
                    <article class="blog" >
 
 						<div class="row no-gutters" >
 							<div class="col-lg-7">
 								<figure>
-                            <a href="/المجلة-القانونية/<?php echo $key['url_slug'] ?>/<?php echo $key['id'] ?>/"><img src="https://avoconsulte.com/img/<?php echo $key['image'] ?>" alt="<?php echo $key['titre'] ?>">
+                            <a href="/المجلة-القانونية/{{key.id}}/"><img src="https://avoconsulte.com/img/{{key.image}}" alt="{{key.titre}}">
                              </a>
 								</figure>
 							</div>
 							<div class="col-lg-5">
 								<div class="post_info">
-									<small><?php echo $key['temps'] ?></small>
+									<small>
+									{% for i in key.temps %}
+									{{key.temps.i}}
+									{% endfor %}
+									</small>
 									<h3>
 									    
-                           <a href="/المجلة-القانونية/<?php echo $key['url_slug'] ?>/<?php echo $key['id'] ?>/">
-									    <?php echo $key['titre'] ?></a></h3>
-									<p><?php echo $crud-> short_name($key['body'] , 200)  ?></p>
+                           <a href="/المجلة-القانونية/{{key.id}}/" title=""> {{key.titre}}</a></h3>
+										{% autoescape %}
+									<div>{{key.body|u.truncate(200)|raw}}</p></div>
+									{% endautoescape %}
 								</div>
 							</div>
 						</div>
 										
 					</article>
-					 <?php } ?>
+					{% endfor %}
 					
                   				</div>
   	<center>	<p class="btn_1 medium" onclick="showMoreBlogs()">تحميل المزيد</p></center>
@@ -239,18 +234,18 @@ foreach ($Listblog as $key) {
 						</div>
 
 						<ul class="comments-list">
-<?php
-$Listblog = $crud->afficherblogaccueilar($conn) ; 
-foreach ($Listblog as $key) {
-?>
+ 
+{% for key in Listblog2 %} 
 							<li>
 								<div class="alignleft" dir="rtl">
 
-<a href="/المجلة-القانونية/<?php echo $key['url_slug'] ?>/<?php echo $key['id'] ?>/"><img src="https://avoconsulte.com/img/<?php echo $key['image'] ?>" alt="<?php echo $key['titre'] ?>"></a>								</div>
-								<small><?php echo $key['temps'] ?></small>
-								<h3><a href="/المجلة-القانونية/<?php echo $key['url_slug'] ?>/<?php echo $key['id'] ?>/" title=""><?php echo $key['titre'] ?></a></h3>
+<a href="/المجلة-القانونية/{{key.id}}/"><img src="https://avoconsulte.com/img/{{key.image}}" alt="{{key.titre}}"></a>								</div>
+								<small>{% for i in key.temps %}
+									{{key.temps.i}}
+									{% endfor %}</small>
+								<h3><a href="/المجلة-القانونية/{{key.id}}/" title=""> {{key.titre}}</a></h3>
 							</li>
-							<?php } ?>
+						{% endfor %}
 						</ul>
 					</div>
 					
@@ -274,7 +269,7 @@ function showMoreBlogs() {
         document.getElementById("renderBlog").innerHTML = this.responseText;
       }
     };
-    xmlhttp.open("GET","renderBlog.php?d="+id,true);
+    xmlhttp.open("GET","renderBlog/"+id,true);
     xmlhttp.send();
   
 }

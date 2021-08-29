@@ -134,19 +134,9 @@
 				<div class="col-lg-4">
 					<div class="box_feat2">
                     <h3> أخر السؤالات  </h3>
-<?php 
-include "services/crud.php";
-
-$crud = new crud() ; 
-
-$conn = $crud->cnx ; 
-
-$ListQR = $crud->afficherqrar($conn) ; 
-
-foreach ($ListQR as $key) {
-?>
-<div class="mySlides"><a href="/استشارات-قانونية/<?php echo $key['url_slug'] ?>/<?php echo $key['id'] ?>/"><?php echo $crud-> short_name($key['question'] ,150) ?></a></div> 
-				<?php }	?>
+{% for key in ListQr %}
+<div class="mySlides"><a href="/استشارات-قانونية/{{key.id}}/">{{key.question|u.truncate(150)}}</a></div> 
+			{% endfor %}
 					</div>
 				</div>
 			</div>
@@ -211,29 +201,29 @@ function carousel() {
 					<p>المجلة القانونية لمنصتنا تحتوي على معلومات مفيدة وجميع الأخبار</p>
 				</div>
 				<div class="row">
-<?php 
 
 
 
 
-$Listblog = $crud->afficherblogaccueilar($conn) ; 
 
-foreach ($Listblog as $key) {
-?>
-                		<div  class="col-lg-4 col-md-6" onclick="location.href='/المجلة-القانونية/<?php echo $key['url_slug'] ?>/<?php echo $key['id'] ?>/';" style="cursor: pointer;">
+
+
+{% for key in Listblog %} 
+
+                		<div  class="col-lg-4 col-md-6" onclick="location.href='/المجلة-القانونية//{{key.id}}/';" style="cursor: pointer;">
 						<div class="box_list home">
 							<figure>
-                                <img src="https://avoconsulte.com/img/<?php echo $key['image'] ?>" class="img-fluid" alt="<?php echo  $key['titre'] ?>">
+                                <img src="https://avoconsulte.com/img/{{key.image}}" class="img-fluid" alt="{{key.titre}}">
 								<div class="preview"><span>اقرأ المزيد</span></div>
 							</figure>
 							<div class="wrapper">
-							<small><?php echo $key['categorie'] ?></small>
-                                <h3><?php echo $crud-> short_name($key['titre'] , 60)  ?></h3>
-								<p><?php echo $crud-> short_name($key['body'] , 200)  ?></p>
+							<small></small>
+                                <h3>{{ key.titre}}</h3>
+								<p>{{ key.body|u.truncate(200) }}&nbsp...</p>
 							</div>
 						</div>
 					</div>
-                  <?php  }?>
+                 {% endfor %}
 				</div>
 				<!-- /row -->
 				<p class="text-center add_top_30"><a href="/المجلة-القانونية/" class="btn_1 medium">عرض كل المقالات</a></p>
@@ -253,19 +243,16 @@ foreach ($Listblog as $key) {
                     <p>اطرح سؤالك على المحام و راجع قائمة الأسئلة وإجاباتها.</p>
                     </div>
 				<div class="row">
-                   <?php 
-                   $ListQR = $crud->afficherqraccueilar($conn) ; 
-                   foreach ($ListQR as $key) {
-                   ?>
+                  {% for key in ListQr2 %}
 
- 					<div class="col-md-4" onclick="location.href='/استشارات-قانونية/<?php echo $key['url_slug'] ?>/<?php echo $key['id'] ?>/';" style="cursor: pointer;">
+ 					<div class="col-md-4" onclick="location.href='/استشارات-قانونية/{{key.id}}/';" style="cursor: pointer;">
 			        <div class="about-review">
-                   <div class="rating"></h4><?php echo $crud-> short_name($key['titre'] ,80) ?><h4></div>
+                   <div class="rating"></h4>{{key.titre|u.truncate(80)}}<h4></div>
 
-                    <p><?php echo $crud-> short_name($key['question'] ,100)  ?></p>
+                    <p>{{key.question|u.truncate(100)}}</p>
 			        </div>
 			    </div>
-			<?php }?>
+			{% endfor %}
 				</div>
 				<!-- /row -->
 				<p class="text-center add_top_30"><a href="/استشارات-قانونية/" class="btn_1 medium">مشاهدة جميع الأسئلة والأجوبة</a></p>
