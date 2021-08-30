@@ -34,7 +34,28 @@ class BlogRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+    $req ="SELECT * FROM blog WHERE language = 'ar' ORDER BY id DESC"
     */
+    public function AfficheBlogArHome()
+    {
+        return $this->createQueryBuilder('b')
+            ->andWhere("b.language = 'ar'")
+            ->orderBy('b.id', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    public function AfficheBlogArBlog($i)
+    {
+        return $this->createQueryBuilder('b')
+            ->andWhere("b.language = 'ar'")
+            ->orderBy('b.id', 'DESC')
+            ->setMaxResults($i)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
     /*
     public function findOneBySomeField($value): ?Blog

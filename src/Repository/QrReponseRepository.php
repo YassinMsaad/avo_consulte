@@ -18,7 +18,27 @@ class QrReponseRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, QrReponse::class);
     }
-
+    public function AfficheQrArSliderHome()
+    {
+        return $this->createQueryBuilder('b')
+            ->andWhere("b.language = 'ar'")
+            ->orderBy('b.id', 'DESC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    public function AfficheQrArHome()
+    {
+        return $this->createQueryBuilder('b')
+            ->andWhere("b.language = 'ar'")
+            ->orderBy('b.id', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    
     // /**
     //  * @return QrReponse[] Returns an array of QrReponse objects
     //  */

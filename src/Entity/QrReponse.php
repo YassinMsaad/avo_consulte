@@ -37,6 +37,16 @@ class QrReponse
      */
     private $meta_tag;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $language;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $titre;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +96,30 @@ class QrReponse
     public function setMetaTag(string $meta_tag): self
     {
         $this->meta_tag = $meta_tag;
+
+        return $this;
+    }
+
+    public function getLanguage(): ?string
+    {
+        return $this->language;
+    }
+
+    public function setLanguage(string $language): self
+    {
+        $this->language = $language;
+
+        return $this;
+    }
+
+    public function getTitre(): ?string
+    {
+        return $this->titre;
+    }
+
+    public function setTitre(string $titre): self
+    {
+        $this->titre = $titre;
 
         return $this;
     }
