@@ -92,7 +92,21 @@ onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع ا
         {% endblock %}
     </head>
     <body>
-        {% block body %}<footer dir="rtl">
+        {% block body %}
+        
+<!--/footer-->
+
+<!-- 	<div id="toTop"></div>
+Back to top button -->
+
+<!-- COMMON SCRIPTS -->
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/common_scripts.min.js"></script>
+<script src="js/functions.js"></script>
+{% endblock %}
+    </body>
+    {% block footer %}
+    <footer dir="rtl">
     <div class="container margin_60_35">
         <div class="row">
             <div class="col-lg-3 col-md-4" >
@@ -172,14 +186,5 @@ onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع ا
     </div>
     
 </footer>
-<!--/footer-->
-
-<!-- 	<div id="toTop"></div>
-Back to top button -->
-
-<!-- COMMON SCRIPTS -->
-<script src="js/jquery-2.2.4.min.js"></script>
-<script src="js/common_scripts.min.js"></script>
-<script src="js/functions.js"></script>{% endblock %}
-    </body>
+{% endblock %}
 </html>

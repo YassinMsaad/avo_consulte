@@ -1,0 +1,30 @@
+<input type="hidden" name="" value="{{Listblog|length}} ?>" id="id">
+{% for key in Listblog %}
+                     <article class="blog" >
+
+						<div class="row no-gutters" >
+							<div class="col-lg-7">
+								<figure>
+                             <a href="/المجلة-القانونية/{{key.id}}/"><img src="https://avoconsulte.com/img/{{key.image}}" alt="{{key.titre}}">
+                             </a>
+								</figure>
+							</div>
+							<div class="col-lg-5">
+								<div class="post_info">
+									<small>
+									{% for i in key.temps %}
+									{{key.temps.i}}
+									{% endfor %}
+									</small>
+									<h3>
+									    
+                           <a href="/المجلة-القانونية/<?php echo $key['url_slug'] ?>/<?php echo $key['id'] /">
+									    {{key.titre}}</a></h3>
+										{% autoescape %}
+									<div>{{key.body|u.truncate(200)|raw}}</p></div>
+									{% endautoescape %}
+								</div>
+							</div>
+						</div>
+                        </article>
+					{% endfor %}

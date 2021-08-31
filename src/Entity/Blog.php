@@ -55,7 +55,7 @@ class Blog
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $alternativeHeader;
+    private $alternative_header;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -153,12 +153,12 @@ class Blog
 
     public function getAlternativeHeader(): ?string
     {
-        return $this->alternativeHeader;
+        return $this->alternative_header;
     }
 
-    public function setAlternativeHeader(string $alternativeHeader): self
+    public function setAlternativeHeader(string $alternative_header): self
     {
-        $this->alternativeHeader = $alternativeHeader;
+        $this->alternative_header = $alternative_header;
 
         return $this;
     }
