@@ -83,5 +83,56 @@ public function getAllEvents($i):Response{
         'Listblog'=>$Listblog,
     ]);
 }
+ /**
+     * @Route("/renderQr/{i}",name="render_Qr",methods="GET")
+    */ 
+    public function RenderQr($i):Response{
+        $int = (int)$i;
+        $ListQr=$this->getDoctrine()->getRepository(QrReponse::Class)->AfficheQrArQr($int+3);
+        return $this->render('renderQr.html.twig', [
+            'ListQr'=>$ListQr,
+        ]);
+    }
+      /**
+     * @Route("/استشارات-قانونية/", name="ConsultationJuridique_Ar")
+     */
+    public function ConsultationJuridiqueAr(): Response
+    {
+        $ListQr=$this->getDoctrine()->getRepository(QrReponse::Class)->AfficheQrArSliderHome();
+        $ListQr2=$this->getDoctrine()->getRepository(QrReponse::Class)->AfficheQrArQr(3);
+        return $this->render('ConsultationJuridiqueAr.html.twig', [
+            'ListQr'=>$ListQr,
+            'ListQr2'=>$ListQr2,
+        ]);
+    }
+      /**
+     * @Route("/من-نحن/", name="AboutUs_Ar")
+     */
+    public function AboutUsAR(): Response
+    {
+    
+        return $this->render('AboutUsAr.html.twig', [
+          
+        ]);
+    }
+      /**
+     * @Route("/اتصل-بنا/", name="ContactUsAr_Ar")
+     */
+    public function ContactUsAR(): Response
+    {
+  
+        return $this->render('ContactUsAR.html.twig', [
+        ]);
+           
+    }
+      /**
+     * @Route("/محامون/", name="Avocats_Ar")
+     */
+    public function Avocats(): Response
+    {
 
+        return $this->render('AvocatsAr.html.twig', [
+          
+        ]);
+    }
 }

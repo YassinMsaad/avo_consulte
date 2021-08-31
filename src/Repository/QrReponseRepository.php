@@ -38,6 +38,16 @@ class QrReponseRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+    public function AfficheQrArQr($i)
+    {
+        return $this->createQueryBuilder('b')
+            ->andWhere("b.language = 'ar'")
+            ->orderBy('b.id', 'DESC')
+            ->setMaxResults($i)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
     
     // /**
     //  * @return QrReponse[] Returns an array of QrReponse objects
