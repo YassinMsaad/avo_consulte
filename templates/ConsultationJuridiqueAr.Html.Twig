@@ -183,7 +183,7 @@ onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع ا
 					<div class="box_feat2">
                     <h3> أخر السؤالات  </h3>
 {% for key in ListQr %}
-<div class="mySlides"><a href="/استشارات-قانونية/{{key.id}}/">{{key.question|u.truncate(150)}} </a></div> 
+<div class="mySlides"><a onclick="location.href='/استشارات-قانونية/{{key.id}}/{{key.titre|replace({' ': '-'})}}';" >{{key.question|u.truncate(150)}} </a></div> 
 				{% endfor %}
 					</div>
 				</div>
@@ -218,7 +218,7 @@ function carousel() {
 <input type="hidden" name="" value="{{ListQr2|length}}" id="id"> 
 {% for key in ListQr2 %}
 
- 					<div class="col-md-4" onclick="location.href='/استشارات-قانونية/{{key.id}}/';" style="cursor: pointer;">
+ 					<div class="col-md-4" onclick="location.href='/استشارات-قانونية/{{key.id}}/{{key.titre|replace({' ': '-'})}}';"  style="cursor: pointer;">
 			        <div class="about-review">
                    <div class="rating"><h4>{{key.titre|u.truncate(80)}}</h4></div>
 

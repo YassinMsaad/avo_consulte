@@ -135,4 +135,26 @@ public function getAllEvents($i):Response{
           
         ]);
     }
+        /**
+     * @Route("/المجلة-القانونية/{id}/{slug}",name="Singleblog",methods="GET")
+    */ 
+public function findSingleblog($id):Response{
+    $Singleblog=$this->getDoctrine()->getRepository(Blog::Class)->Singleblog($id);
+    $Listblog=$this->getDoctrine()->getRepository(Blog::Class)->AfficheBlogArBlog(3);
+    return $this->render('BlogSingle.html.twig', [
+        'Singleblog'=>$Singleblog,
+        'Listblog'=>$Listblog,
+    ]);
+}
+        /**
+     * @Route("/استشارات-قانونية/{id}/{slug}",name="Singleqr",methods="GET")
+    */ 
+    public function findSingleQr($id):Response{
+        $Singleqr=$this->getDoctrine()->getRepository(QrReponse::Class)->Singleqr($id);
+        $Listqr=$this->getDoctrine()->getRepository(QrReponse::Class)->AfficheQrArQr(3);
+        return $this->render('QrSingle.html.twig', [
+            'Singleqr'=>$Singleqr,
+            'Listqr'=>$Listqr,
+        ]);
+    }
 }
