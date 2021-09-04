@@ -157,10 +157,15 @@ public function getAllEvents($i):Response{
         ]);
     }
 
+<<<<<<< HEAD
 
 
 
      /**
+=======
+        /**
+
+>>>>>>> 752435a3399fe55afe44c485f4e9319696e160ea
      * @Route("/المجلة-القانونية/{id}/{slug}",name="Singleblog",methods="GET")
     */ 
 public function findSingleblog($id):Response{
