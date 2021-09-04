@@ -235,68 +235,55 @@ onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع ا
 		</div>  
 		<!-- /filters -->
 		
-		<div class="container margin_60_35" >
+		<div class="container margin_60_35">
 			<div class="row" id="renderAvocat">
 				<div class="col-lg-8">
-					
+<input type="hidden" name="" value="{{ListAvocat|length}}" id="id">
+{% for key in ListAvocat %}
 
-<?php 
-
-include "services/crud.php";
-
-$crud = new crud() ; 
-
-$conn = $crud->cnx ; 
-
-if (isset($_POST['key']))
-{
-    $ListAvocat = $crud->SearchMoreAvocatwithCash($conn,$_POST['key'], $_POST['Gouvernorat'],0) ;
-                                     
-    
-}else{
-if (isset($_POST['Gouvernorat']))
-{
-    $ListAvocat = $crud->SearchMoreAvocatwithCash($conn,"",$_GET['Gouvernorat'],0) ;
-
-}else
-{
-    $ListAvocat = $crud->SearchMoreAvocatwithCash($conn,"","",0);  
-} 
-}
-?>
- 
- <input type="hidden" name="" value="0" id="id"> 
-
- <?php 
-foreach ($ListAvocat as $key) {
-
- ?>
-
-
-					<div class="strip_list" dir="rtl" onclick="location.href='/محامي/<?php echo str_replace(' ','-', $key['Nom_ar']) ?>/<?php echo $key['id'] ?>/';" style="cursor: pointer;">
+				
+					<div class="strip_list" dir="rtl" onclick="location.href='/محامي/{{key.Nom_ar|replace( {' ':'-'})}}/{{key.id}}';" style="cursor: pointer;">
 						<figure>
-                        <img src="../assets/images/<?php echo $key['img_url'] ?>" alt="<?php echo $key['Nom_ar']; ?>"></figure>
+                        <img src="../assets/images/{{key.img_url}}" alt="{{key.Nom_ar}}"></figure>
 
-						<small><?php echo $key['Nom_fr'];?> </small>
-                         <h3><?php echo  $key['Nom_ar']; ?></h3>
+						<small>{{key.Nom_fr}} </small>
+                         <h3>{{key.Nom_ar}}</h3>
 
                          <ul>
 							<li><a>الولاية </a></li>
-							<li><p><?php echo $key['Gouvernorat_ar'];?></p></li>
-							<li><a href="/محامي/<?php echo str_replace(' ','-', $key['Nom_ar']) ?>/<?php echo $key['id'] ?>/">إحجز موعد</a></li>
+							<li><p>{{key.Gouvernorat_ar}}</p></li>
+							<li><a href="/محامي/{{key.Nom_ar|replace( {' ':'-'})}}/{{key.id}}/">إحجز موعد</a></li>
 							
 						</ul>
 
 					</div>
 
-					<?php } ?>
-
-
-
+					{% endfor %}
 
 					<!-- /pagination -->
 				</div>
+							<!--<center><p class="btn_1 medium" onclick="showMoreAv()">تحميل المزيد</p></center><br>-->
+
 				<!-- /col -->
+				
+
+				<!--		<aside class="col-lg-4" id="sidebar">-->
+
+
+				<!--	<div class="box_feat2" >-->
+				<!--		<h3>إستشر محامٍ الأن </h3>-->
+				<!--<p>استشارة قانونية مجانية من عند أفضل المحامين في تونس مع خصوصية تامة وإجابة موثوقة     </p><br>-->
+				<!--	<p class="text-center"><a href="/استشارة-قانونية/" class="btn_1 medium">إطرح سؤالا الأن</a></p>-->
+
+				<!--	</div>-->
+
+                   
+				<!--</aside>-->
+				
+			</div>
+			<!-- /row -->
+		</div>
+		
 				
 				
 		<aside class="col-lg-4" id="sidebar">
@@ -378,7 +365,7 @@ function showMoreAv() {
         document.getElementById("id").value=Number(document.getElementById("id").value) +10;
       }
     };
-    xmlhttp.open("GET","renderAvocat.php?d="+id+"&s="+str+"&g="+gov,true);
+    xmlhttp.open("GET","renderAvocat?d="+id+"&s="+str+"&g="+gov,true);
     xmlhttp.send();
   
 }

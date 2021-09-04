@@ -35,6 +35,15 @@ class AvocatRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function AfficheAvocatArAvocats($i)
+    {
+        return $this->createQueryBuilder('b')
+            ->orderBy('b.nom_ar')
+            ->setMaxResults($i)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
     /*
     public function findOneBySomeField($value): ?Avocat

@@ -16,7 +16,7 @@ class HomeController extends AbstractController
      */
     public function avocat($id): Response
     {
-        $avocat->getDoctrine()->getRepository(Avocat::Class)->find($id);
+        $avocat=$this->getDoctrine()->getRepository(Avocat::Class)->find($id);
 
         return $this->render('avocat.html.twig', [
             'avocat'->$avocat
@@ -125,18 +125,29 @@ public function getAllEvents($i):Response{
         ]);
            
     }
-      /**
-     * @Route("/محامون", name="Avocats_Ar")
+    /**
+     * @Route("/محامون/",name="Avocats_Ar")
      */
     public function Avocats(): Response
     {
-
+        $ListAvocat=$this->getDoctrine()->getRepository(Avocat::Class)->AfficheAvocatArAvocats(10);
         return $this->render('AvocatsAr.html.twig', [
-          
+            'ListAvocat'=>$ListAvocat,
         ]);
     }
+/**
+     * @Route("/renderAvocat/{i}",name="render_Avocat",methods="GET")
+    */ 
+    public function RenderAvocat($i):Response{
+        $int = (int)$i;
+        $ListAvocat=$this->getDoctrine()->getRepository(Avocat::Class)->AfficheAvocatArAvocats($int+5);
+        return $this->render('renderAvocatAr.html.twig', [
+            'ListAvocat'=>$ListAvocat,
+        ]);
+    }
+
      /**
-     * @Route("/محامون/{i}", name="Avocats_Ar")
+     * @Route("/محامون/{i}/", name="Avocats_Ar2")
      */
     public function AvocatsRegion($i): Response
     {
@@ -145,6 +156,10 @@ public function getAllEvents($i):Response{
           "gouvernorat"=>$i
         ]);
     }
+
+
+
+
      /**
      * @Route("/المجلة-القانونية/{id}/{slug}",name="Singleblog",methods="GET")
     */ 

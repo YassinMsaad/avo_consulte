@@ -33,12 +33,12 @@ class QrUser
     private $reponse;
 
     /**
-     * @ORM\ManyToOne(targetEntity=avocat::class, inversedBy="qrUsers")
+     * @ORM\ManyToOne(targetEntity=Avocat::class, inversedBy="qrUsers")
      */
     private $avocat_id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="qrUsers")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="qrUsers")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
