@@ -48,6 +48,14 @@ class QrReponseRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+    public function Singleqr($id)
+    {
+        return $this->createQueryBuilder('b')
+            ->andWhere("b.id = '$id'")
+            ->getQuery()
+            ->getResult()
+        ;
+    }
     
     // /**
     //  * @return QrReponse[] Returns an array of QrReponse objects

@@ -56,6 +56,14 @@ class BlogRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+    public function Singleblog($id)
+    {
+        return $this->createQueryBuilder('b')
+            ->andWhere("b.id = '$id'")
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
     /*
     public function findOneBySomeField($value): ?Blog

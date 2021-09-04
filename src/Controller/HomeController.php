@@ -135,6 +135,7 @@ public function getAllEvents($i):Response{
           
         ]);
     }
+
      /**
      * @Route("/محامون/{i}", name="Avocats_Ar")
      */
@@ -145,7 +146,9 @@ public function getAllEvents($i):Response{
           "gouvernorat"=>$i
         ]);
     }
-     /**
+
+        /**
+
      * @Route("/المجلة-القانونية/{id}/{slug}",name="Singleblog",methods="GET")
     */ 
 public function findSingleblog($id):Response{

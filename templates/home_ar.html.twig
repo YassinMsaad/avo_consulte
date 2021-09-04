@@ -210,7 +210,7 @@ function carousel() {
 
 {% for key in Listblog %} 
 
-                		<div  class="col-lg-4 col-md-6" onclick="location.href='/المجلة-القانونية//{{key.id}}/';" style="cursor: pointer;">
+                		<div  class="col-lg-4 col-md-6" onclick="location.href='/المجلة-القانونية/{{key.id}}/{{key.titre|replace({' ': '-'})}}';" style="cursor: pointer;">
 						<div class="box_list home">
 							<figure>
                                 <img src="https://avoconsulte.com/img/{{key.image}}" class="img-fluid" alt="{{key.titre}}">
@@ -219,7 +219,7 @@ function carousel() {
 							<div class="wrapper">
 							<small></small>
                                 <h3>{{ key.titre}}</h3>
-								<p>{{ key.body|u.truncate(200) }}&nbsp...</p>
+								<p>{{ key.body|u.truncate(200)|raw}}&nbsp...</p>
 							</div>
 						</div>
 					</div>
@@ -245,7 +245,7 @@ function carousel() {
 				<div class="row">
                   {% for key in ListQr2 %}
 
- 					<div class="col-md-4" onclick="location.href='/استشارات-قانونية/{{key.id}}/';" style="cursor: pointer;">
+ 					<div class="col-md-4" onclick="location.href='/استشارات-قانونية/{{key.id}}/{{key.titre|replace({' ': '-'})}}';" style="cursor: pointer;">
 			        <div class="about-review">
                    <div class="rating"></h4>{{key.titre|u.truncate(80)}}<h4></div>
 
