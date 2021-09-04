@@ -126,7 +126,7 @@ public function getAllEvents($i):Response{
            
     }
       /**
-     * @Route("/محامون/", name="Avocats_Ar")
+     * @Route("/محامون", name="Avocats_Ar")
      */
     public function Avocats(): Response
     {
@@ -135,7 +135,20 @@ public function getAllEvents($i):Response{
           
         ]);
     }
+
+     /**
+     * @Route("/محامون/{i}", name="Avocats_Ar")
+     */
+    public function AvocatsRegion($i): Response
+    {
+
+        return $this->render('AvocatsAr2.html.twig', [
+          "gouvernorat"=>$i
+        ]);
+    }
+
         /**
+
      * @Route("/المجلة-القانونية/{id}/{slug}",name="Singleblog",methods="GET")
     */ 
 public function findSingleblog($id):Response{
@@ -155,6 +168,7 @@ public function findSingleblog($id):Response{
         return $this->render('QrSingle.html.twig', [
             'Singleqr'=>$Singleqr,
             'Listqr'=>$Listqr,
+
         ]);
     }
 }

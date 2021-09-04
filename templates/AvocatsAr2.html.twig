@@ -39,7 +39,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content=" AvoConsulte.com - ارقام هواتف محامين في تونس  - ابحث واعثر على أفضل المحامين في تونس واحجز موعدك عبر الإنترنت">
+	<meta name="description" content=" AvoConsulte.com - ارقام هواتف محامين في <?php 
+    if (isset($_GET['Gouvernorat']))
+{
+    echo $_GET['Gouvernorat'];
+
+}else
+{
+    echo 'تونس'  ;
+} ?> - ابحث واعثر على أفضل المحامين في تونس واحجز موعدك عبر الإنترنت">
 <meta name="keywords" content="جدول المحامين بتونس, جدول المحامين, ارقام هواتف محامين في تونس, محامي, 
 onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع الجهوي للمحامين بتونس ,المحاماة , ارقام هواتف محامين في تونس ,استشارات قانونية عقارية تونس , نور الدين بن عياد 
 ,استشارات قانونية في الطلاق تونس ,  avocats , avocat , Avocat Tunisie , Avocat En Tunisie ,
@@ -62,7 +70,22 @@ onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع ا
 <meta name="twitter:image" content="https://www.avoconsulte.com/img/avoconsulte_com_logo.png">
 	<meta name="author" content="Avoconsulte">
 	
-<title>AvoConsulte -  احجز موعدك عبر الإنترنت - ارقام هواتف محامين في تونس</title>
+<title>AvoConsulte - احجز موعدك عبر الإنترنت - ارقام هواتف محامين في <?php 
+    if (isset($_POST['Gouvernorat']))
+{
+    echo $_POST['Gouvernorat'];
+
+}else
+{
+     if (isset($_GET['Gouvernorat']))
+{
+    echo $_GET['Gouvernorat'];
+
+}else
+{
+    echo "تونس"  ;
+}
+} ?></title>
 <!-- Favicons-->
 	<link rel="shortcut icon" href="/img/16.png" type="image/x-icon">
 	<link rel="apple-touch-icon" type="/image/x-icon" href="img/fav_icon.png">
@@ -174,7 +197,43 @@ onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع ا
 						</div>
 					</div>
 					<?php 
-    
+    if (isset($_POST['Gouvernorat'])) {?>
+					<div class="col-md-2 " id="custom-search-input">
+					    <div class="input-group">
+							<select name="Gouvernorat" id="Gouvernorat" class="search-drop-avo " required >
+							 <option value="" <?php if($_POST['Gouvernorat'] == "") echo "selected" ?>>الولاية </option>
+                             <option <?php if($_POST['Gouvernorat'] == "تونس") echo "selected" ?> value="تونس" >تونس</option>
+                             <option <?php if($_POST['Gouvernorat'] == "أريانة") echo "selected" ?> value="أريانة" >أريانة</option>
+                        
+                             <option <?php if($_POST['Gouvernorat'] == "بن عروس") echo "selected" ?> value="بن عروس">بن عروس</option>
+                             <option <?php if($_POST['Gouvernorat'] == "منوبة") echo "selected" ?> value="منوبة" >منوبة</option>
+                             <option <?php if($_POST['Gouvernorat'] == "سوسة") echo "selected" ?> value="سوسة" >سوسة</option>
+                             <option <?php if($_POST['Gouvernorat'] == "صفاقس") echo "selected" ?> value="صفاقس" >صفاقس</option>
+                             <option <?php if($_POST['Gouvernorat'] == "قابس") echo "selected" ?> value="قابس" >قابس</option>
+                             <option <?php if($_POST['Gouvernorat'] == "مدنين") echo "selected" ?> value="مدنين" >مدنين</option>
+                             <option <?php if($_POST['Gouvernorat'] == "المهدية") echo "selected" ?> value="المهدية" >المهدية</option>
+                             <option <?php if($_POST['Gouvernorat'] == "باجة") echo "selected" ?> value="باجة" >باجة</option>
+                             <option <?php if($_POST['Gouvernorat'] == "بنزرت") echo "selected" ?> value="بنزرت" >بنزرت</option>
+                             <option <?php if($_POST['Gouvernorat'] == "قفصة") echo "selected" ?> value="قفصة" >قفصة</option>
+                             <option <?php if($_POST['Gouvernorat'] == "جندوبة") echo "selected" ?> value="جندوبة" >جندوبة</option>
+                             
+                             <option <?php if($_POST['Gouvernorat'] == "القيروان") echo "selected" ?> value="القيروان" >القيروان</option>
+                             <option <?php if($_POST['Gouvernorat'] == "قصرين") echo "selected" ?> value="قصرين" >قصرين</option>
+                             <option <?php if($_POST['Gouvernorat'] == "الكاف") echo "selected" ?> value="الكاف" >الكاف</option>
+                             <option <?php if($_POST['Gouvernorat'] == "منستير") echo "selected" ?> value="منستير" >منستير</option>
+                             <option <?php if($_POST['Gouvernorat'] == "نابل") echo "selected" ?> value="نابل" >نابل </option>
+                             <option <?php if($_POST['Gouvernorat'] == "سيدي بوزيد") echo "selected" ?> value="يدي بوزيد" >سيدي بوزيد</option>
+                             <option <?php if($_POST['Gouvernorat'] == "سليانة") echo "selected" ?> value="سليانة" >سليانة</option>
+                             <option <?php if($_POST['Gouvernorat'] == "تطاوين") echo "selected" ?> value="تطاوين" >تطاوين</option>
+                             <option <?php if($_POST['Gouvernorat'] == "توزر") echo "selected" ?> value="توزر" >توزر </option>
+                             <option <?php if($_POST['Gouvernorat'] == "زغوان") echo "selected" ?> value="زغوان" >زغوان</option>
+                             <option <?php if($_POST['Gouvernorat'] == "قبلي" ) echo "selected" ?> value="قبلي" >قبلي</option>
+                             </select>
+
+						</div>
+					</div>
+
+<?php } else {?>
   
 
 					<div class="col-md-2 " id="custom-search-input">
@@ -209,7 +268,7 @@ onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع ا
 
 						</div>
 					</div>
-
+<?php } ?>
 					<div class="col-md-5" id="custom-search-input">
 						<div class="search_bar_list">
 						    
