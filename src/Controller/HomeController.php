@@ -126,13 +126,23 @@ public function getAllEvents($i):Response{
            
     }
       /**
-     * @Route("/محامون/", name="Avocats_Ar")
+     * @Route("/محامون", name="Avocats_Ar")
      */
     public function Avocats(): Response
     {
 
         return $this->render('AvocatsAr.html.twig', [
           
+        ]);
+    }
+     /**
+     * @Route("/محامون/{i}", name="Avocats_Ar")
+     */
+    public function AvocatsRegion($i): Response
+    {
+
+        return $this->render('AvocatsAr2.html.twig', [
+          "gouvernorat"=>$i
         ]);
     }
 }
