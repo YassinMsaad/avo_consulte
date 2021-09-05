@@ -140,6 +140,7 @@ public function getAllEvents($i):Response{
     */ 
     public function RenderAvocat($i):Response{
         $int = (int)$i;
+
         $ListAvocat=$this->getDoctrine()->getRepository(Avocat::Class)->AfficheAvocatArAvocats($int+5);
         return $this->render('renderAvocatAr.html.twig', [
             'ListAvocat'=>$ListAvocat,
@@ -157,18 +158,10 @@ public function getAllEvents($i):Response{
         ]);
     }
 
-<<<<<<< HEAD
-
-
-
-     /**
-=======
-        /**
-
->>>>>>> 752435a3399fe55afe44c485f4e9319696e160ea
-     * @Route("/المجلة-القانونية/{id}/{slug}",name="Singleblog",methods="GET")
+    /** 
+    * @Route("/المجلة-القانونية/{id}/{slug}",name="Singleblog",methods="GET")
     */ 
-public function findSingleblog($id):Response{
+    public function findSingleblog($id):Response{
     $Singleblog=$this->getDoctrine()->getRepository(Blog::Class)->Singleblog($id);
     $Listblog=$this->getDoctrine()->getRepository(Blog::Class)->AfficheBlogArBlog(3);
     return $this->render('BlogSingle.html.twig', [
