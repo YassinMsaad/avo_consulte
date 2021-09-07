@@ -166,46 +166,46 @@ onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع ا
 					    <div class="input-group">
 							<select name="tribunal" class="search-drop-avo " >
 							    <option value="" >المحكمة </option>
-                             <option value="الإبتدائية " >الإبتدائية </option>
-                             <option value="الاستئناف " >الاستئناف </option>
-                             <option value=" التعقيب <" >التعقيب </option>
+{% if t =="الإبتدائية" %}   <option value="الإبتدائية" selected >الإبتدائية </option>     {% else %}                     <option value="الإبتدائية" >الإبتدائية </option> {% endif %}
+{% if t =="الاستئناف" %}   <option value="الاستئناف" selected >الاستئناف </option>                {% else %}                     <option value="الاستئناف" >الاستئناف </option>{% endif %}
+{% if t =="التعقيب" %}   <option value="التعقيب"selected >التعقيب </option>                 {% else %}                     <option value="التعقيب<" >التعقيب </option>{% endif %}
                              
                              </select>
 
 						</div>
 					</div>
-					<?php 
+				
     
   
 
 					<div class="col-md-2 " id="custom-search-input">
 					    <div class="input-group">
-							<select name="Gouvernorat"  id="Gouvernorat" class="search-drop-avo " required >
-							 <option value="" >الولاية </option>
-                             <option value="تونس" >تونس</option>
-                             <option value="أريانة" >أريانة</option>
-                             <option value="بن عروس">بن عروس</option>
-                             <option value="منوبة" >منوبة</option>
-                             <option value="سوسة" >سوسة</option>
-                             <option value="صفاقس" >صفاقس</option>
-                             <option value="قابس" >قابس</option>
-                             <option value="مدنين" >مدنين</option>
-                             <option value="المهدية" >المهدية</option>
-                             <option value="باجة" >باجة</option>
-                             <option value="بنزرت" >بنزرت</option>
-                             <option value="قفصة" >قفصة</option>
-                             <option value="جندوبة" >جندوبة</option>
-                             <option value="القيروان" >القيروان</option>
-                             <option value="قصرين" >قصرين</option>
-                             <option value="الكاف" >الكاف</option>
-                             <option value="منستير" >منستير</option>
-                             <option value="نابل" >نابل </option>
-                             <option value="يدي بوزيد" >سيدي بوزيد</option>
-                             <option value="سليانة" >سليانة</option>
-                             <option value="تطاوين" >تطاوين</option>
-                             <option value="توزر" >توزر </option>
-                             <option value="زغوان" >زغوان</option>
-                             <option value="قبلي" >قبلي</option>
+		<select name="Gouvernorat"  id="Gouvernorat" class="search-drop-avo " required >
+{% if g =="" %} <option value="" selected > </option>			               {% else %} <option value="" >الولاية </option>{% endif %}
+{% if g =="تونس" %} <option value="تونس" selected >تونس </option>             {% else %} <option value="تونس" >تونس</option>{% endif %}
+{% if g =="أريانة" %} <option value="أريانة" selected >أريانة </option>        {% else %} <option value="أريانة" >أريانة</option>{% endif %}
+{% if g =="بن عروس" %} <option value="بن عروس" selected > بن عروس</option>     {% else %} <option value="بن عروس">بن عروس</option>{% endif %}
+{% if g =="منوبة" %} <option value="منوبة" selected > منوبة</option>            {% else %} <option value="منوبة" >منوبة</option>{% endif %}
+{% if g =="سوسة" %} <option value="سوسة" selected >سوسة </option>                {% else %} <option value="سوسة" >سوسة</option>{% endif %}
+{% if g =="صفاقس" %} <option value="صفاقس" selected >صفاقس </option>             {% else %} <option value="صفاقس" >صفاقس</option>{% endif %}
+{% if g =="قابس" %} <option value="قابس" selected >قابس </option>                 {% else %} <option value="قابس" >قابس</option>{% endif %}
+{% if g =="مدنين" %} <option value="مدنين" selected >مدنين </option>              {% else %} <option value="مدنين" >مدنين</option>{% endif %}
+{% if g =="المهدية" %} <option value="المهدية" selected >المهدية </option>        {% else %} <option value="المهدية" >المهدية</option>{% endif %}
+{% if g =="باجة" %} <option value="باجة" selected >باجة </option>                  {% else %} <option value="باجة" >باجة</option>{% endif %}
+{% if g =="بنزرت" %} <option value="بنزرت" selected > بنزرت</option>               {% else %} <option value="بنزرت" >بنزرت</option>{% endif %}
+{% if g =="قفصة" %} <option value="قفصة" selected >قفصة </option>                   {% else %} <option value="قفصة" >قفصة</option>{% endif %}
+{% if g =="جندوبة" %} <option value="جندوبة" selected >جندوبة </option>             {% else %} <option value="جندوبة" >جندوبة</option>{% endif %}
+{% if g =="القيروان" %} <option value="القيروان" selected > القيروان</option>       {% else %} <option value="القيروان" >القيروان</option>{% endif %}
+{% if g =="قصرين" %} <option value="قصرين" selected > قصرين</option>                 {% else %} <option value="قصرين" >قصرين</option>{% endif %}
+{% if g =="الكاف" %} <option value="الكاف" selected >الكاف </option>                 {% else %} <option value="الكاف" >الكاف</option>{% endif %}
+{% if g =="منستير" %} <option value="منستير" selected > منستير</option>              {% else %} <option value="منستير" >منستير</option>{% endif %}
+{% if g =="نابل" %} <option value="نابل" selected > نابل</option>                     {% else %} <option value="نابل" >نابل </option>{% endif %}
+{% if g =="سيدي بوزيد" %} <option value="سيدي بوزيد" selected > سيدي بوزيد</option>  {% else %} <option value="يدي بوزيد" >سيدي بوزيد</option>{% endif %}
+{% if g =="سليانة" %} <option value="سليانة" selected >سليانة </option>               {% else %} <option value="سليانة" >سليانة</option>{% endif %}
+{% if g =="تطاوين" %} <option value="تطاوين" selected > تطاوين</option>               {% else %} <option value="تطاوين" >تطاوين</option>{% endif %}
+{% if g =="توزر" %} <option value="توزر" selected > توزر</option>                      {% else %} <option value="توزر" >توزر </option>{% endif %}
+{% if g =="زغوان" %} <option value="زغوان" selected > زغوان</option>                   {% else %} <option value="زغوان" >زغوان</option>{% endif %}
+{% if g =="قبلي" %} <option value="قبلي" selected >قبلي </option>                      {% else %} <option value="قبلي" >قبلي</option>{% endif %}
                              </select>
 
 						</div>
@@ -215,7 +215,7 @@ onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع ا
 						<div class="search_bar_list">
 						    
 						    <!--<input type="submit" value="بحث">-->
-                          <input type="text" class="form-control" name="key"  placeholder="بحث" <?php  if (isset($_POST['key'])) {?>value="<?=$_POST['key']?>"<?php } ?> id="searchKey">
+{% if str =="0" %}<input type="text" class="form-control" name="key"  placeholder="بحث" value="" id="searchKey" > {% else %}                         <input type="text" class="form-control" name="key"  placeholder="بحث" value="{{str}}" id="searchKey"> {% endif %}
                           <input type="submit" class="btn_search" value="بحث">
                           </div>
                          
