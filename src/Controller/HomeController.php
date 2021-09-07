@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Avocat;
 use App\Entity\Blog;
@@ -128,10 +129,42 @@ public function getAllEvents($i):Response{
     /**
      * @Route("/محامون/",name="Avocats_Ar")
      */
-    public function Avocats(): Response
+    public function Avocats(Request $request): Response
     {
+        if (isset($_POST['Gouvernorat'])|| isset($_POST['key']) || isset($_POST['tribunal'])){
+            if ($request->get('key')==""){$str="%";}
+            else { $str=$request->get('key');}
+            if ($request->get('tribunal')==""){$t="%";}
+            else{$t=$request->get('tribunal');}
+            unset($_POST['Gouvernorat']);
+            unset($_POST['key']);
+            unset($_POST['tribunal']);
+
+            
+           
+            return $this->redirectToRoute('Avocats_Ar2',["g"=>$request->get('Gouvernorat'),"str"=>$str,"t"=>$t]);
+       
+        }
         $ListAvocat=$this->getDoctrine()->getRepository(Avocat::Class)->AfficheAvocatArAvocats(10);
+        
         return $this->render('AvocatsAr.html.twig', [
+            'ListAvocat'=>$ListAvocat,
+        ]);
+    }
+    /**
+     * @Route("/renderAvocat2/{g}/str={str},spec={t},num={i}",name="render_Avocat2",methods="GET")
+    */ 
+    public function RenderAvocat2($g,$str,$t,$i):Response{
+        $int = (int)$i;
+        if ($g=="0"){$g="%";}
+        if ($str=="0"){$str="%";}
+        if ($t=="0"){$t="%";}
+
+        $ListAvocat=$this->getDoctrine()->getRepository(Avocat::Class)->FindByThreeAr($g,$t,$str,$int+5);
+        if($g=="%"){$g="0";}
+        if ($t=="%"){$t="0";}
+        if ($str=="%"){$str="0";}
+        return $this->render('renderAvocatAr.html.twig', [
             'ListAvocat'=>$ListAvocat,
         ]);
     }
@@ -140,6 +173,7 @@ public function getAllEvents($i):Response{
     */ 
     public function RenderAvocat($i):Response{
         $int = (int)$i;
+
         $ListAvocat=$this->getDoctrine()->getRepository(Avocat::Class)->AfficheAvocatArAvocats($int+5);
         return $this->render('renderAvocatAr.html.twig', [
             'ListAvocat'=>$ListAvocat,
@@ -147,28 +181,40 @@ public function getAllEvents($i):Response{
     }
 
      /**
-     * @Route("/محامون/{i}/", name="Avocats_Ar2")
+     * @Route("/محامون/{g}/search={str}?,type={t}", name="Avocats_Ar2")
      */
-    public function AvocatsRegion($i): Response
-    {
+    public function AvocatsRegion($g,$str,$t): Response
+    {  
+        if (isset($_POST['Gouvernorat'])|| isset($_POST['key']) || isset($_POST['tribunal'])){
+            if ($request->get('key')==""){$str="%";}
+            else { $str=$request->get('key');}
+            if ($request->get('tribunal')==""){$t="%";}
+            else{$t=$request->get('tribunal');}
+            unset($_POST['Gouvernorat']);
+            unset($_POST['key']);
+            unset($_POST['tribunal']);
 
+            return $this->redirectToRoute('Avocats_Ar2',["g"=>$request->get('Gouvernorat'),"str"=>$str,"t"=>$t]);
+       
+        }
+
+    
+        $ListAvocat=$this->getDoctrine()->getRepository(Avocat::Class)->FindByThreeAr($g,$t,$str,10);
+        if($g=="%"){$g="0";}
+        if ($t=="%"){$t="0";}
+        if ($str=="%"){$str="0";}
         return $this->render('AvocatsAr2.html.twig', [
-          "gouvernorat"=>$i
+          "g"=>$g,
+          "t"=>$t,
+          "str"=>$str,
+          'ListAvocat'=>$ListAvocat,
         ]);
     }
 
-<<<<<<< HEAD
-
-
-
-     /**
-=======
-        /**
-
->>>>>>> 752435a3399fe55afe44c485f4e9319696e160ea
-     * @Route("/المجلة-القانونية/{id}/{slug}",name="Singleblog",methods="GET")
+    /** 
+    * @Route("/المجلة-القانونية/{id}/{slug}",name="Singleblog",methods="GET")
     */ 
-public function findSingleblog($id):Response{
+    public function findSingleblog($id):Response{
     $Singleblog=$this->getDoctrine()->getRepository(Blog::Class)->Singleblog($id);
     $Listblog=$this->getDoctrine()->getRepository(Blog::Class)->AfficheBlogArBlog(3);
     return $this->render('BlogSingle.html.twig', [

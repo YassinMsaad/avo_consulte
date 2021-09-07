@@ -72,27 +72,29 @@ class Avocat
     /**
      * @ORM\Column(type="boolean")
      */
-    private $subed;
+    private $subbed;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $img_url;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $password;
+   // /**
+   //  * @ORM\Column(type="string", length=255)
+    // */
+   // private $password;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $specialite;
+   // /**
+    // * @ORM\Column(type="string", length=255)
+    // */
+   // private $specialite;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $commentaire;
+   // /**
+   //  * @ORM\Column(type="string", length=255, nullable=true)
+   //  */
+  //  private $commentaire;
+    
+
 
     /**
      * @ORM\OneToMany(targetEntity=QrUser::class, mappedBy="avocat_id")
@@ -109,72 +111,72 @@ class Avocat
         return $this->id;
     }
 
-    public function getNomFr(): ?string
+    public function getNom_Fr(): ?string
     {
         return $this->nom_fr;
     }
 
-    public function setNomFr(string $nom_fr): self
+    public function setNom_Fr(string $nom_fr): self
     {
         $this->nom_fr = $nom_fr;
 
         return $this;
     }
 
-    public function getNomAr(): ?string
+    public function getNom_Ar(): ?string
     {
         return $this->nom_ar;
     }
 
-    public function setNomAr(string $nom_ar): self
+    public function setNom_Ar(string $nom_ar): self
     {
         $this->nom_ar = $nom_ar;
 
         return $this;
     }
 
-    public function getAdresseFr(): ?string
+    public function getAdresse_Fr(): ?string
     {
         return $this->adresse_fr;
     }
 
-    public function setAdresseFr(string $adresse_fr): self
+    public function setAdresse_Fr(string $adresse_fr): self
     {
         $this->adresse_fr = $adresse_fr;
 
         return $this;
     }
 
-    public function getAdresseAr(): ?string
+    public function getAdresse_Ar(): ?string
     {
         return $this->adresse_ar;
     }
 
-    public function setAdresseAr(string $adresse_ar): self
+    public function setAdresse_Ar(string $adresse_ar): self
     {
         $this->adresse_ar = $adresse_ar;
 
         return $this;
     }
 
-    public function getGouvernoratAr(): ?string
+    public function getGouvernorat_Ar(): ?string
     {
         return $this->gouvernorat_ar;
     }
 
-    public function setGouvernoratAr(string $gouvernorat_ar): self
+    public function setGouvernorat_Ar(string $gouvernorat_ar): self
     {
         $this->gouvernorat_ar = $gouvernorat_ar;
 
         return $this;
     }
 
-    public function getGouvernoratFr(): ?string
+    public function getGouvernorat_Fr(): ?string
     {
         return $this->gouvernorat_fr;
     }
 
-    public function setGouvernoratFr(string $gouvernorat_fr): self
+    public function setGouvernorat_Fr(string $gouvernorat_fr): self
     {
         $this->gouvernorat_fr = $gouvernorat_fr;
 
@@ -229,24 +231,24 @@ class Avocat
         return $this;
     }
 
-    public function getSubed(): ?bool
+    public function getSubbed(): ?bool
     {
-        return $this->subed;
+        return $this->subbed;
     }
 
-    public function setSubed(bool $subed): self
+    public function setSubbed(bool $subbed): self
     {
-        $this->subed = $subed;
+        $this->subbed = $subbed;
 
         return $this;
     }
 
-    public function getImgUrl(): ?string
+    public function getImg_Url(): ?string
     {
         return $this->img_url;
     }
 
-    public function setImgUrl(string $img_url): self
+    public function setImg_Url(string $img_url): self
     {
         $this->img_url = $img_url;
 
