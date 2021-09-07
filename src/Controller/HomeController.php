@@ -7,8 +7,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Avocat;
+use App\Entity\User;
 use App\Entity\Blog;
 use App\Entity\QrReponse;
+use Symfony\Component\Security\Core\User\UserInterface;
+
 
 class HomeController extends AbstractController
 {
@@ -131,18 +134,18 @@ public function getAllEvents($i):Response{
      */
     public function Avocats(Request $request): Response
     {
-        if (isset($_POST['Gouvernorat'])|| isset($_POST['key']) || isset($_POST['tribunal'])){
-            if ($request->get('key')==""){$str="%";}
-            else { $str=$request->get('key');}
-            if ($request->get('tribunal')==""){$t="%";}
-            else{$t=$request->get('tribunal');}
-            unset($_POST['Gouvernorat']);
-            unset($_POST['key']);
-            unset($_POST['tribunal']);
-
+        if (isset($_POST['Gouvernorat'])){
             
+            $g=$_POST['Gouvernorat'];
+            
+            unset($_POST['Gouvernorat']);
+            if (isset($_POST['tribunal'])){$request->request->set('tribunal',$_POST['tribunal']);}else{$request->request->set('tribunal',"%");}      
+            $request->request->set('key',$_POST['key']);  
+            $request->request->set('Gouvernorat','%');
+
+            return $this->redirectToRoute('Avocats_Ar2',["g"=>$g,'request'=>$request],307);
            
-            return $this->redirectToRoute('Avocats_Ar2',["g"=>$request->get('Gouvernorat'),"str"=>$str,"t"=>$t]);
+            
        
         }
         $ListAvocat=$this->getDoctrine()->getRepository(Avocat::Class)->AfficheAvocatArAvocats(10);
@@ -181,23 +184,15 @@ public function getAllEvents($i):Response{
     }
 
      /**
-     * @Route("/محامون/{g}/search={str}?,type={t}", name="Avocats_Ar2")
+     * @Route("/محامون/{g}/", name="Avocats_Ar2")
      */
-    public function AvocatsRegion($g,$str,$t): Response
-    {  
-        if (isset($_POST['Gouvernorat'])|| isset($_POST['key']) || isset($_POST['tribunal'])){
-            if ($request->get('key')==""){$str="%";}
+    public function AvocatsRegion($g,Request $request): Response
+    {   
+       
+        if ($request->get('key')==""){$str="%";}
             else { $str=$request->get('key');}
             if ($request->get('tribunal')==""){$t="%";}
             else{$t=$request->get('tribunal');}
-            unset($_POST['Gouvernorat']);
-            unset($_POST['key']);
-            unset($_POST['tribunal']);
-
-            return $this->redirectToRoute('Avocats_Ar2',["g"=>$request->get('Gouvernorat'),"str"=>$str,"t"=>$t]);
-       
-        }
-
     
         $ListAvocat=$this->getDoctrine()->getRepository(Avocat::Class)->FindByThreeAr($g,$t,$str,10);
         if($g=="%"){$g="0";}
@@ -231,6 +226,31 @@ public function getAllEvents($i):Response{
         return $this->render('QrSingle.html.twig', [
             'Singleqr'=>$Singleqr,
             'Listqr'=>$Listqr,
+
+        ]);
+    }
+     /**
+     * @Route("/استشارة-قانونية/",name="submitQr")
+     *
+    */ 
+    public function submitQrAr ():Response{
+        $user = $this->getUser();
+        if (!(isset($user))){
+            return $this->redirectToRoute("LoginAr");
+        }
+
+        return $this->render('submitQr.html.twig', [
+            
+
+        ]);
+    }
+    /**
+     * @Route("/تسجيل-دخول/",name="LoginAr")
+    */ 
+    public function LoginAr ():Response{
+
+        return $this->render('LoginAr.html.twig', [
+            
 
         ]);
     }

@@ -48,7 +48,7 @@ class AvocatRepository extends ServiceEntityRepository
         ->andWhere('b.gouvernorat_ar LIKE :val')
        // ->andWhere('b.tribunal LIKE "%:val2%"')
         ->andWhere('b.nom_fr LIKE :val3 or b.nom_ar LIKE :val3')
-        ->setParameter('val', $i)
+        ->setParameter('val', "%".$i."%")
        // ->setParameter('val2', $j)
         ->setParameter('val3', "%".$x."%")
         ->setMaxResults($k)
