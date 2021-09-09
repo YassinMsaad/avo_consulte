@@ -56,6 +56,14 @@ class AvocatRepository extends ServiceEntityRepository
         ->getResult()
     ;
     }
+    public function FindByAvocatId($id)
+    {
+        return $this->createQueryBuilder('b')
+            ->andWhere("b.id = '$id'")
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
     
     /*

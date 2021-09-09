@@ -254,4 +254,14 @@ public function getAllEvents($i):Response{
 
         ]);
     }
+            /**
+     * @Route("/محامي/{slug}/{id}",name="SingleAvocat",methods="GET")
+    */ 
+    public function findSingleAvocat($id):Response{
+        $AvocatData=$this->getDoctrine()->getRepository(Avocat::Class)->FindByAvocatId($id);
+        return $this->render('SingleAvocat.html.twig', [
+            'AvocatData'=>$AvocatData,
+
+        ]);
+    }
 }
