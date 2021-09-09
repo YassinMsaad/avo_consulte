@@ -46,10 +46,10 @@ class AvocatRepository extends ServiceEntityRepository
     public function FindByThreeAr($i,$j,$x,$k){
         return $this->createQueryBuilder('b')
         ->andWhere('b.gouvernorat_ar LIKE :val')
-       // ->andWhere('b.tribunal LIKE "%:val2%"')
+        ->andWhere('b.tribunal LIKE "%:val2%"')
         ->andWhere('b.nom_fr LIKE :val3 or b.nom_ar LIKE :val3')
         ->setParameter('val', "%".$i."%")
-       // ->setParameter('val2', $j)
+        ->setParameter('val2', $j)
         ->setParameter('val3', "%".$x."%")
         ->setMaxResults($k)
         ->getQuery()

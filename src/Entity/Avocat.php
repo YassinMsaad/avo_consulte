@@ -79,20 +79,20 @@ class Avocat
      */
     private $img_url;
 
-   // /**
-   //  * @ORM\Column(type="string", length=255)
-    // */
-   // private $password;
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $password;
 
-   // /**
-    // * @ORM\Column(type="string", length=255)
-    // */
-   // private $specialite;
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $specialite;
 
-   // /**
-   //  * @ORM\Column(type="string", length=255, nullable=true)
-   //  */
-  //  private $commentaire;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $commentaire;
     
 
 

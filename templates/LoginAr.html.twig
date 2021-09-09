@@ -83,21 +83,29 @@
 				<div id="login">
 					<h1>الرجاء تسجيل الدخول</h1>
 					<div class="box_form">
-						<form method="POST" action="userlogin.php">
+						<form method="post" action="{{path('LoginAr')}}">
 					<center><div id="logo_home"><a title="AvoConsulte"></a></div></center>
 					<br>
 							<!--<a href="#0" class="social_bt facebook">تسجيل الدخول باستخدام الفيسبوك</a>-->
 							<!--<a href="#0" class="social_bt google">تسجيل الدخول عبر جوجل</a>-->
 							<!--<div class="divider"><span>أو</span></div>-->
 							
-							<?php   echo  $_SESSION['error'];?>
 							<div class="form-group">
-								<input name="email" type="email" class="form-control" placeholder="عنوان بريدك الإلكتروني">
+								<input name="_username"	  type="email" class="form-control" placeholder="عنوان بريدك الإلكتروني">
 							</div>
 							<div class="form-group">
-								<input type="password" class="form-control" placeholder="كلمة مرورك" name="password" id="password">
+								<input type="password" class="form-control" placeholder="كلمة مرورك" name="_password" id="inputPassword" id="password">
 							</div>
 							<a href="#0"><small>هل نسيت كلمة السر؟</small></a>
+								 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+       
+        <div class="checkbox mb-3" style="left:730px;position:relative;font-size:30px;width:400px;">
+            <label>
+             </br>
+                <input type="checkbox" name="_remember_me" style="width:25px;height:25px;" > Garder ma session active
+            </label>
+        </div>
 																<div class="form-group text-center add_top_30">
 										<input name="submit" class="btn_1" type="submit" value="تسجيل الدخول">
 									</div>
