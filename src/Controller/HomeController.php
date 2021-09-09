@@ -6,11 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use App\Entity\Avocat;
 use App\Entity\User;
 use App\Entity\Blog;
 use App\Entity\QrReponse;
 use Symfony\Component\Security\Core\User\UserInterface;
+use App\Form\SignUpClientArType;
+use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 
 class HomeController extends AbstractController
@@ -247,10 +251,11 @@ public function getAllEvents($i):Response{
     /**
      * @Route("/تسجيل-دخول/",name="LoginAr")
     */ 
-    public function LoginAr ():Response{
-
+    public function LoginAr (AuthenticationUtils $authenticationUtils):Response{
+        $error = $authenticationUtils->getLastAuthenticationError();
+        $lastUsername = $authenticationUtils->getLastUsername();
         return $this->render('LoginAr.html.twig', [
-            
+             'error' => $error
 
         ]);
     }
@@ -264,4 +269,29 @@ public function getAllEvents($i):Response{
 
         ]);
     }
+     /**
+     * @Route("/سجل-الآن/",name="SignUpAr")
+    */ 
+    public function SignUpAr (UserPasswordEncoderInterface $encoder,Request $request):Response {
+        $user = new User();
+        $form = $this->createForm(SignUpClientArType::Class,$user);
+        $form->handleRequest($request);
+        if ($form->isSubmitted()&& $form->isValid()){
+            $manager = $this->getDoctrine()->getManager();
+            $hash = $encoder->encodePassword($user, $user->getPassword());
+            $user->setRoles([0=>'ROLE_USER']);
+            $user->setEmailToken(MD5($user->getNom()));
+            $user->setPassword($hash);
+            $manager->persist($user);
+            $manager->flush();
+
+            return $this->redirectToRoute("LoginAr");
+
+        }
+        return $this->render('SignUpAr.html.twig', [
+            'form'=>$form->createView()
+
+        ]);
+    
+}
 }

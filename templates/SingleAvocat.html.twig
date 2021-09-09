@@ -1,3 +1,5 @@
+{% extends 'base.html.twig' %}
+{% block body %}
 <!DOCTYPE html>
 <html lang="ar">
     <!-- Hotjar Tracking Code for avoconsulte.com -->
@@ -23,7 +25,7 @@ _atrk_opts = { atrk_acct:"BFDww1WyR620WR", domain:"avoconsulte.com",dynamic: tru
 <script data-ad-client="ca-pub-8304999942476168" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <base href="/">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta property="og:title" content=" صفحة المحام   {{key.nom_ar}}" | {{key.gouvernorat_ar}} - Avoconsulte" />
+    <meta property="og:title" content=" صفحة المحام   {{key.nom_ar}} | {{key.gouvernorat_ar}} - Avoconsulte" />
     <meta property="og:description" content=" صفحة المحام  {{key.nom_ar}}" | "{{key.gouvernorat_ar}} - إتصل ب{{key.nom_ar}}  أو  خذ موعداً مجانا Avoconsulte - دليل المحامين التونسيين" />
     <meta property="og:type" content="website" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -246,3 +248,4 @@ window.onclick = function(event) {
    
 </body>
 </html>
+{% endblock %}

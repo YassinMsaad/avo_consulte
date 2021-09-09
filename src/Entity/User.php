@@ -48,7 +48,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface  {
      * @Assert\Length(min="8", minMessage="Votre mot de passe doit depassé 8 caractéres")
      */
     private $password;
-/**
+    /**
      * @Assert\EqualTo(propertyPath="password", message="Vous n'avez pas tapé le méme mot de passe")
      */
     private $confirm_password;
@@ -206,6 +206,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface  {
                 $qrUser->setUser(null);
             }
         }
+
+        return $this;
+    }
+    public function getConfirmPassword(): ?string
+    {
+        return $this->confirm_password;
+    }
+
+    public function setConfirmPassword(string $confirm_password): self
+    {
+        $this->confirm_password = $confirm_password;
 
         return $this;
     }

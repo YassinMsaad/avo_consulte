@@ -1,0 +1,184 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<!-- Hotjar Tracking Code for avoconsulte.com -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2449137,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<body dir="rtl">
+
+	<div class="layer"></div>
+	<!-- Mobile menu overlay mask -->
+
+<!-- 	<div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div>
+ -->
+    
+     <header class="header_sticky">
+		<div class="container" >
+			<div class="row">
+				<div class="col-lg-2 col-6">
+
+					<div id="logo_home">
+						<a href="/" title="AvoConsulte"></a>
+					</div>
+
+				</div>
+
+				<nav class="col-lg-10 col-6">
+					<a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="#0"><span>Menu mobile</span></a>
+
+					<div class="main-menu">
+						<ul>
+							<li class="submenu"  class="icon-down-open-mini">
+								<a href="/" >الصفحة الرئيسية</a>
+							</li>
+                            <li class="submenu"  class="icon-down-open-mini">
+								<a href="/استشارات-قانونية/" >استشارات قانونية</a>
+							</li>
+							<li class="submenu"  class="icon-down-open-mini">
+									<a href="/المجلة-القانونية/">المجلة القانونية</a>
+							</li>
+							<li class="submenu"  class="icon-down-open-mini">
+								<a href="/من-نحن/" >من نحن ؟</a>
+							</li>
+							<li class="submenu"  class="icon-down-open-mini">
+								<a href="/اتصل-بنا/" >اتصل بنا</a>
+							</li>
+							<li class="thin"  class="icon-down-open-mini">
+							   <a href="#"  class="thin"  >  اللغة ▼</a>
+  							<ul>
+							 <li><a href="/fr/" >Français</a></li>
+						     <li><a href="/" >العربية</a></li>
+							</ul>
+							</li>
+							
+						</ul>
+
+					</div>
+
+					
+					
+					<!-- /main-menu -->
+				</nav>
+						
+			</div>
+		</div>
+		<!-- /container -->
+	</header>
+	<!-- /header -->	
+	
+	<main>
+		<div class="bg_color_2">
+			<div class="container margin_60_35">
+				<div id="register">
+                <h1>سجل في أفوكنسلت</h1>
+                 <div class="row justify-content-center">
+						<div class="col-md-5">
+						    {% if form_errors(form.telephone) %}
+						    <div class="alert alert-danger" role="alert">
+                                <p>الرجاء التاكد من صحة المعلومات</p>
+                            </div>
+                           {% endif %}
+							{{form_start(form)}}
+                                
+								<div class="box_form">
+									<div class="form-group">
+                                     {{form_widget(form.nom,{attr:{
+                                            'for':'{{form.nom.vars.full_name}}',
+                                            'label':'اسم',
+                                            'name':'nom',
+                                            'class':'form-control',
+                                            'placeholder':'اسمك',
+                                        }})}}
+									
+									</div>
+									<div class="form-group">
+                                        {{form_widget(form.prenom,{attr:{
+                                            'for':'{{form.prenom.vars.full_name}}',
+                                            'label':'الكنية',
+                                            'name':'prenom',
+                                            'class':'form-control',
+                                            'placeholder':'اسمك الاخير',
+                                        }})}}
+									
+									</div>
+									<div class="form-group">
+										 {{form_widget(form.email,{attr:{
+                                            'for':'{{form.email.vars.full_name}}',
+                                            'label':'بريد إلكتروني',
+                                            'name':'email',
+                                            'class':'form-control',
+                                            'placeholder':'بريدك الإلكتروني',
+                                        }})}}
+									</div>
+                                     <div class="form-group">
+                                         {{form_widget(form.telephone,{attr:{
+                                            'for':'{{form.telephone.vars.full_name}}',
+                                            'label':'رقم الهاتف',
+                                            'name':'telephone',
+                                            'class':'form-control',
+                                            'placeholder':'رقم هاتفك' 
+                                        }})}}
+									</div>
+									<div class="form-group">
+									
+                                        {{form_widget(form.password,{attr:{
+                                            'for':'{{form.password.vars.full_name}}',
+                                            'label':'كلمه السر',
+                                            'name':'password',
+                                            'class':'form-control',
+                                            'placeholder':'كلمة مرورك' 
+                                        }})}}
+										
+									</div>
+									<div class="form-group">
+                                         {{form_widget(form.confirm_password,{attr:{
+                                            'for':'{{form.confirm_password.vars.full_name}}',
+                                            'label':'تأكيد كلمة المرور',
+                                            'name':'confirm_password',
+                                            'class':'form-control',
+                                            'placeholder':'تأكيد كلمة المرور' 
+                                        }})}}
+									</div>
+                                   
+									<div id="pass-info" class="clearfix"></div>
+						<div class="form-group"  >
+							<div class="checkboxes add_bottom_15 add_top_15" >
+								<label class="container_check">أوافق على شروط وأحكام <a href="https://avoconsulte.com/%D8%A7%D9%84%D8%AE%D8%B5%D9%88%D8%B5%D9%8A%D8%A9-%D9%88-%D8%A7%D9%84%D8%A3%D9%85%D9%86/">Avoconuslte</a>
+									<input type="checkbox" required>
+									<span class="checkmark"></span>
+								</label>
+							</div>
+						</div>
+									<div class="form-group text-center add_top_30">
+										<input class="btn_1" type="submit" value="تسجيل">
+									</div>
+								</div>
+							{{form_end(form)}}
+						</div>
+					</div>
+					<!-- /row -->
+				</div>
+				<!-- /register -->
+			</div>
+		</div>
+	</main>
+	
+
+   
+</body>
+</html>
+{% endblock %}
