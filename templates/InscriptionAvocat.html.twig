@@ -1,0 +1,425 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="ar">
+    <!-- Hotjar Tracking Code for avoconsulte.com -->
+
+
+<body dir="rtl">
+	<div class="layer"></div>
+      <header class="header_sticky">
+		<div class="container" >
+			<div class="row">
+				<div class="col-lg-2 col-6">
+
+					<div id="logo_home">
+						<a href="/" title="AvoConsulte"></a>
+					</div>
+
+				</div>
+
+				<nav class="col-lg-10 col-6">
+					<a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="#0"><span>Menu mobile</span></a>
+
+					<div class="main-menu">
+						<ul>
+							<li class="submenu"  class="icon-down-open-mini">
+								<a href="/" >الصفحة الرئيسية</a>
+							</li>
+                            <li class="submenu"  class="icon-down-open-mini">
+								<a href="/استشارات-قانونية/" >استشارات قانونية</a>
+							</li>
+							<li class="submenu"  class="icon-down-open-mini">
+									<a href="/المجلة-القانونية/">المجلة القانونية</a>
+							</li>
+							<li class="submenu"  class="icon-down-open-mini">
+								<a href="/من-نحن/" >من نحن ؟</a>
+							</li>
+							<li class="submenu"  class="icon-down-open-mini">
+								<a href="/اتصل-بنا/" >اتصل بنا</a>
+							</li>
+							<li class="thin"  class="icon-down-open-mini">
+							   <a href="#"  class="thin"  >  اللغة ▼</a>
+  							<ul>
+							 <li><a href="/fr/" >Français</a></li>
+						     <li><a href="/" >العربية</a></li>
+							</ul>
+							</li>
+							
+						</ul>
+
+					</div>
+                 	<!-- /main-menu -->
+				</nav>
+						
+			</div>
+			<div class="Menu_compte">
+            <a href="/حسابي/">حسابي</a>
+            </div>
+		</div>
+		<!-- /container -->
+	</header>
+	<!-- /header -->	
+	
+	<main>
+		<div class="bg_color_2" dir="ltr">
+			<div class="container margin_60_35">
+				<div id="register">
+							{{ form_start(form)}}
+                <h1>Inscrivez-Vous Maintenant à AvoConsulte</h1>
+                 <div class="row justify-content-center">
+                     		<div class="col-md-5 ">
+						
+								<div class="box_form">
+								<div class="fi-w form-group text-left">
+{{form_errors(form.nom_fr)}}
+{{form_widget(form.nom_fr,{
+        attr: {
+            'for':'{{form.nom_fr.vars.full_name}}',
+            'class':'fi form-control text-left',
+            'value':'',
+            'onchange':'myFunction3(this.value,this.id)'
+            }})}}
+{{form_label(form.nom_fr,'Nom',{'label_attr':{'class':'lbl','name':'{{form.nom_fr.vars.full_name}}','id':'{{form.nom_fr.vars.full_name}}'}})}}
+
+            
+            </div>
+						<div class="fi-w form-group text-left">
+										{{form_errors(form.adresse_fr)}}
+{{form_widget(form.adresse_fr,{
+        attr: {
+            'for':'{{form.adresse_fr.vars.full_name}}',
+            'class':'fi form-control text-left',
+            'value':'',
+            'onchange':'myFunction3(this.value,this.id)'
+            }})}}
+{{form_label(form.adresse_fr,'Adresse',{'label_attr':{'class':'lbl','name':'{{form.adresse_fr.vars.full_name}}','id':'{{form.adresse_fr.vars.full_name}}'}})}}
+</div>
+									<div class="fi-w form-group text-left">
+										{{form_errors(form.gouvernorat_fr)}}
+{{form_widget(form.gouvernorat_fr,{
+        attr: {
+            'for':'{{form.gouvernorat_fr.vars.full_name}}',
+            'class':'form-control text-left',
+            'value':'',
+            'onchange':'myFunction4(this.value,this.id)'
+            }})}}
+</div>
+									<div class="form-group text-left">
+										{{form_errors(form.specialite)}}
+{{form_widget(form.specialite,{
+        attr: {
+            'for':'{{form.specialite.vars.full_name}}',
+            'class':'form-control text-left',
+            'value':'',
+            'onchange':'myFunction7(this.value,this.id)'
+            }})}}
+									</div>
+									<div class="fi-w form-group text-left">
+									{{form_errors(form.telephone)}}
+{{form_widget(form.telephone,{
+        attr: {
+            'for':'{{form.telephone.vars.full_name}}',
+            'class':'fi form-control text-left',
+            'value':'',
+            'onchange':'myFunction10(this.value,this.id)'
+            }})}}
+{{form_label(form.telephone,'Numero de Telephone Bureau',{'label_attr':{'class':'lbl','name':'{{form.telephone.vars.full_name}}','id':'{{form.telephone.vars.full_name}}'}})}}
+									</div>
+									<div class="fi-w form-group text-left">
+									{{form_errors(form.mobile)}}
+{{form_widget(form.mobile,{
+        attr: {
+            'for':'{{form.mobile.vars.full_name}}',
+            'class':'fi form-control text-left',
+            'value':'',
+            'onchange':'myFunction11(this.value,this.id)'
+            }})}}
+{{form_label(form.mobile,'Numero de Telephone mobile',{'label_attr':{'class':'lbl','name':'{{form.mobile.vars.full_name}}','id':'{{form.mobile.vars.full_name}}'}})}}
+
+									</div>
+
+									<div class="fi-w form-group text-left">
+{{form_errors(form.fax)}}
+{{form_widget(form.fax,{
+        attr: {
+            'for':'{{form.fax.vars.full_name}}',
+            'class':'fi form-control text-left',
+            'value':'',
+            'onchange':'myFunction20(this.value,this.id)'
+            }})}}
+{{form_label(form.fax,'Numero de telephone Fax',{'label_attr':{'class':'lbl','name':'{{form.fax.vars.full_name}}','id':'{{form.fax.vars.full_name}}'}})}}
+									</div>
+									<div class="fi-w form-group text-left">
+										{{form_errors(form.email)}}
+{{form_widget(form.email,{
+        attr: {
+            'for':'{{form.email.vars.full_name}}',
+            'class':'fi form-control text-left',
+            'value':' ',
+            'onchange':'myFunction8(this.value,this.id)'
+            }})}}
+{{form_label(form.email,'Adresse electronique',{'label_attr':{'class':'lbl','name':'{{form.email.vars.full_name}}','id':'{{form.email.vars.full_name}}'}})}}
+</div>
+									<div class="fi-w form-group text-left">
+									{{form_errors(form.password)}}
+{{form_widget(form.password,{
+        attr: {
+            'for':'{{form.password.vars.full_name}}',
+            'class':'fi form-control text-left',
+            'value':' ',
+            'onchange':'myFunction12(this.value,this.id)'
+            }})}}
+{{form_label(form.password,'mot de passe',{'label_attr':{'class':'lbl','name':'{{form.password.vars.full_name}}','id':'{{form.password.vars.full_name}}'}})}}
+	</div>
+									<div class="fi-w form-group text-left">
+									{{form_errors(form.confirm_password)}}
+{{form_widget(form.confirm_password,{
+        attr: {
+            'for':'{{form.confirm_password.vars.full_name}}',
+            'class':'fi form-control text-left',
+            'value':'',
+            'onchange':'myFunction13(this.value,this.id)'
+            }})}}
+{{form_label(form.confirm_password,'confirmez mot de passe',{'label_attr':{'class':'lbl','name':'{{form.confirm_password.vars.full_name}}','id':'{{form.confirm_password.vars.full_name}}'}})}}
+	</div>
+									
+								</div>
+							
+						</div>
+						<div class="col-md-5 ">
+							
+								<div class="box_form">
+									<div class="fi-w form-group">
+										{{form_errors(form.nom_ar)}}
+{{form_widget(form.nom_ar,{
+        attr: {
+            'for':'{{form.nom_ar.vars.full_name}}',
+            'class':'fi form-control text-right',
+            'value':'',
+            'onchange':'myFunction3(this.value,this.id)'
+            }})}}
+{{form_label(form.nom_ar,'الإسم واللقب ',{'label_attr':{'class':'lbl','name':'{{form.nom_ar.vars.full_name}}','id':'{{form.nom_ar.vars.full_name}}'}})}}
+
+									</div>
+									<div class="fi-w form-group">
+									{{form_errors(form.adresse_ar)}}
+{{form_widget(form.adresse_ar,{
+        attr: {
+            'for':'{{form.adresse_ar.vars.full_name}}',
+            'class':'fi form-control text-right',
+            'value':'',
+            'onchange':'myFunction3(this.value,this.id)'
+            }})}}
+{{form_label(form.adresse_ar,'العنوان كاملاً ',{'label_attr':{'class':'lbl','name':'{{form.adresse_ar.vars.full_name}}','id':'{{form.adresse_ar.vars.full_name}}'}})}}
+</div>
+									<div class="fi-w form-group">
+										{{form_errors(form.gouvernorat_ar)}}
+{{form_widget(form.gouvernorat_ar,{
+        attr: {
+            'for':'{{form.gouvernorat_ar.vars.full_name}}',
+            'class':'form-control text-right',
+            'value':'',
+            'onchange':'myFunction5(this.value,this.id)',
+			'dir':'rtl'
+            }})}}
+</div>
+									<div class="form-group text-right" dir="rtl">
+										<select onchange="myFunction6()" id="sspec" class="form-control text-right">
+											<option value="0" selected>الاختصاص  : </option>
+										    <option value="1">المحكمة  الابتدائية </option>
+										    <option value="2">محكمة  الاستئناف  </option>
+										    <option value="3">محكمة  التعقيب </option>
+										</select>
+
+									</div>
+									<div class="fi-w form-group text-right">
+										<input value="" onchange="myFunction15(this.value,this.id)" type="text" name="" value="" id="stelephone"class="fi form-control text-right" >
+										<label class="lbl" for="stelephone">رقم هاتف المكتب</label>
+									</div>
+									<div class="fi-w form-group text-right">
+										<input value="" onchange="myFunction16(this.value,this.id)" type="text" id="smobile" name="" class="fi form-control text-right" >
+										<label class="lbl" for="smobile">رقم الهاتف الجوال</label>
+									</div>
+										<div class="fi-w form-group text-right">
+										<input onchange="myFunction19(this.value,this.id)" value="" type="text" id="sfax" name="" class="fi form-control text-right" >
+										<label class="lbl" for="sfax">رقم الفكس</label>
+									</div>
+									<div class="fi-w form-group text-right">
+										<input value="" onchange="myFunction9(this.value,this.id)" type="text" id="semail" name="semail" class="fi form-control text-right">
+										<label class="lbl" for="semail">عنوان البريد الإلكتروني</label>
+									</div>
+									<div class="fi-w form-group">
+										<input type="password" value="" onchange="myFunction17(this.value,this.id)"id="spassword" class="fi form-control text-right" id="password1" name="password" >
+										<label class="lbl" for="spassword">كلمه السر</label>
+									</div>
+									<div class="fi-w form-group">
+										<input id="scpassword" value="" onchange="myFunction18(this.value,this.id)" type="password" class="fi form-control text-right" id="password2"  >
+										<label class="lbl" for="scpaswword">تأكيد كلمة المرور</label>
+									</div>
+
+								</div>
+						
+						</div>
+						<div class="form-group"  >
+							<div class="checkboxes add_bottom_15 add_top_20" dir="ltr" >
+								<label class="container_check" style="color:#000;">J'accepte les termes et conditions de <a href="https://avoconsulte.com/%D8%A7%D9%84%D8%AE%D8%B5%D9%88%D8%B5%D9%8A%D8%A9-%D9%88-%D8%A7%D9%84%D8%A3%D9%85%D9%86/">Avoconuslte&nbsp;</a>
+									<input type="checkbox" required>
+									<span class="checkmark"></span>
+								</label>
+							</div>
+						</div>
+									
+					</div>
+					<div class="form-group text-center add_top_20">
+										<input class="btn_1" type="submit" value="Inscription">
+						</div>
+					<!-- /row -->
+						{{form_end(form)}}
+				</div>
+				<!-- /register -->
+			</div>
+		</div>
+	</main>
+<script>
+function myFunction4(val,id) {
+	
+switch ($('#'+id).val()) {
+	case "0" :document.getElementById('avocat_gouvernorat_ar').value="0";break;
+	case "23" :document.getElementById('avocat_gouvernorat_ar').value="7";break;
+	case "1":document.getElementById('avocat_gouvernorat_ar').value="1";break;
+	case "2":document.getElementById('avocat_gouvernorat_ar').value="2";break;
+	case "3":document.getElementById('avocat_gouvernorat_ar').value="3";break;
+	case "4":document.getElementById('avocat_gouvernorat_ar').value="4";break;
+	case "5":document.getElementById('avocat_gouvernorat_ar').value="14";break;
+	case "6":document.getElementById('avocat_gouvernorat_ar').value="17";break;
+	case "7":document.getElementById('avocat_gouvernorat_ar').value="8";break;
+	case "8":document.getElementById('avocat_gouvernorat_ar').value="18";break;
+	case "9":document.getElementById('avocat_gouvernorat_ar').value="16";break;
+	case "10":document.getElementById('avocat_gouvernorat_ar').value="15";break;
+	case "11":document.getElementById('avocat_gouvernorat_ar').value="19";break;
+	case "12":document.getElementById('avocat_gouvernorat_ar').value="23";break;
+	case "13":document.getElementById('avocat_gouvernorat_ar').value="22";break;
+	case "14":document.getElementById('avocat_gouvernorat_ar').value="20";break;
+	case "15":document.getElementById('avocat_gouvernorat_ar').value="21";break;
+	case "16":document.getElementById('avocat_gouvernorat_ar').value="24";break;
+	case "17":document.getElementById('avocat_gouvernorat_ar').value="13";break;
+	case "18":document.getElementById('avocat_gouvernorat_ar').value="12";break;
+	case "19":document.getElementById('avocat_gouvernorat_ar').value="10";break;
+	case "20":document.getElementById('avocat_gouvernorat_ar').value="11";break;
+	case "21":document.getElementById('avocat_gouvernorat_ar').value="5";break;
+	case "22":document.getElementById('avocat_gouvernorat_ar').value="6";break;
+	case "24":document.getElementById('avocat_gouvernorat_ar').value="9";break;
+	
+};}function myFunction5(val,id) {
+	
+switch ($('#'+id).val()) {
+	case "0" :document.getElementById('avocat_gouvernorat_fr').value="0";break;
+	case "7" :document.getElementById('avocat_gouvernorat_fr').value="23";break;
+	case "1":document.getElementById('avocat_gouvernorat_fr').value="1";break;
+	case "2":document.getElementById('avocat_gouvernorat_fr').value="2";break;
+	case "3":document.getElementById('avocat_gouvernorat_fr').value="3";break;
+	case "4":document.getElementById('avocat_gouvernorat_fr').value="4";break;
+	case "14":document.getElementById('avocat_gouvernorat_fr').value="5";break;
+	case "17":document.getElementById('avocat_gouvernorat_fr').value="6";break;
+	case "8":document.getElementById('avocat_gouvernorat_fr').value="7";break;
+	case "18":document.getElementById('avocat_gouvernorat_fr').value="8";break;
+	case "16":document.getElementById('avocat_gouvernorat_fr').value="9";break;
+	case "15":document.getElementById('avocat_gouvernorat_fr').value="10";break;
+	case "19":document.getElementById('avocat_gouvernorat_fr').value="11";break;
+	case "23":document.getElementById('avocat_gouvernorat_fr').value="12";break;
+	case "22":document.getElementById('avocat_gouvernorat_fr').value="13";break;
+	case "20":document.getElementById('avocat_gouvernorat_fr').value="14";break;
+	case "21":document.getElementById('avocat_gouvernorat_fr').value="15";break;
+	case "24":document.getElementById('avocat_gouvernorat_fr').value="16";break;
+	case "13":document.getElementById('avocat_gouvernorat_fr').value="17";break;
+	case "12":document.getElementById('avocat_gouvernorat_fr').value="18";break;
+	case "10":document.getElementById('avocat_gouvernorat_fr').value="19";break;
+	case "11":document.getElementById('avocat_gouvernorat_fr').value="20";break;
+	case "5":document.getElementById('avocat_gouvernorat_fr').value="21";break;
+	case "6":document.getElementById('avocat_gouvernorat_fr').value="22";break;
+	case "9":document.getElementById('avocat_gouvernorat_fr').value="24";break;
+	
+};}
+function myFunction6(){
+switch (document.getElementById('sspec').value) {
+	case "0" :document.getElementById('avocat_specialite').value="0";break;
+	case "1" :document.getElementById('avocat_specialite').value="1";break;
+	case "2":document.getElementById('avocat_specialite').value="2";break;
+	case "3":document.getElementById('avocat_specialite').value="3";break;
+}}
+function myFunction7(){
+switch ($('#avocat_specialite').val()) {
+	case "0" :document.getElementById('sspec').value="0";break;
+	case "1" :document.getElementById('sspec').value="1";break;
+	case "2":document.getElementById('sspec').value="2";break;
+	case "3":document.getElementById('sspec').value="3";break;
+}}
+function myFunction8(val,id){
+	$('#'+id).attr('value',$('#'+id).val());
+	document.getElementById('semail').value=val;
+
+}
+function myFunction9(val,id){
+	$('#'+id).attr('value',$('#'+id).val());
+	document.getElementById('avocat_email').value=val;
+
+}
+function myFunction10(val,id){
+	$('#'+id).attr('value',$('#'+id).val());
+	document.getElementById('stelephone').value=val;
+
+}
+function myFunction11(val,id){
+	$('#'+id).attr('value',$('#'+id).val());
+	document.getElementById('smobile').value=val;
+
+}
+function myFunction12(val,id){
+	$('#'+id).attr('value',$('#'+id).val());
+	document.getElementById('spassowrd').value=val;
+
+}
+function myFunction13(val,id){
+	$('#'+id).attr('value',$('#'+id).val());
+	document.getElementById('scpassowrd').value=val;
+
+}
+function myFunction15(val,id){
+	$('#'+id).attr('value',$('#'+id).val());
+	document.getElementById('avocat_telephone').value=val;
+
+}
+function myFunction16(val,id){
+	$('#'+id).attr('value',$('#'+id).val());
+	document.getElementById('avocat_mobile').value=val;
+}
+function myFunction17(val,id){
+	$('#'+id).attr('value',$('#'+id).val());
+	document.getElementById('avocat_password').value=val;
+}
+function myFunction18(val,id){
+	$('#'+id).attr('value',$('#'+id).val());
+	document.getElementById('avocat_confirm_password').value=val;
+}
+function myFunction19(val,id){
+	$('#'+id).attr('value',$('#'+id).val());
+	document.getElementById('avocat_fax').value=val;
+}
+
+
+function myFunction20(val,id){
+	$('#'+id).attr('value',$('#'+id).val());
+	document.getElementById('smobile').value=val;
+
+}
+function myFunction3(val,id) {
+$('#'+id).attr('value',$('#'+id).val());
+
+}
+   
+</script>
+   
+</body>
+</html>
+{% endblock %}
