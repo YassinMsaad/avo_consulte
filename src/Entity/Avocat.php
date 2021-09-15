@@ -5,6 +5,9 @@ namespace App\Entity;
 use App\Repository\AvocatRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -80,9 +83,15 @@ class Avocat
     private $img_url;
 
     /**
+     * @var string The hashed password
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min="8", minMessage="Votre mot de passe doit depassé 8 caractéres")
      */
     private $password;
+     /**
+     * @Assert\EqualTo(propertyPath="password", message="Vous n'avez pas tapé le méme mot de passe")
+     */
+    private $confirm_password;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -111,72 +120,72 @@ class Avocat
         return $this->id;
     }
 
-    public function getNom_Fr(): ?string
+    public function getNomFr(): ?string
     {
         return $this->nom_fr;
     }
 
-    public function setNom_Fr(string $nom_fr): self
+    public function setNomFr(string $nom_fr): self
     {
         $this->nom_fr = $nom_fr;
 
         return $this;
     }
 
-    public function getNom_Ar(): ?string
+    public function getNomAr(): ?string
     {
         return $this->nom_ar;
     }
 
-    public function setNom_Ar(string $nom_ar): self
+    public function setNomAr(string $nom_ar): self
     {
         $this->nom_ar = $nom_ar;
 
         return $this;
     }
 
-    public function getAdresse_Fr(): ?string
+    public function getAdresseFr(): ?string
     {
         return $this->adresse_fr;
     }
 
-    public function setAdresse_Fr(string $adresse_fr): self
+    public function setAdresseFr(string $adresse_fr): self
     {
         $this->adresse_fr = $adresse_fr;
 
         return $this;
     }
 
-    public function getAdresse_Ar(): ?string
+    public function getAdresseAr(): ?string
     {
         return $this->adresse_ar;
     }
 
-    public function setAdresse_Ar(string $adresse_ar): self
+    public function setAdresseAr(string $adresse_ar): self
     {
         $this->adresse_ar = $adresse_ar;
 
         return $this;
     }
 
-    public function getGouvernorat_Ar(): ?string
+    public function getGouvernoratAr(): ?string
     {
         return $this->gouvernorat_ar;
     }
 
-    public function setGouvernorat_Ar(string $gouvernorat_ar): self
+    public function setGouvernoratAr(string $gouvernorat_ar): self
     {
         $this->gouvernorat_ar = $gouvernorat_ar;
 
         return $this;
     }
 
-    public function getGouvernorat_Fr(): ?string
+    public function getGouvernoratFr(): ?string
     {
         return $this->gouvernorat_fr;
     }
 
-    public function setGouvernorat_Fr(string $gouvernorat_fr): self
+    public function setGouvernoratFr(string $gouvernorat_fr): self
     {
         $this->gouvernorat_fr = $gouvernorat_fr;
 
@@ -243,12 +252,12 @@ class Avocat
         return $this;
     }
 
-    public function getImg_Url(): ?string
+    public function getImgUrl(): ?string
     {
         return $this->img_url;
     }
 
-    public function setImg_Url(string $img_url): self
+    public function setImgUrl(string $img_url): self
     {
         $this->img_url = $img_url;
 
@@ -258,6 +267,21 @@ class Avocat
     public function getPassword(): ?string
     {
         return $this->password;
+    }
+    public function getConfirmPassword(): ?string
+    {
+        return $this->confirm_password;
+    }
+
+    public function setConfirmPassword(string $confirm_password): self
+    {
+        $this->confirm_password = $confirm_password;
+
+        return $this;
+    }
+    public function getSalt(): ?string
+    {
+        return null;
     }
 
     public function setPassword(string $password): self
@@ -320,4 +344,5 @@ class Avocat
 
         return $this;
     }
+    
 }
