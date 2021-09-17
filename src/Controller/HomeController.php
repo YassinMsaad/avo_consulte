@@ -9,10 +9,12 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use App\Entity\Avocat;
 use App\Entity\User;
+use App\Entity\QrUser;
 use App\Entity\Blog;
 use App\Entity\QrReponse;
 use Symfony\Component\Security\Core\User\UserInterface;
 use App\Form\SignUpClientArType;
+use App\Form\AvocatType;
 use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -294,4 +296,60 @@ public function getAllEvents($i):Response{
         ]);
     
 }
+
+ /**
+     * @Route("/حسابي/",name="MyAccount")
+    */ 
+ public function MyAccountAr ():Response {   
+$user = $this->getUser();
+if (!(isset($user))){
+    return $this->redirectToRoute("LoginAr");
+}
+return $this->render('MyAccount.html.twig', [
+ 
+
+]);
+}
+/**
+     * @Route("/شكرا/",name="ThanksAr")
+    */ 
+    public function SubmittedAr():Response {   
+        $user = $this->getUser();
+        if (!(isset($user))){
+            return $this->redirectToRoute("LoginAr");
+        }
+        $qr=new QrUser();
+        $qr->setUser($user);
+        $qr->setQuestion($_POST["question"]);
+        $qr->setQtitle($_POST["title"]);
+        $manager = $this->getDoctrine()->getManager();
+        $manager->persist($qr);
+        $manager->flush();
+        return $this->redirectToRoute("home_ar");
+    
+
+        }
+        /**
+     * @Route("/avocats/inscription",name="InscriptionAvocat")
+    */ 
+    public function InscriptionAvocat(Request $request):Response {   
+        $avocat = new Avocat();
+        $form = $this->createForm(AvocatType::Class,$avocat);
+        $form->handleRequest($request);
+        echo $avocat->getNomAr();
+        $_POST["test"]=$avocat->getNomAr();
+        if ($form->isSubmitted()&& $form->isValid()){
+        var_dump($avocat);
+        }
+        return $this->render('InscriptionAvocat.html.twig', [
+            'form'=>$form->createView()
+
+        ]);
+        }
+        /**
+     * @Route("/logout",name="app_logout")
+    */ 
+    public function logout():Response {
+        return $this->redirectToRoute("home_ar");  
+    }
 }
