@@ -120,24 +120,24 @@ class Avocat
         return $this->id;
     }
 
-    public function getNomFr(): ?string
+    public function getNom_Fr(): ?string
     {
         return $this->nom_fr;
     }
 
-    public function setNomFr(string $nom_fr): self
+    public function setNom_Fr(string $nom_fr): self
     {
         $this->nom_fr = $nom_fr;
 
         return $this;
     }
 
-    public function getNomAr(): ?string
+    public function getNom_Ar(): ?string
     {
         return $this->nom_ar;
     }
 
-    public function setNomAr(string $nom_ar): self
+    public function setNom_Ar(string $nom_ar): self
     {
         $this->nom_ar = $nom_ar;
 
@@ -168,12 +168,12 @@ class Avocat
         return $this;
     }
 
-    public function getGouvernoratAr(): ?string
+    public function getGouvernorat_Ar(): ?string
     {
         return $this->gouvernorat_ar;
     }
 
-    public function setGouvernoratAr(string $gouvernorat_ar): self
+    public function setGouvernorat_Ar(string $gouvernorat_ar): self
     {
         $this->gouvernorat_ar = $gouvernorat_ar;
 
@@ -252,12 +252,12 @@ class Avocat
         return $this;
     }
 
-    public function getImgUrl(): ?string
+    public function getImg_Url(): ?string
     {
         return $this->img_url;
     }
 
-    public function setImgUrl(string $img_url): self
+    public function setImg_Url(string $img_url): self
     {
         $this->img_url = $img_url;
 

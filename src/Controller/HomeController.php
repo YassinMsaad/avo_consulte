@@ -243,8 +243,7 @@ public function getAllEvents($i):Response{
         $user = $this->getUser();
         if (!(isset($user))){
             return $this->redirectToRoute("LoginAr");
-        }
-
+       }
         return $this->render('submitQr.html.twig', [
             
 
@@ -260,6 +259,7 @@ public function getAllEvents($i):Response{
              'error' => $error
 
         ]);
+        
     }
             /**
      * @Route("/محامي/{slug}/{id}",name="SingleAvocat",methods="GET")
@@ -287,7 +287,7 @@ public function getAllEvents($i):Response{
             $manager->persist($user);
             $manager->flush();
 
-            return $this->redirectToRoute("LoginAr");
+            return $this->redirectToRoute("submitQr");
 
         }
         return $this->render('SignUpAr.html.twig', [
@@ -310,6 +310,7 @@ return $this->render('MyAccount.html.twig', [
 
 ]);
 }
+
 /**
      * @Route("/شكرا/",name="ThanksAr")
     */ 
@@ -347,7 +348,7 @@ return $this->render('MyAccount.html.twig', [
         ]);
         }
         /**
-     * @Route("/logout",name="app_logout")
+     * @Route("/خروج/",name="app_logout")
     */ 
     public function logout():Response {
         return $this->redirectToRoute("home_ar");  

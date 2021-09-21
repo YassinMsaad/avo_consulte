@@ -1,0 +1,165 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="ar">
+<!-- Hotjar Tracking Code for avoconsulte.com -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2449137,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+
+<body dir="rtl">
+
+	<div class="layer"></div>
+	<!-- Mobile menu overlay mask -->
+
+<!-- 	<div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div>
+ -->
+    
+     <header class="header_sticky">
+		<div class="container" >
+			<div class="row">
+				<div class="col-lg-2 col-6">
+
+					<div id="logo_home">
+						<a href="/" title="AvoConsulte"></a>
+					</div>
+
+				</div>
+
+				<nav class="col-lg-10 col-6">
+					<a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="#0"><span>Menu mobile</span></a>
+
+					<div class="main-menu">
+						<ul>
+							<li class="submenu"  class="icon-down-open-mini">
+								<a href="/" >الصفحة الرئيسية</a>
+							</li>
+                            <li class="submenu"  class="icon-down-open-mini">
+								<a href="/استشارات-قانونية/" >استشارات قانونية</a>
+							</li>
+							<li class="submenu"  class="icon-down-open-mini">
+									<a href="/المجلة-القانونية/">المجلة القانونية</a>
+							</li>
+							<li class="submenu"  class="icon-down-open-mini">
+								<a href="/من-نحن/" >من نحن ؟</a>
+							</li>
+							<li class="submenu"  class="icon-down-open-mini">
+								<a href="/اتصل-بنا/" >اتصل بنا</a>
+							</li>
+							<li class="thin"  class="icon-down-open-mini">
+							   <a href="#"  class="thin"  >  اللغة ▼</a>
+  							<ul>
+							 <li><a href="/fr/" >Français</a></li>
+						     <li><a href="/" >العربية</a></li>
+							</ul>
+							</li>
+							
+						</ul>
+
+					</div>
+
+					
+					
+					<!-- /main-menu -->
+				</nav>
+						
+			</div>
+			<div class="Menu_compte">
+            <a href="/خروج/">خروج</a>
+            </div>
+		</div>
+		<!-- /container -->
+	</header>
+	<!-- /header -->	
+	
+		<main>
+		<!-- /breadcrumb -->
+ <?php
+ include "services/crud.php";
+$crud = new crud() ; 
+$conn = $crud->cnx ; 
+ $Listqruser = $crud->afficherqruser($conn) ; 
+       $User = $crud->userloginemail($conn,$_SESSION['email']) ;?>
+		<div class="bg_color_1">
+			<div class="container margin_120_95">
+				<div class="main_title">
+				 <h1>أهلا <?php foreach($User as $var){
+				     echo $var['nom'];
+				 }
+                     ?> </h1>
+                  <p>هنا تجد الإجابة على أسئلتك</p>
+                <?php
+                foreach ($Listqruser as $key) {
+                    if($key['email'] = $_SESSION['email']){
+                        
+                    ?>
+                  <div class="post-content">
+                        <!--<a href="/id/<?php echo $key['id'] ?>">-->
+							<div class="singlebox">
+							  
+							    <strong><?php echo $key['Qtitle']." :" ?></strong>
+							<p><?php echo $key['Question'] ?></p>
+							</div>
+					  <!--</a>-->
+                           <!--<div class="avo-reponse">-->
+                           <!-- <p>  تمت الإجابة على هذا السؤال من قبل:  <a href="/محامون/">مساعد Avo</a></-->
+                           <!-- </div>-->
+							<!--<a href="#"></a> -->
+
+
+							<div class="singlebox" >
+							<p><?php if($key['Reponse'] == '0'){ echo "لم يتم الاجابة على سؤالك بعد "; }else{ echo $key['Reponse']; }?></p>
+							</div>
+
+							
+						</div>
+						<?php }}?>
+                  </div>
+				<div class="widget">
+						       <div class="widget-title">
+							<h4>أحدث استشارة قانونية</h4>
+						       </div>
+
+						<ul class="comments-list">
+                               <?php
+                               $Listblog = $crud->afficherqrar($conn) ; 
+                               $Listblog = $crud->afficherqraccueilar($conn) ; 
+
+
+                               foreach ($Listblog as $key) {
+
+
+
+
+                                ?>
+							<li>
+								<div class="alignleft">
+								    <a href="/استشارات-قانونية/<?php echo $key['url_slug'] ?>/<?php echo $key['id'] ?>/">
+								        <img src="../img/question-mark-icon-help-symbol-260nw-400447213.jpg<?php echo $key['image'] ?>" alt="<?php echo $key['titre'] ?>"></a>								</div>
+								<small><?php echo $key['temps'] ?></small>
+								<h3><a href="/استشارات-قانونية/<?php echo $key['url_slug'] ?>/<?php echo $key['id'] ?>/" title=""><?php echo $key['titre'] ?></a></h3>
+							</li>
+							<?php } ?>
+						</ul>
+					</div>
+
+		        </div>
+        
+		
+		</div>
+	</main>
+	<?php include 'template/footer.php'; ?>
+   
+</body>
+</html>
+{% endblock %}
