@@ -5,17 +5,17 @@
 {% for key in ListAvocat %}
 
 				
-					<div class="strip_list" dir="rtl" onclick="location.href='/محامي/{{key.Nom_ar|replace( {' ':'-'})}}/{{key.id}}';" style="cursor: pointer;">
+					<div class="strip_list" dir="rtl" onclick="location.href='/محامي/{{key.Nomar|replace( {' ':'-'})}}/{{key.id}}';" style="cursor: pointer;">
 						<figure>
-                        <img src="../assets/images/{{key.img_url}}" alt="{{key.Nom_ar}}"></figure>
+                        <img src="../assets/images/{{key.img_url}}" alt="{{key.Nomar}}"></figure>
 
-						<small>{{key.Nom_fr}} </small>
-                         <h3>{{key.Nom_ar}}</h3>
+						<small>{{key.Nomfr}} </small>
+                         <h3>{{key.Nomar}}</h3>
 
                          <ul>
 							<li><a>الولاية </a></li>
-							<li><p>{{key.Gouvernorat_ar}}</p></li>
-							<li><a href="/محامي/{{key.Nom_ar|replace( {' ':'-'})}}/{{key.id}}/">إحجز موعد</a></li>
+							<li><p>{{key.Gouvernoratar}}</p></li>
+							<li><a href="/محامي/{{key.Nomar|replace( {' ':'-'})}}/{{key.id}}/">إحجز موعد</a></li>
 							
 						</ul>
 

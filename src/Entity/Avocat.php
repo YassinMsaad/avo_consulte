@@ -97,7 +97,10 @@ class Avocat
      * @ORM\Column(type="string", length=255)
      */
     private $specialite;
-
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $tribunal;
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
@@ -120,24 +123,24 @@ class Avocat
         return $this->id;
     }
 
-    public function getNom_Fr(): ?string
+    public function getNomFr(): ?string
     {
         return $this->nom_fr;
     }
 
-    public function setNom_Fr(string $nom_fr): self
+    public function setNomFr(string $nom_fr): self
     {
         $this->nom_fr = $nom_fr;
 
         return $this;
     }
 
-    public function getNom_Ar(): ?string
+    public function getNomAr(): ?string
     {
         return $this->nom_ar;
     }
 
-    public function setNom_Ar(string $nom_ar): self
+    public function setNomAr(string $nom_ar): self
     {
         $this->nom_ar = $nom_ar;
 
@@ -168,12 +171,12 @@ class Avocat
         return $this;
     }
 
-    public function getGouvernorat_Ar(): ?string
+    public function getGouvernoratAr(): ?string
     {
         return $this->gouvernorat_ar;
     }
 
-    public function setGouvernorat_Ar(string $gouvernorat_ar): self
+    public function setGouvernoratAr(string $gouvernorat_ar): self
     {
         $this->gouvernorat_ar = $gouvernorat_ar;
 
@@ -311,6 +314,17 @@ class Avocat
     public function setCommentaire(?string $commentaire): self
     {
         $this->commentaire = $commentaire;
+
+        return $this;
+    }
+    public function getTribunal(): ?int
+    {
+        return $this->tribunal;
+    }
+
+    public function setTribunal(int $tribunal): self
+    {
+        $this->tribunal = $tribunal;
 
         return $this;
     }

@@ -29,7 +29,7 @@ class HomeController extends AbstractController
         $avocat=$this->getDoctrine()->getRepository(Avocat::Class)->find($id);
 
         return $this->render('avocat.html.twig', [
-            'avocat'->$avocat
+            'avocat'=>$avocat
         ]);
     }
     /**
