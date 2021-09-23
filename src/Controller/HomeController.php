@@ -154,8 +154,8 @@ public function getAllEvents($i):Response{
             
        
         }
-        $ListAvocat=$this->getDoctrine()->getRepository(Avocat::Class)->AfficheAvocatArAvocats(10);
-        
+        $ListAvocat=$this->getDoctrine()->getRepository(Avocat::Class)->AfficheAvocatArAvocats(10,[]);
+        $_POST["avocatsl"]=$ListAvocat;
         return $this->render('AvocatsAr.html.twig', [
             'ListAvocat'=>$ListAvocat,
         ]);
@@ -183,7 +183,9 @@ public function getAllEvents($i):Response{
     public function RenderAvocat($i):Response{
         $int = (int)$i;
 
-        $ListAvocat=$this->getDoctrine()->getRepository(Avocat::Class)->AfficheAvocatArAvocats($int+5);
+        $ListAvocat=$this->getDoctrine()->getRepository(Avocat::Class)->AfficheAvocatArAvocats($int+5,$_POST["avocatsl"]);
+        $_POST["avocatsl"]=array_merge($ListAvocat,$_POST["avocatsl"]);
+        print_r($_POST["avocatsl"]);
         return $this->render('renderAvocatAr.html.twig', [
             'ListAvocat'=>$ListAvocat,
         ]);
@@ -353,4 +355,5 @@ return $this->render('MyAccount.html.twig', [
     public function logout():Response {
         return $this->redirectToRoute("home_ar");  
     }
-}
+    
+    }
