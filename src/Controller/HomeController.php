@@ -368,11 +368,19 @@ return $this->render('MyAccount.html.twig', [
         ]);
         }
 
-        /**
+    /**
      * @Route("/خروج/",name="app_logout")
     */ 
     public function logout():Response {
         return $this->redirectToRoute("home_ar");  
     }
+    /**
+     * @Route("/موعد/{id}",name="RDV")
+     */
+    public function rdv () {
+        return $this->render('RDV.html.twig', [
+        ]);
+        }
+
     
     }
