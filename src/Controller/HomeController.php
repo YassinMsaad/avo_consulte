@@ -154,7 +154,7 @@ public function getAllEvents($i):Response{
             
        
         }
-        $ListAvocat=$this->getDoctrine()->getRepository(Avocat::Class)->AfficheAvocatArAvocats(10,[]);
+        $ListAvocat=$this->getDoctrine()->getRepository(Avocat::Class)->AfficheAvocatArAvocats(10);
         $_POST["avocatsl"]=$ListAvocat;
         return $this->render('AvocatsAr.html.twig', [
             'ListAvocat'=>$ListAvocat,

@@ -35,16 +35,10 @@ class AvocatRepository extends ServiceEntityRepository
         ;
     }
     */
-    public function AfficheAvocatArAvocats($i,$array)
-    {$a=[];
-        for ($i=0;$i<count($array);$i++)
-        {
-            $a=$array[$i]->getId();
-        }
+    public function AfficheAvocatArAvocats($i)
+    {
         return $this->createQueryBuilder('b')
              ->setMaxResults($i)
-            ->andWhere('b.id NOT IN (:val)')
-            ->setParameter('val', $a)
             ->getQuery()
             ->getResult()
         ;
