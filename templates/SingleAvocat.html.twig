@@ -140,7 +140,14 @@ onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع ا
                             <h4>معلومات إضافية عن {{key.nomar}}</h4>
                             <p>غير متوفره.</p>
                             <br>
-                            <h4>ماهي افوكنسلت؟</h4>
+							{% if key.subbed == true %}
+							<h5  onclick="RevealNumber()" style="cursor: pointer;"> انقر لعرض رقم الهاتف</h5>
+							<div id="NumTel" style="display:none;">
+							<p class="">الهاتف القار :{% if key.Telephone == NULL %} غير متوفر {% else %} {{key.Telephone}} {% endif %}</p>
+                            <p class="">الهاتف الجوال :{% if key.Mobile == NULL %} <p> غير متوفر </p> {% else %}  {{key.Mobile}} {% endif %}</p>
+							</div>
+							{% endif %}
+                            <h5>ماهي افوكنسلت؟</h5>
                             <p>افوكنسلت هي عبارة عن منصة مبتكرة تتيح لك العثور بسرعة على محامٍ  الأقرب إليك وتحديد موعد عبر الإنترنت مجانًا.افوكنسلت يسمح لك بطرح أسئلتك عبر الإنترنت مباشرة على المحامين مع احترام شروط السرية.</p>
 	                    </div>
 	                    <!-- /main_info -->
@@ -151,12 +158,16 @@ onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع ا
 	            <div class="col-xl-4 col-lg-5" id="sc">
 	                <div class="box_booking">
 	                    <div class="head">
-                        <h3>هل تريد الإتصل ب<?php echo $key['nomar'] ?>  ؟</h3>
+                        <h3>هل تريد الإتصل ب{{key.nomar}}  ؟</h3>
                         </div>
 	                    <div class="main" >
-
-	                        <a id="myBtn" class="btn_12 full-width">انقر لعرض رقم الهاتف</a></br>
-	                        <a class="btn_11 full-width">إحجز موعد</a><br>
+                            {% if key.subbed == true %} 
+	                        
+							<a class="btn_12 full-width">إحجز موعد</a><br>
+							{% else %}
+	                        
+							<a id="myBtn" class="btn_12 full-width">انقر لعرض رقم الهاتف</a></br>
+							{% endif %}
 	                        <div class="msg">
                               <h4><strong>هل أنت محامٍ ؟</strong><br><a href="https://avoconsulte.com/%D8%A7%D8%AA%D8%B5%D9%84-%D8%A8%D9%86%D8%A7/"> هل تريد تصحيح معلومات أو أن تكون في المنصة ؟  </a></h4>                     
                             </div>
@@ -170,8 +181,8 @@ onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع ا
   <div class="modal-content mobile_fixed popup_num" id="sidebar_fixed">
   	<br>
 <center><strong>أرقام الهاتف</strong></center></br>
-<center><p class="">الهاتف القار :<?php if($key['Telephone'] == "NULL"){echo" Indisponible  ";}else { echo $key['Telephone']; } ?></p></center></br>
-    <center><p class="">الهاتف الجوال :<?php if($key['Mobile'] == "NULL"){echo" غير متوفر ";}else { echo $key['Mobile']; } ?></p></center>
+<center><p class="">الهاتف القار :{% if key.Telephone == NULL %} <p> غير متوفر </p> {% else %} {{key.Telephone}} {% endif %}</p></center></br>
+    <center><p class="">الهاتف الجوال :{% if key.Mobile == NULL %} <p> غير متوفر </p> {% else %}  {{key.Mobile}} {% endif %}</p></center>
 <center><div class="text-center close"><a class="btn_1 outline">اغلاق</a></div></center>
   </div>
 
@@ -231,6 +242,11 @@ window.onclick = function(event) {
   }
 }
 
+</script>
+<script>
+function RevealNumber() {
+  document.getElementById("NumTel").style.display = "block";
+}
 </script>
 </div>
 

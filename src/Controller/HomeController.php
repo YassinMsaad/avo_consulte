@@ -349,6 +349,25 @@ return $this->render('MyAccount.html.twig', [
 
         ]);
         }
+
+                    /**
+     * @Route("/تسجيل-محامي/{id}",name="UpdateAvocat",methods="GET")
+    */ 
+    public function UpdateAvocat(Request $request):Response {   
+        $avocat = new Avocat();
+        $form = $this->createForm(AvocatType::Class,$avocat);
+        $form->handleRequest($request);
+        echo $avocat->getNomAr();
+        $_POST["test"]=$avocat->getNomAr();
+        if ($form->isSubmitted()&& $form->isValid()){
+        var_dump($avocat);
+        }
+        return $this->render('InscriptionAvocat.html.twig', [
+            'form'=>$form->createView()
+
+        ]);
+        }
+
         /**
      * @Route("/خروج/",name="app_logout")
     */ 
