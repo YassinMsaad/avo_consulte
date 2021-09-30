@@ -377,10 +377,17 @@ return $this->render('MyAccount.html.twig', [
     /**
      * @Route("/موعد/{id}",name="RDV")
      */
-    public function rdv () {
+    public function rdv ($id) {
         return $this->render('RDV.html.twig', [
+            'id'=>$id
         ]);
         }
 
-    
+    /**
+     * @Route("/موعد/شكرا/{id}",name="thankyoutwo")
+     */
+    public function thankyourdv () {
+        return $this->render('thankYouRDV.html.twig', [
+        ]);
+        }
     }
