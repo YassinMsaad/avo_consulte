@@ -154,7 +154,7 @@ public function getAllEvents($i):Response{
             
        
         }
-        $ListAvocat=$this->getDoctrine()->getRepository(Avocat::Class)->AfficheAvocatArAvocats(10,[]);
+        $ListAvocat=$this->getDoctrine()->getRepository(Avocat::Class)->AfficheAvocatArAvocats(10);
         $_POST["avocatsl"]=$ListAvocat;
         return $this->render('AvocatsAr.html.twig', [
             'ListAvocat'=>$ListAvocat,
@@ -368,11 +368,26 @@ return $this->render('MyAccount.html.twig', [
         ]);
         }
 
-        /**
+    /**
      * @Route("/خروج/",name="app_logout")
     */ 
     public function logout():Response {
         return $this->redirectToRoute("home_ar");  
     }
-    
+    /**
+     * @Route("/موعد/{id}",name="RDV")
+     */
+    public function rdv ($id) {
+        return $this->render('RDV.html.twig', [
+            'id'=>$id
+        ]);
+        }
+
+    /**
+     * @Route("/موعد/شكرا/{id}",name="thankyoutwo")
+     */
+    public function thankyourdv () {
+        return $this->render('thankYouRDV.html.twig', [
+        ]);
+        }
     }
