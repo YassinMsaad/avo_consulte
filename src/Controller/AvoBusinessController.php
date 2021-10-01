@@ -14,7 +14,7 @@ class AvoBusinessController extends AbstractController
     public function index(): Response
     {$user = $this->getUser();
         if (!(isset($user))){
-            return $this->redirectToRoute("loginAvocat");
+            return $this->redirectToRoute("LoginAvocat");
        }
         return $this->render('avo_business/index.html.twig', [
        
@@ -26,7 +26,7 @@ class AvoBusinessController extends AbstractController
     public function booking(): Response
     {$user = $this->getUser();
         if (!(isset($user))){
-            return $this->redirectToRoute("loginAvocat");
+            return $this->redirectToRoute("LoginAvocat");
        }
         return $this->render('avo_business/booking.html.twig', [
        
@@ -38,7 +38,7 @@ class AvoBusinessController extends AbstractController
     public function profile(): Response
     {$user = $this->getUser();
         if (!(isset($user))){
-            return $this->redirectToRoute("loginAvocat");
+            return $this->redirectToRoute("LoginAvocat");
        }
         return $this->render('avo_business/profile.html.twig', [
        
@@ -50,7 +50,7 @@ class AvoBusinessController extends AbstractController
     public function calander(): Response
     {$user = $this->getUser();
         if (!(isset($user))){
-            return $this->redirectToRoute("loginAvocat");
+            return $this->redirectToRoute("LoginAvocat");
        }
         return $this->render('avo_business/calander.html.twig', [
        

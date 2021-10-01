@@ -243,10 +243,7 @@ public function getAllEvents($i):Response{
      *
     */ 
     public function submitQrAr ():Response{
-        $user = $this->getUser();
-        if (!(isset($user))){
-            return $this->redirectToRoute("LoginAr");
-       }
+  
         return $this->render('submitQr.html.twig', [
             
 
@@ -304,10 +301,7 @@ public function getAllEvents($i):Response{
      * @Route("/حسابي/",name="MyAccount")
     */ 
  public function MyAccountAr ():Response {   
-$user = $this->getUser();
-if (!(isset($user))){
-    return $this->redirectToRoute("LoginAr");
-}
+
 return $this->render('MyAccount.html.twig', [
  
 
@@ -318,10 +312,7 @@ return $this->render('MyAccount.html.twig', [
      * @Route("/شكرا/",name="ThanksAr")
     */ 
     public function SubmittedAr():Response {   
-        $user = $this->getUser();
-        if (!(isset($user))){
-            return $this->redirectToRoute("LoginAr");
-        }
+    
         $qr=new QrUser();
         $qr->setUser($user);
         $qr->setQuestion($_POST["question"]);
@@ -336,7 +327,7 @@ return $this->render('MyAccount.html.twig', [
         /**
      * @Route("/avocats/inscription",name="InscriptionAvocat")
     */ 
-    public function InscriptionAvocat(Request $request):Response {   
+    public function InscriptionAvocat(UserPasswordEncoderInterface $encoder,Request $request):Response {   
         $avocat = new Avocat();
         $form = $this->createForm(AvocatType::Class,$avocat);
         $form->handleRequest($request);
@@ -348,6 +339,9 @@ return $this->render('MyAccount.html.twig', [
             $avocat->setTribunal($avocat->getSpecialite());
             $avocat->setCommentaire($avocat->getNomAr()."صفحة المحامي ");
             $manager = $this->getDoctrine()->getManager();
+            $hash = $encoder->encodePassword($avocat, $avocat->getPassword());
+            $avocat->setPassword($hash);
+            $avocat->setRoles([0=>'ROLE_AVOCAT']);
             $manager->persist($avocat);
             $manager->flush();
             return $this->redirectToRoute("LoginAvocat");
@@ -387,10 +381,7 @@ return $this->render('MyAccount.html.twig', [
      * @Route("/موعد/{id}",name="RDV")
      */
     public function rdv ($id) {
-        $user = $this->getUser();
-        if (!(isset($user))){
-            return $this->redirectToRoute("LoginAr");
-       }
+    
         return $this->render('RDV.html.twig', [
             'id'=>$id
         ]);
@@ -409,10 +400,7 @@ return $this->render('MyAccount.html.twig', [
      */
     public function date($id,$time,$day,$month,$year){
      
-        $user = $this->getUser();
-        if (!(isset($user))){
-            return $this->redirectToRoute("LoginAr");
-       }
+     
        $avocat=$this->getDoctrine()->getRepository(Avocat::Class)->find($id);
         $d=new RendezVous();
         $d->setIdavocat($avocat);

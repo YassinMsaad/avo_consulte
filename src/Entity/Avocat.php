@@ -21,7 +21,10 @@ class Avocat implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="integer")
      */
     private $id;
-
+ /**
+     * @ORM\Column(type="json")
+     */
+    private $roles = [];
     /**
      * @ORM\Column(type="string", length=67)
      */
