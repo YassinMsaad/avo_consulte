@@ -11,6 +11,7 @@ use App\Entity\Avocat;
 use App\Entity\User;
 use App\Entity\QrUser;
 use App\Entity\Blog;
+use App\Entity\RendezVous;
 use App\Entity\QrReponse;
 use Symfony\Component\Security\Core\User\UserInterface;
 use App\Form\SignUpClientArType;
@@ -242,10 +243,7 @@ public function getAllEvents($i):Response{
      *
     */ 
     public function submitQrAr ():Response{
-        $user = $this->getUser();
-        if (!(isset($user))){
-            return $this->redirectToRoute("LoginAr");
-       }
+  
         return $this->render('submitQr.html.twig', [
             
 
@@ -303,10 +301,7 @@ public function getAllEvents($i):Response{
      * @Route("/حسابي/",name="MyAccount")
     */ 
  public function MyAccountAr ():Response {   
-$user = $this->getUser();
-if (!(isset($user))){
-    return $this->redirectToRoute("LoginAr");
-}
+
 return $this->render('MyAccount.html.twig', [
  
 
@@ -317,10 +312,7 @@ return $this->render('MyAccount.html.twig', [
      * @Route("/شكرا/",name="ThanksAr")
     */ 
     public function SubmittedAr():Response {   
-        $user = $this->getUser();
-        if (!(isset($user))){
-            return $this->redirectToRoute("LoginAr");
-        }
+    
         $qr=new QrUser();
         $qr->setUser($user);
         $qr->setQuestion($_POST["question"]);
@@ -335,18 +327,29 @@ return $this->render('MyAccount.html.twig', [
         /**
      * @Route("/avocats/inscription",name="InscriptionAvocat")
     */ 
-    public function InscriptionAvocat(Request $request):Response {   
+    public function InscriptionAvocat(UserPasswordEncoderInterface $encoder,Request $request):Response {   
         $avocat = new Avocat();
         $form = $this->createForm(AvocatType::Class,$avocat);
         $form->handleRequest($request);
-        echo $avocat->getNomAr();
-        $_POST["test"]=$avocat->getNomAr();
+
+      
         if ($form->isSubmitted()&& $form->isValid()){
-        var_dump($avocat);
+            $avocat->setSubbed(false);
+            $avocat->setImg_Url("avatar.png");
+            $avocat->setTribunal($avocat->getSpecialite());
+            $avocat->setCommentaire($avocat->getNomAr()."صفحة المحامي ");
+            $manager = $this->getDoctrine()->getManager();
+            $hash = $encoder->encodePassword($avocat, $avocat->getPassword());
+            $avocat->setPassword($hash);
+            $avocat->setRoles([0=>'ROLE_AVOCAT']);
+            $manager->persist($avocat);
+            $manager->flush();
+            return $this->redirectToRoute("LoginAvocat");
+
         }
         return $this->render('InscriptionAvocat.html.twig', [
             'form'=>$form->createView()
-
+    
         ]);
         }
 
@@ -360,7 +363,7 @@ return $this->render('MyAccount.html.twig', [
         echo $avocat->getNomAr();
         $_POST["test"]=$avocat->getNomAr();
         if ($form->isSubmitted()&& $form->isValid()){
-        var_dump($avocat);
+         
         }
         return $this->render('InscriptionAvocat.html.twig', [
             'form'=>$form->createView()
@@ -378,6 +381,7 @@ return $this->render('MyAccount.html.twig', [
      * @Route("/موعد/{id}",name="RDV")
      */
     public function rdv ($id) {
+    
         return $this->render('RDV.html.twig', [
             'id'=>$id
         ]);
@@ -390,4 +394,22 @@ return $this->render('MyAccount.html.twig', [
         return $this->render('thankYouRDV.html.twig', [
         ]);
         }
+    
+    /**
+     * @Route("/date/{id}/{time}/{day}/{month}/{year}",name="date")
+     */
+    public function date($id,$time,$day,$month,$year){
+     
+     
+       $avocat=$this->getDoctrine()->getRepository(Avocat::Class)->find($id);
+        $d=new RendezVous();
+        $d->setIdavocat($avocat);
+        $d->setIduser($user);
+        $d->setDate($year."-".$month."-".$day." ".$time);
+        $d->setStatus("false");
+        $manager = $this->getDoctrine()->getManager();
+        $manager->persist($d);
+        $manager->flush();
+        return $this->redirectToRoute("thankyoutwo",['id'=>$d->getId()]);
+    }
     }

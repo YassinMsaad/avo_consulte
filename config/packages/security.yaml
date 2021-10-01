@@ -4,7 +4,7 @@ security:
     # https://symfony.com/doc/current/security.html#c-hashing-passwords
     password_hashers:
         Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
-        App\Entity\User:
+        App\Entity\Avocat:
             algorithm: auto
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
@@ -12,7 +12,7 @@ security:
         # used to reload user from session & other features (e.g. switch_user)
         app_user_provider:
             entity:
-                class: App\Entity\User
+                class: App\Entity\Avocat
                 property: email
     firewalls:
         dev:
@@ -22,8 +22,8 @@ security:
             lazy: true
             provider: app_user_provider
             form_login:
-                login_path: LoginAr
-                check_path: LoginAr
+                login_path: LoginAvocat
+                check_path: LoginAvocat
             logout:
                     path:   app_logout
             # activate different ways to authenticate
