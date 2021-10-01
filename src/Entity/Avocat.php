@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=AvocatRepository::class)
  */
-class Avocat
+class Avocat implements UserInterface, PasswordAuthenticatedUserInterface  
 {
     /**
      * @ORM\Id
@@ -113,9 +113,15 @@ class Avocat
      */
     private $qrUsers;
 
+ /**
+     * @ORM\OneToMany(targetEntity=RendezVous::class, mappedBy="idavocat")
+     */
+    private $rendezVouses;
+
     public function __construct()
     {
         $this->qrUsers = new ArrayCollection();
+        $this->rendezVouses = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -317,12 +323,12 @@ class Avocat
 
         return $this;
     }
-    public function getTribunal(): ?int
+    public function getTribunal(): ?string
     {
         return $this->tribunal;
     }
 
-    public function setTribunal(int $tribunal): self
+    public function setTribunal(string $tribunal): self
     {
         $this->tribunal = $tribunal;
 
@@ -358,5 +364,64 @@ class Avocat
 
         return $this;
     }
-    
+ /**
+     * @return Collection|RendezVous[]
+     */
+    public function getRendezVouses(): Collection
+    {
+        return $this->rendezVouses;
+    }
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+    /**
+     * @deprecated since Symfony 5.3, use getUserIdentifier instead
+     */
+    public function getUsername(): string
+    {
+        return (string) $this->email;
+    }
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
+    }
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+    public function addRendezVouse(RendezVous $rendezVouse): self
+    {
+        if (!$this->rendezVouses->contains($rendezVouse)) {
+            $this->rendezVouses[] = $rendezVouse;
+            $rendezVouse->setIduser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRendezVouse(RendezVous $rendezVouse): self
+    {
+        if ($this->rendezVouses->removeElement($rendezVouse)) {
+            // set the owning side to null (unless already changed)
+            if ($rendezVouse->getIduser() === $this) {
+                $rendezVouse->setIduser(null);
+            }
+        }
+
+        return $this;
+    }
 }
+    
+    
+
