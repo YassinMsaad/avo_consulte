@@ -243,7 +243,10 @@ public function getAllEvents($i):Response{
      *
     */ 
     public function submitQrAr ():Response{
-  
+        $user = $this->getUser();
+if (!(isset($user))){
+    return $this->redirectToRoute("LoginAr");
+}
         return $this->render('submitQr.html.twig', [
             
 
@@ -301,7 +304,10 @@ public function getAllEvents($i):Response{
      * @Route("/حسابي/",name="MyAccount")
     */ 
  public function MyAccountAr ():Response {   
-
+    $user = $this->getUser();
+    if (!(isset($user))){
+        return $this->redirectToRoute("LoginAr");
+    }
 return $this->render('MyAccount.html.twig', [
  
 
@@ -400,8 +406,12 @@ return $this->render('MyAccount.html.twig', [
      */
     public function date($id,$time,$day,$month,$year){
      
-     
+        $user = $this->getUser();
+        if (!(isset($user))){
+            return $this->redirectToRoute("LoginAr");
+        }
        $avocat=$this->getDoctrine()->getRepository(Avocat::Class)->find($id);
+       $user=$this->getDoctrine()->getRepository(User::Class)->find($id);
         $d=new RendezVous();
         $d->setIdavocat($avocat);
         $d->setIduser($user);
