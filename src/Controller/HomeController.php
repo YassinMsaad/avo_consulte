@@ -243,7 +243,10 @@ public function getAllEvents($i):Response{
      *
     */ 
     public function submitQrAr ():Response{
-  
+        $user = $this->getUser();
+        if (!(isset($user))){
+            return $this->redirectToRoute("LoginAr");
+       }
         return $this->render('submitQr.html.twig', [
             
 
@@ -255,10 +258,7 @@ public function getAllEvents($i):Response{
     public function LoginAr (AuthenticationUtils $authenticationUtils):Response{
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
-        return $this->render('LoginAr.html.twig', [
-             'error' => $error
-
-        ]);
+        return $this->render('LoginAr.html.twig',['last_username' => $lastUsername, 'error' => $error]);
         
     }
             /**
@@ -301,7 +301,10 @@ public function getAllEvents($i):Response{
      * @Route("/حسابي/",name="MyAccount")
     */ 
  public function MyAccountAr ():Response {   
-
+    $user = $this->getUser();
+    if (!(isset($user))){
+        return $this->redirectToRoute("LoginAr");
+   }
 return $this->render('MyAccount.html.twig', [
  
 
@@ -312,7 +315,10 @@ return $this->render('MyAccount.html.twig', [
      * @Route("/شكرا/",name="ThanksAr")
     */ 
     public function SubmittedAr():Response {   
-    
+        $user = $this->getUser();
+        if (!(isset($user))){
+            return $this->redirectToRoute("LoginAr");
+       }
         $qr=new QrUser();
         $qr->setUser($user);
         $qr->setQuestion($_POST["question"]);

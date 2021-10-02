@@ -62,9 +62,6 @@ class AvoBusinessController extends AbstractController
    public function login2 (AuthenticationUtils $authenticationUtils):Response{
     $error = $authenticationUtils->getLastAuthenticationError();
     $lastUsername = $authenticationUtils->getLastUsername();
-       return $this->render('avo_business/LoginAvocat.html.Twig', [
-        'error' => $error
-
-   ]);
+       return $this->render('avo_business/LoginAvocat.html.Twig', ['last_username' => $lastUsername, 'error' => $error]);
    }
 }
