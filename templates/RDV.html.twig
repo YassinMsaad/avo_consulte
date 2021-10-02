@@ -151,12 +151,12 @@ onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع ا
 		<div class="container margin_60">
 			<div class="row">
 				<div class="col-xl-8 col-lg-8">
-				    <form>
+				    <form method="post">
 									<div class="main_title_3">
 										<h3>حدد اليوم</h3>
 									</div>
 									<div class="form-group add_bottom_45">
-										<div id="calendar"></div>
+										<div id="calendar" name="calendar"></div>
 										<input type="hidden" id="my_hidden_input">
 										<ul class="legend">
 											<li><strong></strong>متاح</li>
@@ -170,27 +170,27 @@ onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع ا
 										<div class="col-md-3 col-6 text-center">
 											<ul class="time_select">
 												<li>
-													<input type="radio" id="radio1" name="radio_time" value="09.30am">
+													<input type="radio" id="radio1" name="radio_time" value="09:30">
 													<label for="radio1">09.30</label>
 												</li>
 												<li>
-													<input type="radio" id="radio2" name="radio_time" value="10.00am">
+													<input type="radio" id="radio2" name="radio_time" value="10:00">
 													<label for="radio2">10.00</label>
 												</li>
 												<li>
-													<input type="radio" id="radio3" name="radio_time" value="10.30am">
+													<input type="radio" id="radio3" name="radio_time" value="10:30">
 													<label for="radio3">10.30</label>
 												</li>
 												<li>
-													<input type="radio" id="radio4" name="radio_time" value="11.00am">
+													<input type="radio" id="radio4" name="radio_time" value="11:00">
 													<label for="radio4">11.00</label>
 												</li>
 												<li>
-													<input type="radio" id="radio5" name="radio_time" value="11.30am">
+													<input type="radio" id="radio5" name="radio_time" value="11:30">
 													<label for="radio5">11.30</label>
 												</li>
 												<li>
-													<input type="radio" id="radio6" name="radio_time" value="12.00am">
+													<input type="radio" id="radio6" name="radio_time" value="12:00">
 													<label for="radio6">12.00</label>
 												</li>
 											</ul>
@@ -198,27 +198,27 @@ onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع ا
 										<div class="col-md-3 col-6 text-center">
 											<ul class="time_select">
 												<li>
-													<input type="radio" id="radio7" name="radio_time" value="01.30pm">
+													<input type="radio" id="radio7" name="radio_time" value="13:30">
 													<label for="radio7">13.30</label>
 												</li>
 												<li>
-													<input type="radio" id="radio8" name="radio_time" value="02.00pm">
+													<input type="radio" id="radio8" name="radio_time" value="14:00">
 													<label for="radio8">14.00</label>
 												</li>
 												<li>
-													<input type="radio" id="radio9" name="radio_time" value="02.30pm">
+													<input type="radio" id="radio9" name="radio_time" value="14:30">
 													<label for="radio9">14.30</label>
 												</li>
 												<li>
-													<input type="radio" id="radio10" name="radio_time" value="03.00pm">
+													<input type="radio" id="radio10" name="radio_time" value="15:00">
 													<label for="radio10">15.00</label>
 												</li>
 												<li>
-													<input type="radio" id="radio11" name="radio_time" value="03.30pm">
+													<input type="radio" id="radio11" name="radio_time" value="15:30">
 													<label for="radio11">15.30</label>
 												</li>
 												<li>
-													<input type="radio" id="radio12" name="radio_time" value="04.00pm">
+													<input type="radio" id="radio12" name="radio_time" value="16:00">
 													<label for="radio12">16.00</label>
 												</li>
 											</ul>
@@ -226,13 +226,13 @@ onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع ا
 									</div>
 									<!-- /row -->
 
-								</form>
+								
 
 				</div>
 				<!-- /col -->
 				<aside class="col-xl-4 col-lg-4" id="sidebar">
 					<div class="box_general_3 booking">
-						<form>
+				
 							<div class="title">
 								<h3>حجزك</h3>
 							</div>
@@ -263,12 +263,12 @@ onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع ا
 					</div>
 							</div>
 							<hr>
-							<a id="btn" class="btn_1 full-width">Confirm</a>
-                            
+							<a  id="btn" class="btn_1 full-width">Confirm</a>
+                        </aside>    
 						</form>
 					</div>
 					<!-- /box_general -->
-				</aside>
+				
 				<!-- /asdide -->
 			</div>
 			<!-- /row -->
@@ -282,7 +282,17 @@ onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع ا
     var btn = document.getElementById("btn");
    btn.onclick= function () {
 
-       console.log($('#calendar').datepicker("getDate").getDate());
+      d=$('#calendar').datepicker("getDate").getDate();
+	  m=$('#calendar').datepicker("getDate").getMonth();
+	  y=$('#calendar').datepicker("getDate").getFullYear();
+	   ele=document.getElementsByName("radio_time")
+	    for(i = 0; i < ele.length; i++) {
+                if(ele[i].checked){
+               x=i;
+				window.location.href = "/date/"+{{id}}+"/"+ele[x].value+"/"+d+"/"+m+"/"+y;
+            }}
+	   
+	   
      
     }</script>
 	<script>
