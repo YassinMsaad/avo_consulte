@@ -310,11 +310,7 @@ if (!(isset($user))){
     $user = $this->getUser();
     if (!(isset($user))){
         return $this->redirectToRoute("LoginAr");
-<<<<<<< HEAD
-    }
-=======
    }
->>>>>>> c0db342df175e6987af860ecf3e5328484878bb0
 return $this->render('MyAccount.html.twig', [
  
 
@@ -421,7 +417,6 @@ return $this->render('MyAccount.html.twig', [
             return $this->redirectToRoute("LoginAr");
         }
        $avocat=$this->getDoctrine()->getRepository(Avocat::Class)->find($id);
-       $user=$this->getDoctrine()->getRepository(User::Class)->find($id);
         $d=new RendezVous();
         $d->setIdavocat($avocat);
         $d->setIduser($user);

@@ -84,25 +84,12 @@
 	
 		<main>
 		<!-- /breadcrumb -->
- <?php
- include "services/crud.php";
-$crud = new crud() ; 
-$conn = $crud->cnx ; 
- $Listqruser = $crud->afficherqruser($conn) ; 
-       $User = $crud->userloginemail($conn,$_SESSION['email']) ;?>
 		<div class="bg_color_1">
 			<div class="container margin_120_95">
 				<div class="main_title">
-				 <h1>أهلا <?php foreach($User as $var){
-				     echo $var['nom'];
-				 }
-                     ?> </h1>
+				 <h1>أهلا</h1>
                   <p>هنا تجد الإجابة على أسئلتك</p>
-                <?php
-                foreach ($Listqruser as $key) {
-                    if($key['email'] = $_SESSION['email']){
-                        
-                    ?>
+
                   <div class="post-content">
                         <!--<a href="/id/<?php echo $key['id'] ?>">-->
 							<div class="singlebox">
@@ -131,25 +118,14 @@ $conn = $crud->cnx ;
 						       </div>
 
 						<ul class="comments-list">
-                               <?php
-                               $Listblog = $crud->afficherqrar($conn) ; 
-                               $Listblog = $crud->afficherqraccueilar($conn) ; 
-
-
-                               foreach ($Listblog as $key) {
-
-
-
-
-                                ?>
+ 
 							<li>
 								<div class="alignleft">
-								    <a href="/استشارات-قانونية/<?php echo $key['url_slug'] ?>/<?php echo $key['id'] ?>/">
-								        <img src="../img/question-mark-icon-help-symbol-260nw-400447213.jpg<?php echo $key['image'] ?>" alt="<?php echo $key['titre'] ?>"></a>								</div>
+								    <a href="/استشارات-قانونية/">
+								        <img src="../img/question-mark-icon-help-symbol-260nw-400447213.jpg" alt="<?php echo $key['titre'] ?>"></a>								</div>
 								<small><?php echo $key['temps'] ?></small>
-								<h3><a href="/استشارات-قانونية/<?php echo $key['url_slug'] ?>/<?php echo $key['id'] ?>/" title=""><?php echo $key['titre'] ?></a></h3>
+								<h3><a href="/استشارات-قانونية/" title=""></a></h3>
 							</li>
-							<?php } ?>
 						</ul>
 					</div>
 

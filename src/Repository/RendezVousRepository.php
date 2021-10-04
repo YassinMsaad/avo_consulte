@@ -18,6 +18,14 @@ class RendezVousRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, RendezVous::class);
     }
+    public function AvocatRendezVous($id)
+    {
+        return $this->createQueryBuilder('b')
+            ->andWhere("b.idavocat = '$id'")
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
     // /**
     //  * @return RendezVous[] Returns an array of RendezVous objects
