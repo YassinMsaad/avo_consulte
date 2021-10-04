@@ -1,7 +1,7 @@
 <?php   
 namespace App\Security;
 
-use App\Entity\Avocat;
+use App\Entity\Admin;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -18,7 +18,7 @@ use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
-class LoginAvocat extends AbstractFormLoginAuthenticator
+class LoginAdmin extends AbstractFormLoginAuthenticator
 {
     use TargetPathTrait;
 
@@ -37,7 +37,7 @@ class LoginAvocat extends AbstractFormLoginAuthenticator
 
     public function supports(Request $request)
     {
-        return 'LoginAvocat' === $request->attributes->get('_route')
+        return 'login_admin' === $request->attributes->get('_route')
             && $request->isMethod('POST');
     }
 
@@ -63,18 +63,18 @@ class LoginAvocat extends AbstractFormLoginAuthenticator
             throw new InvalidCsrfTokenException();
         }
 
-        $avocat = $this->entityManager->getRepository(Avocat::class)->findOneBy(['email' => $credentials['email']]);
+        $admin = $this->entityManager->getRepository(Admin::class)->findOneBy(['email' => $credentials['email']]);
 
-        if (!$avocat) {
+        if (!$admin) {
             throw new CustomUserMessageAuthenticationException('Email Introuvable');
         }
 
-        return $avocat;
+        return $admin;
     }
 
-    public function checkCredentials($credentials, UserInterface $avocat)
+    public function checkCredentials($credentials, UserInterface $Admin)
     {
-        return $this->passwordEncoder->isPasswordValid($avocat, $credentials['password']);
+        return $this->passwordEncoder->isPasswordValid($Admin, $credentials['password']);
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
@@ -83,11 +83,11 @@ class LoginAvocat extends AbstractFormLoginAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        return new RedirectResponse($this->router->generate('avo_business'));
+        return new RedirectResponse($this->router->generate('home_admin'));
     }
 
     protected function getLoginUrl()
     {
-        return $this->router->generate('LoginAvocat');
+        return $this->router->generate('login_admin');
     }
 }
