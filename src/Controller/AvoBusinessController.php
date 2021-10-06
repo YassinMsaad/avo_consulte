@@ -36,10 +36,11 @@ class AvoBusinessController extends AbstractController
        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
        $id = $this->getUser()->getId();
-       $ListRendezVous=$this->getDoctrine()->getRepository(RendezVous::Class)->AvocatRendezVous($id);
+       $ListRendezVous=$this->getDoctrine()->getRepository(RendezVous::Class)->AvocatRendezVous();
        
         return $this->render('avo_business/booking.html.twig', [
-            'ListRendezVous'=>$ListRendezVous
+            'ListRendezVous'=>$ListRendezVous,
+            'id'=>$id
        
         ]);
     }
