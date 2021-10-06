@@ -36,7 +36,8 @@ class AvoBusinessController extends AbstractController
        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
        $id = $this->getUser()->getId();
-       $ListRendezVous=$this->getDoctrine()->getRepository(RendezVous::Class)->AvocatRendezVous($id);
+       $avocat=$this->getDoctrine()->getRepository(Avocat::Class)->find($id);
+        $ListRendezVous=$avocat->getRendezVouses();
        
         return $this->render('avo_business/booking.html.twig', [
             'ListRendezVous'=>$ListRendezVous
@@ -55,6 +56,7 @@ class AvoBusinessController extends AbstractController
        
         ]);
     }
+
     /**
      * @Route("/avobusiness/journal", name="calander")
      */
@@ -75,4 +77,33 @@ class AvoBusinessController extends AbstractController
     $lastUsername = $authenticationUtils->getLastUsername();
        return $this->render('avo_business/LoginAvocat.html.Twig', ['last_username' => $lastUsername, 'error' => $error]);
    }
+
+/**
+ * @Route("/avobusiness/rendez-vous/{$id}/",name="Usgfdss",methods="GET")
+*/ 
+    public function UpdateRendezVous($id):Response{
+        $rendezvous=$this->getDoctrine()->getRepository(Rendezvous::Class)->Find($id);
+        $rendezvous->setStatus("Approved");
+        $manager = $this->getDoctrine()->getManager();
+        $manager->flush();
+        $avocat=$this->getDoctrine()->getRepository(Avocat::Class)->find($rendezvous->getIdAvocat());
+        $ListRendezVous=$avocat->getRendezVouses();
+        return $this->render('avo_business/UpdateRendezVous.html.twig', [
+            'ListRendezVous'=>$ListRendezVous
+
+        ]);
+    }
+
+public function CancelRendezVous($id):Response{
+    $rendezvous=$this->getDoctrine()->getRepository(Rendezvous::Class)->Find($id);
+    $rendezvous->setStatus("Cancelled");
+    $manager = $this->getDoctrine()->getManager();
+    $manager->flush();
+    $avocat=$this->getDoctrine()->getRepository(Avocat::Class)->find($rendezvous->getIdAvocat());
+    $ListRendezVous=$avocat->getRendezVouses();
+    return $this->render('avo_business/UpdateRendezVous.html.twig', [
+        'ListRendezVous'=>$ListRendezVous
+
+    ]);    
+}
 }
