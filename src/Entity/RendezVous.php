@@ -18,12 +18,13 @@ class RendezVous
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity=Avocat::class, inversedBy="yes")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $idavocat;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="rendezVouses")
      */
     private $iduser;
 

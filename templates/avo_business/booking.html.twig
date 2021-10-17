@@ -102,23 +102,22 @@
 			<div class="header_box">
 				<h2 class="d-inline-block">Liste des réservations</h2>
 			</div>
-			<div class="list_general">
-      {{ dump(ListRendezVous) }}
-  
+			<div class="list_general" id="rendezvous">
+      {% for key in ListRendezVous %}
 				<ul>
 					<li>
 						<h4>Enzo Ferrari <i class="pending">Pending</i></h4>
 						<ul class="booking_details">
             
-							<li><strong>date</strong> </li>
-							<li><strong>Booking time</strong> </li>
-							<li><strong>Visits</strong> Cardiology test, Diabetic diagnose</li>
-							<li><strong>Telephone</strong> 0043 432324</li>
-							<li><strong>Email</strong> user@email.com</li>
+							<li><strong>date</strong> {{key.date|date("j M Y")}}</li>
+							<li><strong>time</strong> {{key.date|date("H:i")}}</li>
+							<li><strong>Visits</strong> consultation juridique</li>
+							<li><strong>Telephone</strong> {{key.iduser.telephone}}</li>
+							<li><strong>Email</strong> {{key.iduser.email}}</li>
 						</ul>
 						<ul class="buttons">
-							<li><a href="avobusiness/#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
-							<li><a href="avobusiness/#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
+							<li><a class="btn_1 gray approve" onclick="UpdateRendezvous({{key.id}})"><i class="fa fa-fw fa-check-circle-o" ></i> Approve</a></li>
+							<li><a  class="btn_1 gray delete" onclick="CancelRendezvous({{key.id}})"><i class="fa fa-fw fa-times-circle-o" ></i> Cancel</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -175,7 +174,30 @@
 	<script src="avobusiness/vendor/jquery.magnific-popup.min.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="avobusiness/js/admin.js"></script>
-	
+	 <script>
+   function UpdateRendezvous(id) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("rendezvous").innerHTML =  this.responseText;
+      }
+    };
+    xmlhttp.open("GET","/avobusiness/rendez-vous/"+id,true);
+    xmlhttp.send();
+  
+}
+  function CancelRendezvous(id) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("rendezvous").innerHTML =  this.responseText;
+      }
+    };
+    xmlhttp.open("GET","/avobusiness/rendez-vous/c/"+id,true);
+    xmlhttp.send();
+  
+}
+ </script>
 </body>
 </html>
 
