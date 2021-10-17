@@ -304,18 +304,44 @@ if (!(isset($user))){
 }
 
  /**
-     * @Route("/حسابي/",name="MyAccount")
+     * @Route("/حسابي/الأسئلة",name="UserQuestionsAr")
     */ 
- public function MyAccountAr ():Response {   
+ public function QuestionsAr ():Response {   
     $user = $this->getUser();
     if (!(isset($user))){
         return $this->redirectToRoute("LoginAr");
    }
-return $this->render('MyAccount.html.twig', [
+return $this->render('user/questions.html.twig', [
  
 
 ]);
 }
+ /**
+     * @Route("/حسابي/الملف-الشخصي",name="UserProfil")
+    */ 
+    public function CompteAr ():Response {   
+        $user = $this->getUser();
+        if (!(isset($user))){
+            return $this->redirectToRoute("LoginAr");
+       }
+    return $this->render('user/monprofile.html.twig', [
+     
+    
+    ]);
+    }
+     /**
+     * @Route("/حسابي/مواعيد",name="UserRendez-vous")
+    */ 
+    public function RendezvousAr ():Response {   
+        $user = $this->getUser();
+        if (!(isset($user))){
+            return $this->redirectToRoute("LoginAr");
+       }
+    return $this->render('user/rendez-vous.html.twig', [
+     
+    
+    ]);
+    }
 
 /**
      * @Route("/شكرا/",name="ThanksAr")

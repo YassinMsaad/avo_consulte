@@ -39,40 +39,33 @@
 
 <body class="fixed-nav sticky-footer" id="page-top">
   <!-- Navigation-->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-default fixed-top" id="mainNav">
-    <a class="navbar-brand" href="avobusiness/index.html"><img src="avobusiness/img/Logo1.2-10.svg" data-retina="true" alt="" width="163" height="36"></a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-default fixed-top" id="mainNav">
+    <a class="navbar-brand" href="index.html"><img src="img/Logo1.2-10.svg" data-retina="true" alt="" width="163" height="36"></a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="avobusiness/">
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Tableau de bord</span>
+       </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Jounal">
+          <a class="nav-link" href="/حسابي/الأسئلة">
+            <i class="fa fa-question-circle-o"></i>
+            <span class="nav-link-text">Question</span>
           </a>
         </li>
-
-		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Bookings">
-          <a class="nav-link" href="avobusiness/rendez-vous/">
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Bookings">
+          <a class="nav-link" href="/حسابي/مواعيد">
             <i class="fa fa-fw fa-calendar-check-o"></i>
             <span class="nav-link-text">Rendez-vous <span class="badge badge-pill badge-primary">6 New</span></span>
           </a>
         </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Profil">
-          <a class="nav-link" href="avobusiness/compte/">
+          <a class="nav-link" href="/حسابي/الملف-الشخصي">
             <i class="fa fa-user"></i>
             <span class="nav-link-text">Profil</span>
           </a>
-        </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Jounal">
-          <a class="nav-link" href="avobusiness/journal/">
-            <i class="fa fa-calendar"></i>
-            <span class="nav-link-text">Jounal</span>
-          </a>
-        </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Deconnecter">
-          <a class="nav-link" href="avobusiness/#">
+          <a class="nav-link" href="#">
             <i class="fa fa-sign-out"></i>
             <span class="nav-link-text">Deconnecter</span>
           </a>
@@ -94,73 +87,30 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="avobusiness/#">Dashboard</a>
+          <a href="#">Tableau de bord</a>
         </li>
-        <li class="breadcrumb-item active">Bookings</li>
+        <li class="breadcrumb-item active">Ma Journal</li>
       </ol>
-		<div class="box_generalaov">
-			<div class="header_box">
-				<h2 class="d-inline-block">Liste des réservations</h2>
-			</div>
-			<div class="list_general" id="rendezvous">
-      {% for key in ListRendezVous %}
-				<ul>
-					<li>
-						<h4>{{key.iduser.nom}} {{key.iduser.prenom}}<i class="pending">{% if key.status	== "Approved" %} Approved {% else %} pending {% endif %}</i></h4>
-						<ul class="booking_details">
-            
-							<li><strong>date</strong> {{key.date|date("D M Y")}}</li>
-							<li><strong>time</strong> {{key.date|date("H:i")}}</li>
-							<li><strong>Visits</strong> consultation juridique</li>
-							<li><strong>Telephone</strong> {{key.iduser.telephone}}</li>
-							<li><strong>Email</strong> {{key.iduser.email}}</li>
-						</ul>
-						<ul class="buttons">
-							<li><a class="btn_1 gray approve" onclick="UpdateRendezvous({{key.id}})"><i class="fa fa-fw fa-check-circle-o" ></i> Approve</a></li>
-							<li><a  class="btn_1 gray delete" onclick="CancelRendezvous({{key.id}})"><i class="fa fa-fw fa-times-circle-o" ></i> Cancel</a></li>
-						</ul>
-					</li>
-				</ul>
-        {% endfor %}
- 
-			</div>
-		</div>
-		<!-- /box_general-->
-	
-		<!-- /pagination-->
-	  </div>
-	  <!-- /container-fluid-->
+
+
+
+
+
+	  <!-- /.container-fluid-->
    	</div>
-    <!-- /container-wrapper-->
+    <!-- /.container-wrapper-->
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small>Copyright © AvoConsulte Inc. 2021</small>
+          <small>Copyright © AvoConsulte 2021</small>
         </div>
       </div>
     </footer>
     <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="avobusiness/#page-top">
+    <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
     <!-- Logout Modal-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="avobusiness/login.html">Logout</a>
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- Bootstrap core JavaScript-->
     <script src="avobusiness/vendor/jquery/jquery.min.js"></script>
     <script src="avobusiness/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -173,36 +123,6 @@
 	<script src="avobusiness/vendor/jquery.selectbox-0.2.js"></script>
 	<script src="avobusiness/vendor/retina-replace.min.js"></script>
 	<script src="avobusiness/vendor/jquery.magnific-popup.min.js"></script>
-    <!-- Custom scripts for all pages-->
-    <script src="avobusiness/js/admin.js"></script>
-	 <script>
-   function UpdateRendezvous(id) {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("rendezvous").innerHTML =  this.responseText;
-      }
-    };
-    xmlhttp.open("GET","/avobusiness/rendez-vous/"+id,true);
-    xmlhttp.send();
-  
-}
-  function CancelRendezvous(id) {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("rendezvous").innerHTML =  this.responseText;
-      }
-    };
-    xmlhttp.open("GET","/avobusiness/rendez-vous/c/"+id,true);
-    xmlhttp.send();
-  
-}
- </script>
 </body>
 </html>
-
-
-{% endblock %}
-{% block footer %}
-{% endblock %}
+ {% endblock %}
