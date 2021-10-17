@@ -514,8 +514,8 @@ a:hover, a:focus {
 a.btn_1,
 .btn_1 {
   border: none;
-  color: #222222;
-  background: #f4c430;
+  color: #fff;
+  background: #222222;
   cursor: pointer;
   padding: 7px 20px;
   display: inline-block;
@@ -550,8 +550,8 @@ a.btn_1.full-width,
 }
 a.btn_1:hover,
 .btn_1:hover {
-  background: #222222;
-  color:#fff;
+  background: #f4c430;
+  color:#222222;
   
 }
 a.btn_1.outline,
