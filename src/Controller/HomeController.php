@@ -420,6 +420,10 @@ return $this->render('user/questions.html.twig', [
      */
     public function rdv ($id) {
     
+        $user = $this->getUser();
+        if (!(isset($user))){
+            return $this->redirectToRoute("LoginAr");
+        }
         return $this->render('RDV.html.twig', [
             'id'=>$id
         ]);

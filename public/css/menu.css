@@ -15,6 +15,7 @@
   position: relative;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 .main-menu ul a, .main-menu ul li a {
   position: relative;
@@ -46,7 +47,7 @@
   z-index: 100;
   min-height: 100%;
   z-index: 99;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgb(0 0 0 / 55%);
   -webkit-transition: transform 0.3s ease 0s, opacity 0.3s ease 0s, visibility 0s ease 0.3s;
   -moz-transition: transform 0.3s ease 0s, opacity 0.3s ease 0s, visibility 0s ease 0.3s;
   -ms-transition: transform 0.3s ease 0s, opacity 0.3s ease 0s, visibility 0s ease 0.3s;
@@ -72,7 +73,7 @@
 
 /* All styles for screen size over 992px
 ================================================== */
-@media only screen and (min-width: 992px) {
+
   .main-menu {
     width: auto;
   }
@@ -220,8 +221,8 @@
     -moz-box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.175);
     box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.175);
   }
-}
-@media only screen and (max-width: 991px) {
+
+
   .main-menu ul li a:hover,
   a.show-submenu:hover,
   a.show-submenu:focus,
@@ -289,7 +290,7 @@
     border-top: 1px solid #ededed;
     left: 0;
     bottom: 0;
-    width: 55%;
+    width: 25%;
     height: 100%;
     position: fixed;
     background-color: #fff;
@@ -414,7 +415,7 @@
     -webkit-transition-delay: 0, 0.3s;
     transition-delay: 0, 0.3s;
   }
-}
+
 @media only screen and (max-width: 480px) {
   .main-menu {
     width: 100%;
