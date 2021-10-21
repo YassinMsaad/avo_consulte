@@ -201,6 +201,17 @@ class Avocat implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+    public function getDelegationAr(): ?string
+    {
+        return $this->delegationAr;
+    }
+
+    public function setDelegationAr(string $delegationAr): self
+    {
+        $this->delegationAr = $delegationAr;
+
+        return $this;
+    }
 
     public function getGouvernoratFr(): ?string
     {
@@ -210,6 +221,17 @@ class Avocat implements UserInterface, PasswordAuthenticatedUserInterface
     public function setGouvernoratFr(string $gouvernorat_fr): self
     {
         $this->gouvernorat_fr = $gouvernorat_fr;
+
+        return $this;
+    }
+    public function getGouvernoratAr(): ?string
+    {
+        return $this->gouvernorat_Ar;
+    }
+
+    public function setGouvernoratAr(string $gouvernorat_Ar): self
+    {
+        $this->gouvernorat_Ar = $gouvernorat_Ar;
 
         return $this;
     }
