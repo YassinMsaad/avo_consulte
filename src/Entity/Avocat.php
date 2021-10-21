@@ -53,7 +53,7 @@ class Avocat implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $gouvernorat_Ar;
+    private $gouvernorat_Fr;
 
       /**
      * @ORM\Column(type="string", length=255)
