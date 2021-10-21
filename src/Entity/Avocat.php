@@ -48,12 +48,12 @@ class Avocat implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $gouvernorat_Ar;
+    private $gouvernorat_ar;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $gouvernorat_Fr;
+    private $gouvernorat_fr;
 
       /**
      * @ORM\Column(type="string", length=255)
@@ -226,12 +226,12 @@ class Avocat implements UserInterface, PasswordAuthenticatedUserInterface
     }
     public function getGouvernoratAr(): ?string
     {
-        return $this->gouvernorat_Ar;
+        return $this->gouvernorat_ar;
     }
 
-    public function setGouvernoratAr(string $gouvernorat_Ar): self
+    public function setGouvernoratAr(string $gouvernorat_ar): self
     {
-        $this->gouvernorat_Ar = $gouvernorat_Ar;
+        $this->gouvernorat_ar = $gouvernorat_ar;
 
         return $this;
     }
