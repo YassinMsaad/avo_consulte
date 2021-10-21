@@ -1,4 +1,6 @@
+$('select').change(function(){console.log("hi");})
 $("#GouvernoratAr").on("change",function(){
+
     console.log($("#GouvernoratAr").val," aa");
     switch ($("#GouvernoratAr").val){
 case  "أريانة" : 
