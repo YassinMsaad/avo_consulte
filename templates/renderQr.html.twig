@@ -1,0 +1,15 @@
+
+ 
+
+<input type="hidden" name="" value="{{ListQr|length}}" id="id"> 
+{% for key in ListQr %}
+
+ 					<div class="col-md-4" onclick="location.href='/استشارات-قانونية/{{key.id}}/{{key.titre|replace({' ': '-'})}}';"  style="cursor: pointer;">
+			        <div class="about-review">
+                   <div class="rating"><h4>{{key.titre|u.truncate(80)}}</h4></div>
+
+                    <p>{{key.question|u.truncate(100)}}</p>
+			        </div>
+			    </div>
+				{% endfor %}
+					

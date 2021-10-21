@@ -1,0 +1,117 @@
+[20-Oct-2021 19:21:30 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.4.0". You are running 7.1.33. in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/platform_check.php on line 24
+[20-Oct-2021 19:21:31 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.4.0". You are running 7.1.33. in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/platform_check.php on line 24
+[20-Oct-2021 19:21:32 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.4.0". You are running 7.1.33. in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/platform_check.php on line 24
+[20-Oct-2021 19:21:32 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.4.0". You are running 7.1.33. in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/platform_check.php on line 24
+[20-Oct-2021 19:21:33 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.4.0". You are running 7.1.33. in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/platform_check.php on line 24
+[20-Oct-2021 19:21:34 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.4.0". You are running 7.1.33. in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/platform_check.php on line 24
+[20-Oct-2021 19:21:34 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.4.0". You are running 7.1.33. in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/platform_check.php on line 24
+[20-Oct-2021 19:21:35 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.4.0". You are running 7.1.33. in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/platform_check.php on line 24
+[20-Oct-2021 19:21:35 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.4.0". You are running 7.1.33. in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/platform_check.php on line 24
+[20-Oct-2021 19:21:35 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.4.0". You are running 7.1.33. in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/platform_check.php on line 24
+[20-Oct-2021 19:21:36 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.4.0". You are running 7.1.33. in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/platform_check.php on line 24
+[20-Oct-2021 19:23:21 UTC] PHP Fatal error:  Uncaught Error: Interface "App\Entity\UserInterface" not found in /home15/jmdozvby/deployment.avoconsulte.com/src/Entity/Admin.php:11
+Stack trace:
+#0 /home15/jmdozvby/deployment.avoconsulte.com/vendor/doctrine/persistence/lib/Doctrine/Persistence/Mapping/Driver/AnnotationDriver.php(238): require_once()
+#1 /home15/jmdozvby/deployment.avoconsulte.com/vendor/doctrine/persistence/lib/Doctrine/Persistence/Mapping/Driver/MappingDriverChain.php(107): Doctrine\Persistence\Mapping\Driver\AnnotationDriver->getAllClassNames()
+#2 /home15/jmdozvby/deployment.avoconsulte.com/vendor/doctrine/doctrine-bundle/Mapping/MappingDriver.php(29): Doctrine\Persistence\Mapping\Driver\MappingDriverChain->getAllClassNames()
+#3 /home15/jmdozvby/deployment.avoconsulte.com/vendor/doctrine/persistence/lib/Doctrine/Persistence/Mapping/AbstractClassMetadataFactory.php(146): Doctrine\Bundle\DoctrineBundle\Mapping\MappingDriver->getAllClassNames()
+#4 /home15/jmdozvby/deployment.avoconsulte.com/vendor/symfony/doctrine-bridge/CacheWarmer/ProxyCacheWarmer.php(67): Doctrine\Persistence\Mapping\AbstractClassMetadataFactory->getAllMetadata()
+#5 /home15/jmdozvby/deployment.avoconsulte.com/vendor/symfony/http-kernel/CacheWarmer/CacheWarmerAggregate.php(98): Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer->warmUp('/home15/jmdozvb...')
+#6 /home15/jmdozvby/deployment.avoconsulte.com/vendor/symfony/http-kernel/Kernel.php(584): Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate->warmUp('/home15/jmdozvb...')
+#7 /home15/jmdozvby/deployment.avoconsulte.com/vendor/symfony/http-kernel/Kernel.php(786): Symfony\Component\HttpKernel\Kernel->initializeContainer()
+#8 /home15/jmdozvby/deployment.avoconsulte.com/vendor/symfony/http-kernel/Kernel.php(187): Symfony\Component\HttpKernel\Kernel->preBoot()
+#9 /home15/jmdozvby/deployment.avoconsulte.com/vendor/symfony/runtime/Runner/Symfony/HttpKernelRunner.php(37): Symfony\Component\HttpKernel\Kernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#10 /home15/jmdozvby/deployment.avoconsulte.com/vendor/autoload_runtime.php(35): Symfony\Component\Runtime\Runner\Symfony\HttpKernelRunner->run()
+#11 /home15/jmdozvby/deployment.avoconsulte.com/public/index.php(5): require_once('/home15/jmdozvb...')
+#12 {main}
+  thrown in /home15/jmdozvby/deployment.avoconsulte.com/src/Entity/Admin.php on line 11
+[20-Oct-2021 21:21:28 UTC] PHP Warning:  require(/home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php): Failed to open stream: No such file or directory in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php on line 71
+[20-Oct-2021 21:21:28 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php' (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php:71
+Stack trace:
+#0 /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php(61): composerRequire54392dc08905a738005647a62a280a8a('6124b4c8570aa39...', '/home15/jmdozvb...')
+#1 /home15/jmdozvby/deployment.avoconsulte.com/vendor/autoload.php(7): ComposerAutoloaderInit54392dc08905a738005647a62a280a8a::getLoader()
+#2 /home15/jmdozvby/deployment.avoconsulte.com/vendor/autoload_runtime.php(5): require_once('/home15/jmdozvb...')
+#3 /home15/jmdozvby/deployment.avoconsulte.com/public/index.php(5): require_once('/home15/jmdozvb...')
+#4 {main}
+  thrown in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php on line 71
+[20-Oct-2021 21:31:50 UTC] PHP Warning:  require(/home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php): Failed to open stream: No such file or directory in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php on line 71
+[20-Oct-2021 21:31:50 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php' (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php:71
+Stack trace:
+#0 /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php(61): composerRequire54392dc08905a738005647a62a280a8a('6124b4c8570aa39...', '/home15/jmdozvb...')
+#1 /home15/jmdozvby/deployment.avoconsulte.com/vendor/autoload.php(7): ComposerAutoloaderInit54392dc08905a738005647a62a280a8a::getLoader()
+#2 /home15/jmdozvby/deployment.avoconsulte.com/vendor/autoload_runtime.php(5): require_once('/home15/jmdozvb...')
+#3 /home15/jmdozvby/deployment.avoconsulte.com/public/index.php(5): require_once('/home15/jmdozvb...')
+#4 {main}
+  thrown in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php on line 71
+[20-Oct-2021 21:31:51 UTC] PHP Warning:  require(/home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php): Failed to open stream: No such file or directory in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php on line 71
+[20-Oct-2021 21:31:51 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php' (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php:71
+Stack trace:
+#0 /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php(61): composerRequire54392dc08905a738005647a62a280a8a('6124b4c8570aa39...', '/home15/jmdozvb...')
+#1 /home15/jmdozvby/deployment.avoconsulte.com/vendor/autoload.php(7): ComposerAutoloaderInit54392dc08905a738005647a62a280a8a::getLoader()
+#2 /home15/jmdozvby/deployment.avoconsulte.com/vendor/autoload_runtime.php(5): require_once('/home15/jmdozvb...')
+#3 /home15/jmdozvby/deployment.avoconsulte.com/public/index.php(5): require_once('/home15/jmdozvb...')
+#4 {main}
+  thrown in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php on line 71
+[20-Oct-2021 21:31:52 UTC] PHP Warning:  require(/home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php): Failed to open stream: No such file or directory in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php on line 71
+[20-Oct-2021 21:31:52 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php' (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php:71
+Stack trace:
+#0 /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php(61): composerRequire54392dc08905a738005647a62a280a8a('6124b4c8570aa39...', '/home15/jmdozvb...')
+#1 /home15/jmdozvby/deployment.avoconsulte.com/vendor/autoload.php(7): ComposerAutoloaderInit54392dc08905a738005647a62a280a8a::getLoader()
+#2 /home15/jmdozvby/deployment.avoconsulte.com/vendor/autoload_runtime.php(5): require_once('/home15/jmdozvb...')
+#3 /home15/jmdozvby/deployment.avoconsulte.com/public/index.php(5): require_once('/home15/jmdozvb...')
+#4 {main}
+  thrown in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php on line 71
+[20-Oct-2021 21:31:52 UTC] PHP Warning:  require(/home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php): Failed to open stream: No such file or directory in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php on line 71
+[20-Oct-2021 21:31:52 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php' (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php:71
+Stack trace:
+#0 /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php(61): composerRequire54392dc08905a738005647a62a280a8a('6124b4c8570aa39...', '/home15/jmdozvb...')
+#1 /home15/jmdozvby/deployment.avoconsulte.com/vendor/autoload.php(7): ComposerAutoloaderInit54392dc08905a738005647a62a280a8a::getLoader()
+#2 /home15/jmdozvby/deployment.avoconsulte.com/vendor/autoload_runtime.php(5): require_once('/home15/jmdozvb...')
+#3 /home15/jmdozvby/deployment.avoconsulte.com/public/index.php(5): require_once('/home15/jmdozvb...')
+#4 {main}
+  thrown in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php on line 71
+[20-Oct-2021 21:31:53 UTC] PHP Warning:  require(/home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php): Failed to open stream: No such file or directory in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php on line 71
+[20-Oct-2021 21:31:53 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php' (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php:71
+Stack trace:
+#0 /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php(61): composerRequire54392dc08905a738005647a62a280a8a('6124b4c8570aa39...', '/home15/jmdozvb...')
+#1 /home15/jmdozvby/deployment.avoconsulte.com/vendor/autoload.php(7): ComposerAutoloaderInit54392dc08905a738005647a62a280a8a::getLoader()
+#2 /home15/jmdozvby/deployment.avoconsulte.com/vendor/autoload_runtime.php(5): require_once('/home15/jmdozvb...')
+#3 /home15/jmdozvby/deployment.avoconsulte.com/public/index.php(5): require_once('/home15/jmdozvb...')
+#4 {main}
+  thrown in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php on line 71
+[20-Oct-2021 21:31:54 UTC] PHP Warning:  require(/home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php): Failed to open stream: No such file or directory in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php on line 71
+[20-Oct-2021 21:31:54 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php' (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php:71
+Stack trace:
+#0 /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php(61): composerRequire54392dc08905a738005647a62a280a8a('6124b4c8570aa39...', '/home15/jmdozvb...')
+#1 /home15/jmdozvby/deployment.avoconsulte.com/vendor/autoload.php(7): ComposerAutoloaderInit54392dc08905a738005647a62a280a8a::getLoader()
+#2 /home15/jmdozvby/deployment.avoconsulte.com/vendor/autoload_runtime.php(5): require_once('/home15/jmdozvb...')
+#3 /home15/jmdozvby/deployment.avoconsulte.com/public/index.php(5): require_once('/home15/jmdozvb...')
+#4 {main}
+  thrown in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php on line 71
+[20-Oct-2021 21:31:54 UTC] PHP Warning:  require(/home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php): Failed to open stream: No such file or directory in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php on line 71
+[20-Oct-2021 21:31:54 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php' (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php:71
+Stack trace:
+#0 /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php(61): composerRequire54392dc08905a738005647a62a280a8a('6124b4c8570aa39...', '/home15/jmdozvb...')
+#1 /home15/jmdozvby/deployment.avoconsulte.com/vendor/autoload.php(7): ComposerAutoloaderInit54392dc08905a738005647a62a280a8a::getLoader()
+#2 /home15/jmdozvby/deployment.avoconsulte.com/vendor/autoload_runtime.php(5): require_once('/home15/jmdozvb...')
+#3 /home15/jmdozvby/deployment.avoconsulte.com/public/index.php(5): require_once('/home15/jmdozvb...')
+#4 {main}
+  thrown in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php on line 71
+[20-Oct-2021 21:31:55 UTC] PHP Warning:  require(/home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php): Failed to open stream: No such file or directory in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php on line 71
+[20-Oct-2021 21:31:55 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php' (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php:71
+Stack trace:
+#0 /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php(61): composerRequire54392dc08905a738005647a62a280a8a('6124b4c8570aa39...', '/home15/jmdozvb...')
+#1 /home15/jmdozvby/deployment.avoconsulte.com/vendor/autoload.php(7): ComposerAutoloaderInit54392dc08905a738005647a62a280a8a::getLoader()
+#2 /home15/jmdozvby/deployment.avoconsulte.com/vendor/autoload_runtime.php(5): require_once('/home15/jmdozvb...')
+#3 /home15/jmdozvby/deployment.avoconsulte.com/public/index.php(5): require_once('/home15/jmdozvb...')
+#4 {main}
+  thrown in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php on line 71
+[20-Oct-2021 21:31:56 UTC] PHP Warning:  require(/home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php): Failed to open stream: No such file or directory in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php on line 71
+[20-Oct-2021 21:31:56 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php' (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php:71
+Stack trace:
+#0 /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php(61): composerRequire54392dc08905a738005647a62a280a8a('6124b4c8570aa39...', '/home15/jmdozvb...')
+#1 /home15/jmdozvby/deployment.avoconsulte.com/vendor/autoload.php(7): ComposerAutoloaderInit54392dc08905a738005647a62a280a8a::getLoader()
+#2 /home15/jmdozvby/deployment.avoconsulte.com/vendor/autoload_runtime.php(5): require_once('/home15/jmdozvb...')
+#3 /home15/jmdozvby/deployment.avoconsulte.com/public/index.php(5): require_once('/home15/jmdozvb...')
+#4 {main}
+  thrown in /home15/jmdozvby/deployment.avoconsulte.com/vendor/composer/autoload_real.php on line 71

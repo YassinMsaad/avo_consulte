@@ -1,0 +1,28 @@
+<input type="hidden" name="" value="{{Listblog|length}} ?>" id="id">
+{% for key in Listblog %}
+                     <article class="blog" >
+
+						<div class="row no-gutters" >
+							<div class="col-lg-7">
+								<figure onclick="location.href='/المجلة-القانونية/{{key.id}}/{{key.titre|replace({' ': '-'})}}';">
+                             <img src="https://avoconsulte.com/img/{{key.image}}" alt="{{key.titre}}">
+
+								</figure>
+							</div>
+							<div class="col-lg-5">
+								<div class="post_info">
+									<small>
+									{% for i in key.temps %}
+									{{key.temps.i}}
+									{% endfor %}
+									</small>
+									<h3 onclick="location.href='/المجلة-القانونية/{{key.id}}/{{key.titre|replace({' ': '-'})}}';">
+									    {{key.titre}}</h3>
+										{% autoescape %}
+									<div>{{key.body|u.truncate(200)|raw}}</p></div>
+									{% endautoescape %}
+								</div>
+							</div>
+						</div>
+                        </article>
+					{% endfor %}

@@ -1,0 +1,48 @@
+security:
+    # https://symfony.com/doc/current/security/experimental_authenticators.html
+    enable_authenticator_manager: true
+    # https://symfony.com/doc/current/security.html#c-hashing-passwords
+    password_hashers:
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        chain_provider:
+            chain:
+                providers: [in_memory, user_db, in_database]
+        in_memory:
+            entity: { class: App\Entity\Admin, property: email }
+        user_db:
+            entity: { class: App\Entity\User, property: email }
+        in_database:
+            entity: { class: App\Entity\Avocat, property: email}   
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            remember_me:
+                secret:   '%kernel.secret%'
+                lifetime: 604800
+            guard:
+                authenticators:
+                    - App\Security\LoginAvocat
+                    - App\Security\LoginAdmin
+                    - App\Security\LoginAr
+                provider: in_memory
+            entry_point: App\Security\LoginAr    
+                
+            logout: 
+                path:   app_logout
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        # - { path: ^/admin, roles: ROLE_ADMIN }
+        # - { path: ^/profile, roles: ROLE_USER }

@@ -1,0 +1,9 @@
+UpdateRendezVous:
+    path: /avobusiness/rendez-vous/{id}
+    controller: App\Controller\AvoBusinessController::UpdateRendezVous
+CancelRendezVous:
+    path: /avobusiness/rendez-vous/c/{id}
+    controller: App\Controller\AvoBusinessController::CancelRendezVous
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
