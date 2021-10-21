@@ -163,7 +163,7 @@ public function getAllEvents($i):Response{
 
         */
         $ListAvocat=$this->getDoctrine()->getRepository(Avocat::Class)->AfficheAvocatArAvocats(10);
-        var_dump($ListAvocat)
+        var_dump($ListAvocat);
         
         return $this->render('AvocatsAr.html.twig', [
             'ListAvocat'=>$ListAvocat,
