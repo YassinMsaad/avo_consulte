@@ -1,5 +1,5 @@
-$('select').on('change',function(){console.log("hi");})
-$("#GouvernoratAr").on("change",function(){
+$('select').on('change',function(){alert("hi");})
+$('#GouvernoratAr').on('change',function(){
 
     console.log($("#GouvernoratAr").val," aa");
     switch ($("#GouvernoratAr").val){
