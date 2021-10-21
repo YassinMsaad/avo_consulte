@@ -1,6 +1,3 @@
-$(document).ready(function(){
-    $("#DelegationAr").hide();
-})
 $("#GouvernoratAr").on("Change",function(){
     switch ($("#GouvernoratAr").val){
 case  "أريانة" : 
@@ -846,3 +843,6 @@ switch($("#DelegationAr").val)
 
 
 })*/
+$(document).ready(function(){
+    $("#DelegationAr").hide();
+})
