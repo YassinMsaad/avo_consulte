@@ -160,11 +160,11 @@ public function getAllEvents($i):Response{
         get random from 1 to 2000 id 
         if id exist in list avocat , repeat
         if it doesnt u get its user and save it in list avocat
-        
+
         */
         $ListAvocat=$this->getDoctrine()->getRepository(Avocat::Class)->AfficheAvocatArAvocats(10);
         var_dump($ListAvocat)
-        $_POST["avocatsl"]=$ListAvocat;
+        
         return $this->render('AvocatsAr.html.twig', [
             'ListAvocat'=>$ListAvocat,
         ]);
