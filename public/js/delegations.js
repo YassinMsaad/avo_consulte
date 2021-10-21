@@ -1,5 +1,5 @@
-$("#GouvernoratAr").on("Change",function(){
-    console.log($("#GouvernoratAr").val)
+$("#GouvernoratAr").on("change",function(){
+    console.log($("#GouvernoratAr").val," aa");
     switch ($("#GouvernoratAr").val){
 case  "أريانة" : 
 $("#DelegationAr").show()
