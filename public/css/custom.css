@@ -1,5 +1,3 @@
-
-
 .fi-w{padding-top:2px}.tag._bndl{padding-bottom:3px}.tag._save,
 .fi-bl button,
 .fi-br button,
@@ -43,4 +41,4 @@ s,.prd._cl .sllr .label,.prd._cl .var .label,#jm .-mrxs{margin-right:4px}.sug .s
 .fi{padding-top:22px}
 .fi+.lbl,.rate .star{transition:all .2s ease-out}
 .fi:not([value=""])+.lbl,
-.ta+.lbl{transform:translate3d(0, -20px, 0)}.sug .sec._emp .ttl[data-mid-txt]::after,
+.ta+.lbl{transform:translate3d(0, -20px, 0)}
