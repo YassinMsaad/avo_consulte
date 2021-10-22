@@ -3,11 +3,11 @@
 //-----------------------------------------------------------FR---------------------------------------------------------
 //---------------------------------------------------------      -------------------------------------------------------
 $(document).on('change','#GouvernoratFr',function(){
-    switch ($("#GouvernoratFr").val){
+    switch ($("#GouvernoratFr").val()){
 
 case  "Ariana" : 
-$("#DelegationAr").show()
-$("#DelegationAr").html(`
+$("#DelegationFr").show()
+$("#DelegationFr").html(`
 <option selected value="Delegation"  >Delegation </option>
 <option value="Ariana Medina"  >Ariana Medina </option> 
 <option value="Ettadhamen"  >Ettadhamen </option> 
@@ -17,9 +17,10 @@ $("#DelegationAr").html(`
 <option value="Sidi Thabet"  >Sidi Thabet </option> 
 <option value="Soukra"  >Soukra </option> 
 `)
+break;
 case "Tunis" : 
-$("#DelegationAr").show()
-$("#DelegationAr").html(`
+$("#DelegationFr").show()
+$("#DelegationFr").html(`
 <option selected value="Delegation"  >Delegation </option>
 <option value="Bab Bhar"  >Bab Bhar </option> 
 <option value="Bab Souika"  >Bab Souika </option> 
@@ -43,10 +44,10 @@ $("#DelegationAr").html(`
 <option value="Sidi El Bechir"  >Sidi El Bechir </option> 
 <option value="Sidi Hassine"  >Sidi Hassine </option> 
 <option value="Sijoumi"  >Sijoumi </option> `)
-
+break;
 case "Ben Arous" : 
-$("#DelegationAr").show() 
-$("#DelegationAr").html(`
+$("#DelegationFr").show() 
+$("#DelegationFr").html(`
 <option selected value="Delegation"  >Delegation </option>
 <option value="Ben Arous"  >Ben Arous </option>
 <option value="Boumhel"  >Boumhel </option>
@@ -61,10 +62,10 @@ $("#DelegationAr").html(`
 <option value="Mornag"  >Mornag </option>
 <option value="Rades"  >Rades </option>
 `)
-
+break;
 case "Manouba" : 
-$("#DelegationAr").show()
-$("#DelegationAr").html(`
+$("#DelegationFr").show()
+$("#DelegationFr").html(`
 <option selected value="Delegation"  >Delegation </option>
 <option value="Borj El Amri"  >Borj El Amri </option> 
 <option value="Douar Hicher"  >Douar Hicher </option> 
@@ -75,10 +76,10 @@ $("#DelegationAr").html(`
 <option value="Oued Ellil"  >Oued Ellil </option> 
 <option value="Tebourba"  >Tebourba </option> 
 `)
-
+break;
 case"Sousse" : 
-$("#DelegationAr").show()
-$("#DelegationAr").html(`
+$("#DelegationFr").show()
+$("#DelegationFr").html(`
 <option selected value="Delegation"  >Delegation </option>
 <option value="Akouda"  >Akouda </option> 
 <option value="Bouficha"  >Bouficha </option> 
@@ -97,10 +98,10 @@ $("#DelegationAr").html(`
 <option value="Sousse Sidi Abdelhamid"  >Sousse Sidi Abdelhamid </option> 
 <option value="Zaouia Ksiba Thrayat"  >Zaouia Ksiba Thrayat </option> 
 `)
-
+break;
 case "Sfax" : 
-$("#DelegationAr").show()
-$("#DelegationAr").html(`
+$("#DelegationFr").show()
+$("#DelegationFr").html(`
 <option selected value="Delegation"  >Delegation </option>
 <option value="Agareb"  >Agareb </option>
 <option value="Bir Ali Ben Khelifa"  >Bir Ali Ben Khelifa </option>
@@ -119,10 +120,10 @@ $("#DelegationAr").html(`
 <option value="Skhira"  >Skhira </option>
 <option value="Thyna"  >Thyna </option>
 `)
-
+break;
 case"Gabes" : 
-$("#DelegationAr").show()
-$("#DelegationAr").html(`
+$("#DelegationFr").show()
+$("#DelegationFr").html(`
 <option selected value="Delegation"  >Delegation </option>
 <option value="Gabes Medina"  >Gabes Medina </option>
 <option value="Gabes West"  >Gabes West </option>
@@ -135,10 +136,10 @@ $("#DelegationAr").html(`
 <option value="Menzel Habib"  >Menzel Habib </option>
 <option value="Metouia"  >Metouia </option>
 `)
-
+break;
 case"Medenine" : 
-$("#DelegationAr").show()
-$("#DelegationAr").html(`
+$("#DelegationFr").show()
+$("#DelegationFr").html(`
 <option selected value="Delegation"  >Delegation </option>
 <option value="Ben Gardane"  >Ben Gardane </option>
 <option value="Beni Khedache"  >Beni Khedache </option>
@@ -150,10 +151,10 @@ $("#DelegationAr").html(`
 <option value="Sidi Makhlouf"  >Sidi Makhlouf </option>
 <option value="Zarzis"  >Zarzis </option>
 `)
-
+break;
 case "Mahdia" : 
-$("#DelegationAr").show()
-$("#DelegationAr").html(`
+$("#DelegationFr").show()
+$("#DelegationFr").html(`
 <option selected value="Delegation"  >Delegation </option>
 <option value="Boumerdes"  >Boumerdes </option>
 <option value="Chebba"  >Chebba </option>
@@ -167,10 +168,10 @@ $("#DelegationAr").html(`
 <option value="Sidi Alouane"  >Sidi Alouane </option>
 <option value="Souassi"  >Souassi </option>
 `)
-
+break;
 case "Beja" : 
-$("#DelegationAr").show()
-$("#DelegationAr").html(`
+$("#DelegationFr").show()
+$("#DelegationFr").html(`
 <option selected value="Delegation"  >Delegation </option>
 <option value="Amdoun"  >Amdoun </option> 
 <option value="Beja North"  >Beja Nord </option> 
@@ -181,10 +182,10 @@ $("#DelegationAr").html(`
 <option value="Teboursouk"  >Teboursouk </option> 
 <option value="Testour"  >Testour </option> 
 <option value="Thibar"  >Thibar </option> `)
-
+break;
 case "Bizerte" : 
-$("#DelegationAr").show()
-$("#DelegationAr").html(`
+$("#DelegationFr").show()
+$("#DelegationFr").html(`
 <option selected value="Delegation"  >Delegation </option>
 <option value="Bizerte North"  >Bizerte North </option>
 <option value="Bizerte South"  >Bizerte South </option>
@@ -201,10 +202,10 @@ $("#DelegationAr").html(`
 <option value="Utique"  >Utique </option>
 <option value="Zarzouna"  >Zarzouna </option>
 `)
-
+break;
 case "Gafsa" : 
-$("#DelegationAr").show()
-$("#DelegationAr").html(`
+$("#DelegationFr").show()
+$("#DelegationFr").html(`
 <option selected value="Delegation"  >Delegation </option>
 <option value="Belkhir"  >Belkhir </option>
 <option value="Gafsa North"  >Gafsa North </option>
@@ -219,10 +220,10 @@ $("#DelegationAr").html(`
 <option value="Sidi Aich"  >Sidi Aich </option>
 <option value="Sidi Boubaker"  >Sidi Boubaker </option>
 `)
-
+break;
 case "Jendouba" : 
-$("#DelegationAr").show()
-$("#DelegationAr").html(`
+$("#DelegationFr").show()
+$("#DelegationFr").html(`
 <option selected value="Delegation"  >Delegation </option>
 <option value="Aïn Draham"  >Aïn Draham </option>
 <option value="Balta"  >Balta </option>
@@ -234,10 +235,10 @@ $("#DelegationAr").html(`
 <option value="Oued Mliz"  >Oued Mliz </option>
 <option value="Tabarka"  >Tabarka </option>
 `)
-
+break;
 case "Kairouan" : 
-$("#DelegationAr").show()
-$("#DelegationAr").html(`
+$("#DelegationFr").show()
+$("#DelegationFr").html(`
 <option selected value="Delegation"  >Delegation </option>
 <option value="Alaa"  >Alaa </option>
 <option value="Bouhajla"  >Bouhajla </option>
@@ -251,10 +252,10 @@ $("#DelegationAr").html(`
 <option value="Oueslatia"  >Oueslatia </option>
 <option value="Sbikha"  >Sbikha </option>
 `)
-
+break;
 case "Kasserine" : 
-$("#DelegationAr").show()
-$("#DelegationAr").html(`
+$("#DelegationFr").show()
+$("#DelegationFr").html(`
 <option selected value="Delegation"  >Delegation </option>
 <option value="Ayoun"  >Ayoun </option>
 <option value="Ezzouhour"  >Ezzouhour </option>
@@ -270,10 +271,10 @@ $("#DelegationAr").html(`
 <option value="Sbiba"  >Sbiba </option>
 <option value="Thala"  >Thala </option>
 `)
-
+break;
 case "Kef" : 
-$("#DelegationAr").show()
-$("#DelegationAr").html(`
+$("#DelegationFr").show()
+$("#DelegationFr").html(`
 <option selected value="Delegation"  >Delegation </option>
 <option value="Dahmani"  >Dahmani </option>
 <option value="El Sers"  >El Sers </option>
@@ -288,10 +289,10 @@ $("#DelegationAr").html(`
 <option value="Tajerouine"  >Tajerouine </option>
 <option value="Touiref"  >Touiref </option>
 `)
-
+break;
 case "Monastir" : 
-$("#DelegationAr").show()
-$("#DelegationAr").html(`
+$("#DelegationFr").show()
+$("#DelegationFr").html(`
 <option selected value="Delegation"  >Delegation </option>
 <option value="Bekalta"  >Bekalta </option>
 <option value="Bembla"  >Bembla </option>
@@ -307,10 +308,10 @@ $("#DelegationAr").html(`
 <option value="Teboulba"  >Teboulba </option>
 <option value="Zeramdine"  >Zeramdine </option>
 `)
-
+break;
 case "Nabeul" : 
-$("#DelegationAr").show()
-$("#DelegationAr").html(`
+$("#DelegationFr").show()
+$("#DelegationFr").html(`
 <option selected value="Delegation"  >Delegation </option>
 <option value="Beni Khalled"  >Beni Khalled </option>
 <option value="Beni Khiar"  >Beni Khiar </option>
@@ -329,10 +330,10 @@ $("#DelegationAr").html(`
 <option value="Soliman"  >Soliman </option>
 <option value="Takelsa"  >Takelsa </option>
 `)
-
+break;
 case "Sidi Bou Zid" : 
-$("#DelegationAr").show()
-$("#DelegationAr").html(`
+$("#DelegationFr").show()
+$("#DelegationFr").html(`
 <option selected value="Delegation"  >Delegation </option>
 <option value="Bir El Hfay"  >Bir El Hfay </option>
 <option value="Jelma"  >Jelma </option>
@@ -347,10 +348,10 @@ $("#DelegationAr").html(`
 <option value="Sidi Bouzid West"  >Sidi Bouzid West </option>
 <option value="Souk Jedid"  >Souk Jedid </option>
 `)
-
+break;
 case "Siliana" : 
-$("#DelegationAr").show()
-$("#DelegationAr").html(`
+$("#DelegationFr").show()
+$("#DelegationFr").html(`
 <option selected value="Delegation"  >Delegation </option>
 <option value="Bargou"  >Bargou </option>
 <option value="Bouarada"  >Bouarada </option>
@@ -364,10 +365,10 @@ $("#DelegationAr").html(`
 <option value="Siliana North"  >Siliana North </option>
 <option value="Siliana South"  >Siliana South </option>
 `)
-
+break;
 case "Tataouine" : 
-$("#DelegationAr").show()
-$("#DelegationAr").html(`
+$("#DelegationFr").show()
+$("#DelegationFr").html(`
 <option selected value="Delegation"  >Delegation </option>
 <option value="Bir Lahmar"  >Bir Lahmar </option>
 <option value="Dhiba"  >Dhiba </option>
@@ -377,10 +378,10 @@ $("#DelegationAr").html(`
 <option value="Tataouine North"  >Tataouine North </option>
 <option value="Tataouine South"  >Tataouine South </option>
 `)
-
+break;
 case "Tozeur" : 
-$("#DelegationAr").show()
-$("#DelegationAr").html(`
+$("#DelegationFr").show()
+$("#DelegationFr").html(`
 <option selected value="Delegation"  >Delegation </option>
 <option value="Degueche"  >Degueche </option>
 <option value="Hazoua"  >Hazoua </option>
@@ -388,10 +389,10 @@ $("#DelegationAr").html(`
 <option value="Tamaghza"  >Tamaghza </option>
 <option value="Tozeur"  >Tozeur </option>
 `)
-
+break;
 case "Zaghouan" : 
-$("#DelegationAr").show()
-$("#DelegationAr").html(`
+$("#DelegationFr").show()
+$("#DelegationFr").html(`
 <option selected value="Delegation"  >Delegation </option>
 <option value="Bir Mchergua"  >Bir Mchergua </option>
 <option value="Fahs"  >Fahs </option>
@@ -400,10 +401,10 @@ $("#DelegationAr").html(`
 <option value="Zaghouan"  >Zaghouan </option>
 <option value="Zriba"  >Zriba </option>
 `)
-
+break;
 case "Kebili" : 
-$("#DelegationAr").show()
-$("#DelegationAr").html(`
+$("#DelegationFr").show()
+$("#DelegationFr").html(`
 <option selected value="Delegation"  >Delegation </option>
 
 <option value="Douz North"  >Douz North </option>
@@ -413,9 +414,12 @@ $("#DelegationAr").html(`
 <option value="Kebili South"  >Kebili South </option>
 <option value="Souk El Ahed"  >Souk El Ahed </option>
 `)
+break;
 case 'Gouvernorate':
-$("#DelegationAr").hide()
+$("#DelegationFr").hide()
+break;
 }
+
 })
 //---------------- onchange Ar to Fr ---------------------
 /*
@@ -850,4 +854,6 @@ $("#DelegationAr").hide()
 $(document).ready(function(){
     $("#DelegationAr").hide();
 })
+
+
 
