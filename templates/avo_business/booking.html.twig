@@ -98,7 +98,7 @@
         </li>
         <li class="breadcrumb-item active">Bookings</li>
       </ol>
-		<div class="box_general">
+		<div class="box_generalaov">
 			<div class="header_box">
 				<h2 class="d-inline-block">Liste des réservations</h2>
 			</div>
@@ -106,10 +106,10 @@
       {% for key in ListRendezVous %}
 				<ul>
 					<li>
-						<h4>Enzo Ferrari <i class="pending">Pending</i></h4>
+						<h4>{{key.iduser.nom}} {{key.iduser.prenom}}<i class="pending">{% if key.status	== "Approved" %} Approved {% else %} pending {% endif %}</i></h4>
 						<ul class="booking_details">
             
-							<li><strong>date</strong> {{key.date|date("j M Y")}}</li>
+							<li><strong>date</strong> {{key.date|date("D M Y")}}</li>
 							<li><strong>time</strong> {{key.date|date("H:i")}}</li>
 							<li><strong>Visits</strong> consultation juridique</li>
 							<li><strong>Telephone</strong> {{key.iduser.telephone}}</li>
@@ -122,6 +122,7 @@
 					</li>
 				</ul>
         {% endfor %}
+ 
 			</div>
 		</div>
 		<!-- /box_general-->

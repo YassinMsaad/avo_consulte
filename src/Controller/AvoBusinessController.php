@@ -40,7 +40,8 @@ class AvoBusinessController extends AbstractController
         $ListRendezVous=$avocat->getRendezVouses();
        
         return $this->render('avo_business/booking.html.twig', [
-            'ListRendezVous'=>$ListRendezVous
+            'ListRendezVous'=>$ListRendezVous,
+            'id'=>$id
        
         ]);
     }

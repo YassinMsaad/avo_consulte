@@ -155,8 +155,16 @@ public function getAllEvents($i):Response{
             
        
         }
+        /* 
+        for 10 times 
+        get random from 1 to 2000 id 
+        if id exist in list avocat , repeat
+        if it doesnt u get its user and save it in list avocat
+
+        */
         $ListAvocat=$this->getDoctrine()->getRepository(Avocat::Class)->AfficheAvocatArAvocats(10);
-        $_POST["avocatsl"]=$ListAvocat;
+        var_dump($ListAvocat);
+        
         return $this->render('AvocatsAr.html.twig', [
             'ListAvocat'=>$ListAvocat,
         ]);
@@ -304,18 +312,44 @@ if (!(isset($user))){
 }
 
  /**
-     * @Route("/حسابي/",name="MyAccount")
+     * @Route("/حسابي/الأسئلة",name="UserQuestionsAr")
     */ 
- public function MyAccountAr ():Response {   
+ public function QuestionsAr ():Response {   
     $user = $this->getUser();
     if (!(isset($user))){
         return $this->redirectToRoute("LoginAr");
    }
-return $this->render('MyAccount.html.twig', [
+return $this->render('user/questions.html.twig', [
  
 
 ]);
 }
+ /**
+     * @Route("/حسابي/الملف-الشخصي",name="UserProfil")
+    */ 
+    public function CompteAr ():Response {   
+        $user = $this->getUser();
+        if (!(isset($user))){
+            return $this->redirectToRoute("LoginAr");
+       }
+    return $this->render('user/monprofile.html.twig', [
+     
+    
+    ]);
+    }
+     /**
+     * @Route("/حسابي/مواعيد",name="UserRendez-vous")
+    */ 
+    public function RendezvousAr ():Response {   
+        $user = $this->getUser();
+        if (!(isset($user))){
+            return $this->redirectToRoute("LoginAr");
+       }
+    return $this->render('user/rendez-vous.html.twig', [
+     
+    
+    ]);
+    }
 
 /**
      * @Route("/شكرا/",name="ThanksAr")
@@ -394,6 +428,10 @@ return $this->render('MyAccount.html.twig', [
      */
     public function rdv ($id) {
     
+        $user = $this->getUser();
+        if (!(isset($user))){
+            return $this->redirectToRoute("LoginAr");
+        }
         return $this->render('RDV.html.twig', [
             'id'=>$id
         ]);
