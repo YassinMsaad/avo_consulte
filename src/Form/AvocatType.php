@@ -53,6 +53,8 @@ class AvocatType extends AbstractType
                     }return strtoupper($key);}
             
             ])
+            ->add('delegationFr',ChoiceType::class)
+            ->add('delegationAr',ChoiceType::class)
             ->add('gouvernorat_fr',ChoiceType::class, [
                 'choices'  => [
                 'Maybe' => null,
