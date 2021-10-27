@@ -150,10 +150,8 @@ class HomeController extends AbstractController
 
             return $this->redirectToRoute('Avocats_Ar2', ["g" => $g, 'request' => $request], 307);
         }
-<<<<<<< HEAD
-        $ListAvocat = $this->getDoctrine()->getRepository(Avocat::Class)->AfficheAvocatArAvocats(10);
-        $_POST["avocatsl"] = $ListAvocat;
-=======
+
+
         /* 
         for 10 times 
         get random from 1 to 2000 id 
@@ -164,7 +162,7 @@ class HomeController extends AbstractController
         $ListAvocat=$this->getDoctrine()->getRepository(Avocat::Class)->AfficheAvocatArAvocats(10);
         var_dump($ListAvocat);
         
->>>>>>> 6485799531b5cd74deb9114acf851a974eece4e3
+
         return $this->render('AvocatsAr.html.twig', [
             'ListAvocat' => $ListAvocat,
         ]);
