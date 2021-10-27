@@ -855,8 +855,3 @@ $(document).ready(function(){
     $("#DelegationAr").hide();
 })
 
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 6485799531b5cd74deb9114acf851a974eece4e3
