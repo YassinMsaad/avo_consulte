@@ -256,10 +256,14 @@ onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع ا
 	  m=$('#calendar').datepicker("getDate").getMonth();
 	  y=$('#calendar').datepicker("getDate").getFullYear();
 	   ele=document.getElementsByName("radio_time")
+	   m= ++m
+
+	   
 	    for(i = 0; i < ele.length; i++) {
                 if(ele[i].checked){
                x=i;
 				window.location.href = "/date/"+{{id}}+"/"+ele[x].value+"/"+d+"/"+m+"/"+y;
+				
             }}
 	   
 	   

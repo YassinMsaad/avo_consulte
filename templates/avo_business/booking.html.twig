@@ -1,208 +1,158 @@
-{% extends 'base.html.twig' %}
-
+{% extends 'avo_business/base3.html.twig' %}
 
 
 {% block body %}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="Ansonika">
-  <title>AvoBusiness - Tableau de bored </title>
-  
-  <!-- Favicons-->
-  <link rel="shortcut icon" href="avobusiness/img/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" type="image/x-icon" href="avobusiness/img/apple-touch-icon-57x57-precomposed.png">
-  <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="avobusiness/img/apple-touch-icon-72x72-precomposed.png">
-  <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="avobusiness/img/apple-touch-icon-114x114-precomposed.png">
-  <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="avobusiness/img/apple-touch-icon-144x144-precomposed.png">
-  
-  <!-- GOOGLE WEB FONT -->
-  <link href="avobusiness/https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800" rel="stylesheet">
-  
-  <!-- Bootstrap core CSS-->
-  <link href="avobusiness/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Icon fonts-->
-  <link href="avobusiness/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <!-- Plugin styles -->
-  <link href="avobusiness/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
-  <!-- Main styles -->
-  <link href="avobusiness/css/admin.css" rel="stylesheet">
-  <!-- Your custom styles -->
-  <link href="avobusiness/css/admin.css" rel="stylesheet">
-  
-</head>
+	<!-- /Navigation-->
+	<div class="content-wrapper">
+		<div
+			class="container-fluid">
+			<!-- Breadcrumbs-->
+			<ol dir="rtl" class="breadcrumb">
+				<li class="breadcrumb-item">
+					<a href="avobusiness/#">الحجوزات</a>
+				</li>
 
-<body class="fixed-nav sticky-footer" id="page-top">
-  <!-- Navigation-->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-default fixed-top" id="mainNav">
-    <a class="navbar-brand" href="avobusiness/index.html"><img src="avobusiness/img/Logo1.2-10.svg" data-retina="true" alt="" width="163" height="36"></a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="avobusiness/">
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Tableau de bord</span>
-          </a>
-        </li>
+			</ol>
+			<div class="box_generalaov text-right">
+				<div class="header_box">
+					<h2 class="d-inline-block">قائمة الحجوزات</h2>
+				</div>
+				<div class="list_general" id="rendezvous">
+					{% for key in ListRendezVous %}
+						<ul>
+							<li>
+                                    <i class=									
+									{% if key.status	== "Approved" %}
+											Approved
+										{% else %}
+                                         pending
+										{% endif %}>
 
-		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Bookings">
-          <a class="nav-link" href="avobusiness/rendez-vous/">
-            <i class="fa fa-fw fa-calendar-check-o"></i>
-            <span class="nav-link-text">Rendez-vous <span class="badge badge-pill badge-primary">6 New</span></span>
-          </a>
-        </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Profil">
-          <a class="nav-link" href="avobusiness/compte/">
-            <i class="fa fa-user"></i>
-            <span class="nav-link-text">Profil</span>
-          </a>
-        </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Jounal">
-          <a class="nav-link" href="avobusiness/journal/">
-            <i class="fa fa-calendar"></i>
-            <span class="nav-link-text">Jounal</span>
-          </a>
-        </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Deconnecter">
-          <a class="nav-link" href="avobusiness/#">
-            <i class="fa fa-sign-out"></i>
-            <span class="nav-link-text">Deconnecter</span>
-          </a>
-        </li>
-      </ul>
-      <ul class="navbar-nav sidenav-toggler">
-        <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler">
-            <i class="fa fa-fw fa-angle-left"></i>
-          </a>
-        </li>
-      </ul>
+									{% if key.status	== "Approved" %}
+											تمت الموافقة
+										{% else %}
 
-    </div>
-  </nav>
-  <!-- /Navigation-->
-  <div class="content-wrapper">
-    <div class="container-fluid">
-      <!-- Breadcrumbs-->
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="avobusiness/#">Dashboard</a>
-        </li>
-        <li class="breadcrumb-item active">Bookings</li>
-      </ol>
-		<div class="box_generalaov">
-			<div class="header_box">
-				<h2 class="d-inline-block">Liste des réservations</h2>
+											قيد الإنتظار
+										{% endif %}
+                                    </i>
+									
+								</strong>
+								<ul class="booking_details">
+								
+									<li>
+										<strong>  : اسم العميل</strong>
+										{{key.iduser.nom}}
+									{{key.iduser.prenom}}</li>
+										
+									<li>
+                                        
+									<li>
+										<strong>  : اليوم</strong>
+										{{key.date|date("20y/m/d")}}</li>
+										
+									<li>
+										<strong>الساعة</strong>
+										{{key.date|date("H:i")}}</li>
+										
+									<li>
+										<strong>:نوع الزيارة</strong>
+										استشارة قانونية</li>
+										<strong>:  الهاتف</strong>
+									<li>
+										
+										{{key.iduser.telephone}}</li>
+										<strong>البريد الإلكتروني</strong>
+									<li>
+										
+										{{key.iduser.email}}</li>
+								</ul>
+								<ul class="buttons">
+									<li>
+										<a class="btn_1 gray approve" onclick="UpdateRendezvous({{key.id}})">
+											<i class="fa fa-fw fa-check-circle-o"></i>
+											تأكيد</a>
+									</li>
+									<li>
+										<a class="btn_1 gray delete" onclick="CancelRendezvous({{key.id}})">
+											<i class="fa fa-fw fa-times-circle-o"></i>
+											إلغاء</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					{% endfor %}
+
+				</div>
 			</div>
-			<div class="list_general" id="rendezvous">
-      {% for key in ListRendezVous %}
-				<ul>
-					<li>
-						<h4>{{key.iduser.nom}} {{key.iduser.prenom}}<i class="pending">{% if key.status	== "Approved" %} Approved {% else %} pending {% endif %}</i></h4>
-						<ul class="booking_details">
-            
-							<li><strong>date</strong> {{key.date|date("D M Y")}}</li>
-							<li><strong>time</strong> {{key.date|date("H:i")}}</li>
-							<li><strong>Visits</strong> consultation juridique</li>
-							<li><strong>Telephone</strong> {{key.iduser.telephone}}</li>
-							<li><strong>Email</strong> {{key.iduser.email}}</li>
-						</ul>
-						<ul class="buttons">
-							<li><a class="btn_1 gray approve" onclick="UpdateRendezvous({{key.id}})"><i class="fa fa-fw fa-check-circle-o" ></i> Approve</a></li>
-							<li><a  class="btn_1 gray delete" onclick="CancelRendezvous({{key.id}})"><i class="fa fa-fw fa-times-circle-o" ></i> Cancel</a></li>
-						</ul>
-					</li>
-				</ul>
-        {% endfor %}
- 
+			<!-- /box_general-->
+
+			<!-- /pagination-->
+		</div>
+		<!-- /container-fluid-->
+	</div>
+	<!-- /container-wrapper-->
+	<footer class="sticky-footer">
+		<div class="container">
+			<div class="text-center">
+				<small>Copyright © AvoConsulte Inc. 2021</small>
 			</div>
 		</div>
-		<!-- /box_general-->
-	
-		<!-- /pagination-->
-	  </div>
-	  <!-- /container-fluid-->
-   	</div>
-    <!-- /container-wrapper-->
-    <footer class="sticky-footer">
-      <div class="container">
-        <div class="text-center">
-          <small>Copyright © AvoConsulte Inc. 2021</small>
-        </div>
-      </div>
-    </footer>
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="avobusiness/#page-top">
-      <i class="fa fa-angle-up"></i>
-    </a>
-    <!-- Logout Modal-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="avobusiness/login.html">Logout</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Bootstrap core JavaScript-->
-    <script src="avobusiness/vendor/jquery/jquery.min.js"></script>
-    <script src="avobusiness/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Core plugin JavaScript-->
-    <script src="avobusiness/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <!-- Page level plugin JavaScript-->
-    <script src="avobusiness/vendor/chart.js/Chart.min.js"></script>
-    <script src="avobusiness/vendor/datatables/jquery.dataTables.js"></script>
-    <script src="avobusiness/vendor/datatables/dataTables.bootstrap4.js"></script>
+	</footer>
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="avobusiness/#page-top">
+		<i class="fa fa-angle-up"></i>
+	</a>
+	<!-- Logout Modal-->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+					<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- Bootstrap core JavaScript-->
+	<script src="avobusiness/vendor/jquery/jquery.min.js"></script>
+	<script src="avobusiness/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- Core plugin JavaScript-->
+	<script src="avobusiness/vendor/jquery-easing/jquery.easing.min.js"></script>
+	<!-- Page level plugin JavaScript-->
+	<script src="avobusiness/vendor/chart.js/Chart.min.js"></script>
+	<script src="avobusiness/vendor/datatables/jquery.dataTables.js"></script>
+	<script src="avobusiness/vendor/datatables/dataTables.bootstrap4.js"></script>
 	<script src="avobusiness/vendor/jquery.selectbox-0.2.js"></script>
 	<script src="avobusiness/vendor/retina-replace.min.js"></script>
 	<script src="avobusiness/vendor/jquery.magnific-popup.min.js"></script>
-    <!-- Custom scripts for all pages-->
-    <script src="avobusiness/js/admin.js"></script>
-	 <script>
-   function UpdateRendezvous(id) {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("rendezvous").innerHTML =  this.responseText;
-      }
-    };
-    xmlhttp.open("GET","/avobusiness/rendez-vous/"+id,true);
-    xmlhttp.send();
-  
+	<!-- Custom scripts for all pages-->
+	<script src="avobusiness/js/admin.js"></script>
+	<script>
+		function UpdateRendezvous(id) {
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function () {
+if (this.readyState == 4 && this.status == 200) {
+document.getElementById("rendezvous").innerHTML = this.responseText;
 }
-  function CancelRendezvous(id) {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("rendezvous").innerHTML =  this.responseText;
-      }
-    };
-    xmlhttp.open("GET","/avobusiness/rendez-vous/c/"+id,true);
-    xmlhttp.send();
-  
+};
+xmlhttp.open("GET", "/avobusiness/rendez-vous/" + id, true);
+xmlhttp.send();
+
 }
- </script>
-</body>
-</html>
+function CancelRendezvous(id) {
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function () {
+if (this.readyState == 4 && this.status == 200) {
+document.getElementById("rendezvous").innerHTML = this.responseText;
+}
+};
+xmlhttp.open("GET", "/avobusiness/rendez-vous/c/" + id, true);
+xmlhttp.send();
 
-
-{% endblock %}
-{% block footer %}
-{% endblock %}
+}
+	</script>
+</body></html>{% endblock %}{% block footer %}{% endblock %}

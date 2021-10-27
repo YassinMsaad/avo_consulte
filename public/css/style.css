@@ -1274,7 +1274,7 @@ background: linear-gradient(45deg, rgba(243,245,247,1) 0%, rgba(249,249,251,1) 1
 @media (max-width: 991px) {
   #custom-search-input {
     /* For less than 991px */
-    width: auto;
+    width: 100%;
     display: block !important;
   }
 }
@@ -1340,11 +1340,13 @@ background: linear-gradient(45deg, rgba(243,245,247,1) 0%, rgba(249,249,251,1) 1
   font-size: 1rem;
   color: #74747C;
 }
+.searchFilter{
+  display: none;
+}
 #custom-search-input .search-drop-avo {
   border:0;
-  width: 100%;
+  text-align: right;
   min-height: 40px;
-  margin: 2px;
   border: 0.5px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1354,6 +1356,8 @@ background: linear-gradient(45deg, rgba(243,245,247,1) 0%, rgba(249,249,251,1) 1
   font-size: 16px;
   font-size: 1rem;
   color: #74747C;
+  width: 100%;
+  margin-bottom: 4px;
 }
 #custom-search-input .search-drop:focus {
   outline: none;
@@ -1371,6 +1375,7 @@ background: linear-gradient(45deg, rgba(243,245,247,1) 0%, rgba(249,249,251,1) 1
 @media (max-width: 575px) {
   #custom-search-input .search-drop-avo {
     /* For less than 575px */
+
     
   }
 }
@@ -1381,6 +1386,7 @@ background: linear-gradient(45deg, rgba(243,245,247,1) 0%, rgba(249,249,251,1) 1
   #custom-search-input .search-query {
     /* For less than 575px */
     padding-left: 15px;
+    width: 100%;
   }
 }
 #custom-search-input ul {
@@ -1443,7 +1449,8 @@ background: linear-gradient(45deg, rgba(243,245,247,1) 0%, rgba(249,249,251,1) 1
   font-size: 1rem;
   top: 0;
   width: 100%;
-  margin: 0 40%;
+  margin: 0 70%;
+  margin-right:auto;
   border: 0;
   padding: 0 25px;
   min-height: 40px;
@@ -2127,7 +2134,25 @@ iframe {
   border-radius: 3px;
   padding-left: 15px;
   text-align:right;
-  margin-left:2px;
+  margin-left:auto;
+  margin-bottom: 4px;
+  width:30%;
+}
+@media (max-width: 767px) {
+  .search_bar_list input[type='text'] {
+    border: 0;
+    height: 40px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    padding-left: 15px;
+    text-align:right;
+    margin-left:auto;
+    margin-bottom: 4px;
+    width:100%;
+  }
+  
 }
 .search_bar_list input[type='submit'] {
   position: absolute;

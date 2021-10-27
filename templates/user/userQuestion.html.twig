@@ -1,0 +1,54 @@
+{% extends 'user/base2.html.twig' %}
+
+{% block body %}<!-- /Navigation--><div class="content-wrapper">
+		<div
+			dir="rtl" class="container-fluid">
+			<!-- Breadcrumbs-->
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item">
+					<a href="#">استشارات قانونية</a>
+				</li>
+			</ol>
+
+
+			<main class="bg_gray text-right" dir="rtl">
+
+				<div class="container margin_40_60">
+					<div class="row justify-content-left">
+						<div class="col-lg-8">
+							<br>
+							<form method="POST" action="/شكرا/">
+								<div class="main_title">
+									<h1 class="add_bottom_15">استشارات قانونية مجانية من أفضل محامين في تونس</h1>
+									<p>إطرح سؤالك الآن على محامٍ من خيرة محامين تونس
+									</p>
+								</div>
+								<div class="box_general write_review">
+									<div class="form-group">
+										<label>عنوان سؤالك
+										</label>
+										<input class="form-control" name="title" type="text" placeholder="" required>
+									</div>
+
+									<div class="form-group">
+										<label>سؤالك
+										</label>
+										<textarea required class="form-control" name="question" style="height: 180px;" placeholder=""></textarea>
+									</div>
+
+									<input type="submit" name="submit" class="btn_1" value="أرسل سؤالك"/>
+								</form>
+
+							</div>
+						</div>
+					</div>
+					<!-- /row -->
+				</div>
+				<!-- /container -->
+
+			</main>
+
+			<!-- /.container-fluid-->
+		</div>
+		<!-- /.container-wrapper-->
+		{% endblock %}

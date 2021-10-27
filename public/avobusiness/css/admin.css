@@ -164,7 +164,7 @@ body.fixed-nav {
   #mainNav .navbar-collapse .navbar-sidenav {
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-flex-direction: column;
@@ -173,7 +173,7 @@ body.fixed-nav {
     margin-top: 61px;
   }
   #mainNav .navbar-collapse .navbar-sidenav > .nav-item {
-    width: 250px;
+    width: 200px;
     padding: 0;
   }
   #mainNav .navbar-collapse .navbar-sidenav > .nav-item > .nav-link {
@@ -293,7 +293,7 @@ body.sidenav-toggled #mainNav.static-top #sidenavToggler i {
 }
 @media (min-width: 992px) {
   .content-wrapper {
-    margin-left: 250px;
+    margin-right: 250px;
   }
 }
 
@@ -354,6 +354,8 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   #mainNav.navbar-dark .navbar-collapse .navbar-sidenav {
     background: #fff;
     padding-top: 10px;
+    margin-left: 80%;
+    margin-right:0;
   }
   #mainNav.navbar-dark .navbar-collapse .navbar-sidenav li.active a {
     color: white !important;
@@ -591,11 +593,11 @@ a.btn_1:hover,
 /*-------- 2.1 Courses --------*/
 ul.buttons {
   list-style: none;
-  margin: 0 0 30px 0;
+  margin: 30px 0 30px 0;
   padding: 0;
   position: absolute;
   top: 30px;
-  right: 30px;
+  left: 30px;
 }
 @media (max-width: 767px) {
   ul.buttons {

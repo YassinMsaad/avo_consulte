@@ -9,6 +9,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use App\Entity\Avocat;
 use App\Entity\User;
 use App\Entity\RendezVous;
+use App\Repository\AvocatRepository;
 use App\Repository\RendezVousRepository;
 
 class AvoBusinessController extends AbstractController
@@ -17,40 +18,47 @@ class AvoBusinessController extends AbstractController
      * @Route("/avobusiness", name="avo_business")
      */
     public function index(): Response
-    {$user = $this->getUser();
-        if (!(isset($user))){
+    { $id = $this->getUser()->getId();
+        $avocat=$this->getDoctrine()->getRepository(Avocat::Class)->find($id);
+        if (!(isset($avocat))){
             return $this->redirectToRoute("LoginAvocat");
        }
+       $ListRendezVous=$avocat->getRendezVouses();
         return $this->render('avo_business/index.html.twig', [
+            'ListRendezVous'=>$ListRendezVous
        
         ]);
     }
     /**
      * @Route("/avobusiness/rendez-vous", name="booking")
      */
-    public function booking(): Response
-    {$user = $this->getUser();
-        if (!(isset($user))){
-            return $this->redirectToRoute("LoginAvocat");
+    public function booking(): Response{
+        $id = $this->getUser()->getId();
+        $avocat=$this->getDoctrine()->getRepository(Avocat::Class)->find($id);
+        if (!(isset($avocat))){
+            return $this->redirectToRoute("LoginAr");
+        }
+        $avocat=$this->getDoctrine()->getRepository(Avocat::Class)->find($id);
+        $subbed =$avocat->getSubbed();
+        if ($subbed === true){
+            $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+            $ListRendezVous=$avocat->getRendezVouses();
+           
+            return $this->render('avo_business/booking.html.twig', [
+                'ListRendezVous'=>$ListRendezVous,
+                'id'=>$id
+           
+            ]);
        }
-       $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-
-       $id = $this->getUser()->getId();
-       $avocat=$this->getDoctrine()->getRepository(Avocat::Class)->find($id);
-        $ListRendezVous=$avocat->getRendezVouses();
-       
-        return $this->render('avo_business/booking.html.twig', [
-            'ListRendezVous'=>$ListRendezVous,
-            'id'=>$id
-       
-        ]);
+       return $this->redirectToRoute("LoginAvocat");
     }
      /**
      * @Route("/avobusiness/compte", name="avoaccount")
      */
-    public function profile(): Response
-    {$user = $this->getUser();
-        if (!(isset($user))){
+    public function profile(): Response{
+        $id = $this->getUser()->getId();
+        $avocat=$this->getDoctrine()->getRepository(Avocat::Class)->find($id);
+        if (!(isset($avocat))){
             return $this->redirectToRoute("LoginAvocat");
        }
         return $this->render('avo_business/profile.html.twig', [
@@ -62,8 +70,9 @@ class AvoBusinessController extends AbstractController
      * @Route("/avobusiness/journal", name="calander")
      */
     public function calander(): Response
-    {$user = $this->getUser();
-        if (!(isset($user))){
+    { $id = $this->getUser()->getId();
+        $avocat=$this->getDoctrine()->getRepository(Avocat::Class)->find($id);
+        if (!(isset($avocat))){
             return $this->redirectToRoute("LoginAvocat");
        }
         return $this->render('avo_business/calander.html.twig', [

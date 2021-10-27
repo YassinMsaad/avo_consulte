@@ -64,7 +64,7 @@ class AvocatRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult()
         ;
-    }
+    } 
 
     
     /*

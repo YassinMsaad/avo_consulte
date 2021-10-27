@@ -4,6 +4,12 @@
 <html lang="ar">
 
 <head>
+						<script>
+                    function searchfi() {
+						document.getElementById("searchFilter").style.display = "block"
+						document.getElementById("searchFilter2").style.display = "block"
+                     }
+					</script>
    
 <script type="text/javascript">
   
@@ -148,24 +154,25 @@ onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع ا
 		<!-- /container -->
 	</header>
 	<!-- /Header -->
-	
+
 	<main>
 		<div id="results">
 			<div class="container">
 			    <form method="POST" action="/محامون/">
 				<div class="row">
-				    <div class="col-md-3 " id="custom-search-input">
-							<div class="checkboxes">
-								<label class="container_check"> مسجل &nbsp;     
-								        	<input type="checkbox" >
-									<span class="checkmark"></span>
-								</label>
-							</div>
-				    </div>
-				    <div class="col-md-2 " id="custom-search-input">
+					<div id="custom-search-input">
+						<div class="search_bar_list">
+						    
+						    <!--<input type="submit" value="بحث">-->
+                             <input type="text" class="form-control" name="key"  placeholder="بحث" value="" id="searchKey" onclick="searchfi();" >
+                          
+                       </div>
+                         
+					</div>
+				    <div id="custom-search-input">
 					    <div class="input-group">
-							<select name="tribunal" class="search-drop-avo " >
-							    <option value="" selected >المحكمة </option>
+							<select name="tribunal" id="searchFilter" class="search-drop-avo searchFilter " >
+							    <option value="" selected disabled >المحكمة </option>
  <option value="الإبتدائية"  >الإبتدائية </option>
 <option value="الاستئناف"  >الاستئناف </option> 
 <option value="التعقيب" >التعقيب </option> 
@@ -174,14 +181,10 @@ onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع ا
 
 						</div>
 					</div>
-				
-    
-  
-
-					<div class="col-md-2 " id="custom-search-input">
+				<div id="custom-search-input">
 					    <div class="input-group">
-		<select name="Gouvernorat"  id="Gouvernorat" class="search-drop-avo " required >
-<option value="" selected > </option>			    
+		<select id="searchFilter2" name="Gouvernorat"  id="Gouvernorat" class="search-drop-avo searchFilter" required >
+<option value="" selected disabled >الولاية</option>			    
 <option value="تونس"  >تونس </option>
 <option value="أريانة"  >أريانة </option> 
 <option value="بن عروس"  > بن عروس</option>
@@ -207,19 +210,11 @@ onat, onat tunisie, ordre des avocats, ordre national des avocats, الفرع ا
 <option value="زغوان"  > زغوان</option> 
 <option value="قبلي" >قبلي</option>
                              </select>
-
-						</div>
+							 <input type="submit" class="btn_search" value="بحث">
+</div>
 					</div>
 
-					<div class="col-md-5" id="custom-search-input">
-						<div class="search_bar_list">
-						    
-						    <!--<input type="submit" value="بحث">-->
-<input type="text" class="form-control" name="key"  placeholder="بحث" value="" id="searchKey" >
-                          <input type="submit" class="btn_search" value="بحث">
-                          </div>
-                         
-					</div>
+
 				</div>
 				 </form>
 				<!-- /row -->
